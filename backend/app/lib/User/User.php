@@ -1,7 +1,8 @@
 <?php
-require_once 'UserRepository.php';
-require_once 'UserVM.php';
-require_once 'UserI.php';
+
+namespace App\Lib\User;
+
+use UserI;
 
 class User implements UserI
 {
@@ -170,17 +171,3 @@ class User implements UserI
 
 
 }
-
-$user = new User();
-
-$userR = new User();
-$userR->setUsername("test");
-$userR->setEmail("abc@dasda.com");
-
-$userrr = [
-    "username" => "testUser",
-    "email" => "email@dasda.com",
-    "password" => "dasdsa12d1a2"
-];
-
-var_dump($user->getUsers($userR));

@@ -7,8 +7,9 @@ namespace Composer\Autoload;
 class ComposerStaticInitb99994f8ab5f5f8b67267a5e980dac35
 {
     public static $files = array (
-        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        'e320f53bb3364b7ed572ecc5ef33c5cf' => __DIR__ . '/../..' . '/app/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -16,6 +17,10 @@ class ComposerStaticInitb99994f8ab5f5f8b67267a5e980dac35
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Component\\Routing\\' => 26,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -27,6 +32,10 @@ class ComposerStaticInitb99994f8ab5f5f8b67267a5e980dac35
         'Symfony\\Component\\Routing\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/routing',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 

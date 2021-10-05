@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/helpers.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/lib/User/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/lib/User/UserI.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/lib/User/UserRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/lib/User/UserVM.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/lib/User/UserWiper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/vendor/autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/news.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML/API, Encoder, File, Transaction Diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/UML/API, Encoder, File, Transaction Diagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML/Auth, User Diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/UML/Auth, User Diagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML/Category, News, Comment Diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/UML/Category, News, Comment Diagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML/Class Diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/UML/Class Diagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML/Database UML Diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/UML/Database UML Diagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML/Logger UML Diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/UML/Logger UML Diagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML/Role, Permission, Resource Diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/UML/Role, Permission, Resource Diagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/User/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/User/UserI.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/User/UserRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/User/UserVM.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/User/UserWiper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/platform_check.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/deprecation-contracts/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/deprecation-contracts/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/deprecation-contracts/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/deprecation-contracts/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/deprecation-contracts/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/deprecation-contracts/function.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-php80/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-php80/Php80.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-php80/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-php80/Resources/stubs/Attribute.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-php80/Resources/stubs/Stringable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-php80/Resources/stubs/ValueError.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-php80/bootstrap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-php80/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Annotation/Route.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/CompiledRoute.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/DependencyInjection/RoutingResolverPass.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Exception/ExceptionInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Exception/InvalidParameterException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Exception/MethodNotAllowedException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Exception/MissingMandatoryParametersException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Exception/NoConfigurationException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Exception/ResourceNotFoundException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Exception/RouteNotFoundException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Generator/CompiledUrlGenerator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Generator/ConfigurableRequirementsInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Generator/Dumper/CompiledUrlGeneratorDumper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Generator/Dumper/GeneratorDumper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Generator/Dumper/GeneratorDumperInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Generator/UrlGenerator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Generator/UrlGeneratorInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/AnnotationClassLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/AnnotationDirectoryLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/AnnotationFileLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/ClosureLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/Configurator/CollectionConfigurator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/Configurator/ImportConfigurator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/Configurator/RouteConfigurator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/Configurator/RoutingConfigurator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/Configurator/Traits/AddTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/Configurator/Traits/HostTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/Configurator/Traits/LocalizedRouteTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/Configurator/Traits/PrefixTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/Configurator/Traits/RouteTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/ContainerLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/DirectoryLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/GlobFileLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/ObjectLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/PhpFileLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/XmlFileLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/YamlFileLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/schema/routing/routing-1.0.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/CompiledUrlMatcher.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/Dumper/CompiledUrlMatcherDumper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/Dumper/CompiledUrlMatcherTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/Dumper/MatcherDumper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/Dumper/MatcherDumperInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/Dumper/StaticPrefixCollection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/ExpressionLanguageProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/RedirectableUrlMatcher.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/RedirectableUrlMatcherInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/RequestMatcherInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/TraceableUrlMatcher.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/UrlMatcher.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/UrlMatcherInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/RequestContext.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/RequestContextAwareInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Route.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/RouteCollection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/RouteCollectionBuilder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/RouteCompiler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/RouteCompilerInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Router.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/RouterInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/composer.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/App/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/App/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/App/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1z4X7cUwoNSyNLENO3U0i4IfBAm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Hasan\Documents\GitHub\news-web-app\app\app" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="" />
+      <created>1633408184940</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633408184940</updated>
+      <workItem from="1633408191148" duration="208000" />
+      <workItem from="1633408668655" duration="882000" />
+      <workItem from="1633409860154" duration="104000" />
+      <workItem from="1633410618178" duration="9217000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
