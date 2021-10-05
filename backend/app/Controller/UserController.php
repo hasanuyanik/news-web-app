@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Lib\Encoder\Encoder;
 use App\Lib\FileManager\FileManager;
 
 class UserController extends BaseController
@@ -29,12 +30,20 @@ class UserController extends BaseController
 
     public function show(string $name): void
     {
+        /*
         echo "User:{$name}";
 
             $filemanager = new FileManager();
             $result = $filemanager->deleteFile("abc.jpg");
 
             echo $result;
+        */
+
+        $encoder = new Encoder();
+        echo "Tuzsuz: ".$encoder->encode("Pass123");
+
+        echo "<br><br>Tuzlu: ".$encoder->salt($encoder->encode("Pass123"));
+
 
     }
 }

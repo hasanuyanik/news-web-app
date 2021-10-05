@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Lib\User;
+
 interface UserI
 {
     public function getUsers(?UserI $user): array;
