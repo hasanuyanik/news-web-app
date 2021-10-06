@@ -6,6 +6,7 @@ use App\Lib\Database\DatabaseFactory;
 use App\Lib\Database\MySQLDatabaseFactory;
 use App\Lib\Encoder\Encoder;
 use App\Lib\FileManager\FileManager;
+use App\Lib\Logger\Logger;
 
 class UserController extends BaseController
 {
@@ -51,5 +52,7 @@ class UserController extends BaseController
         var_dump($factory->db->delete("user",
             ["id" => 4]));
         echo "<br><br><br>";
+
+        Logger::log(100,"HASAN Log Denemesi");
     }
 }

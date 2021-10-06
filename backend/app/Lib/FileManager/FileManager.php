@@ -38,4 +38,10 @@ class FileManager implements FileManagerI
         return true;
     }
 
+    public function putContentFile(string $file, string $path_file, string $putContent): void
+    {
+        $target = "../".$this->storage."/".$path_file."/".$file;
+        file_put_contents($target,$putContent,FILE_APPEND);
+    }
+
 }
