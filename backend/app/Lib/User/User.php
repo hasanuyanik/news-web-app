@@ -2,6 +2,8 @@
 
 namespace App\Lib\User;
 
+use App\Lib\Database\DatabaseFactory;
+use App\Lib\Database\MySQLDatabaseFactory;
 use UserI;
 
 class User implements UserI
@@ -22,6 +24,11 @@ class User implements UserI
 
     public function getUsers(?UserI $user): array
     {
+        $db = new MySQLDatabaseFactory();
+
+
+
+        $db->createDBHandler()->findAll();
         return [1,2,3];
     }
 

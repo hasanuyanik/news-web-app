@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Lib\Database\DatabaseFactory;
+use App\Lib\Database\MySQLDatabaseFactory;
 use App\Lib\Encoder\Encoder;
 use App\Lib\FileManager\FileManager;
 
@@ -42,8 +44,12 @@ class UserController extends BaseController
         $encoder = new Encoder();
         echo "Tuzsuz: ".$encoder->encode("Pass123");
 
-        echo "<br><br>Tuzlu: ".$encoder->salt($encoder->encode("Pass123"));
+        echo "<br><br>Tuzlu: ".$encoder->salt($encoder->encode("Pass123"))."<br><br>";
 
+        $factory = new DatabaseFactory();
 
+        var_dump($factory->db->delete("user",
+            ["id" => 4]));
+        echo "<br><br><br>";
     }
 }
