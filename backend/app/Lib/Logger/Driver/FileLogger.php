@@ -12,11 +12,11 @@ class FileLogger implements LogDriverI
         $this->logFile = "logger.log";
     }
 
-    public function logMessage(int $level, string $message): void
+    public function logMessage($level, string $message): void
     {
         $created_at = date("Y-m-d H:i:s");
 
-        $logText = $level." ".$created_at." ".$message.PHP_EOL;
+        $logText = $created_at." ".$message.PHP_EOL;
 
         $FileManager = new FileManager();
         $FileManager->putContentFile($this->logFile,"Log",$logText);
@@ -25,5 +25,20 @@ class FileLogger implements LogDriverI
     public function tearDown(): void
     {
         $this->logFile = null;
+    }
+
+    public function interpolate($message, array $context = array())
+    {
+        // build a replacement array with braces around the context keys
+        $replace = array();
+        foreach ($context as $key => $val) {
+            // check that the value can be cast to string
+            if (!is_array($val) && (!is_object($val) || method_exists($val, '__toString'))) {
+                $replace['{' . $key . '}'] = $val;
+            }
+        }
+
+        // interpolate replacement values into the message and return
+        return strtr($message, $replace);
     }
 }

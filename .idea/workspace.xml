@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/app/Lib/Logger/LoggableI.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Lib/Activity/Activity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Lib/Activity/ActivityI.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Lib/Logger/LoggerInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/FileManager/FileManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/FileManager/FileManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/FileManager/FileManagerI.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/FileManager/FileManagerI.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Logger/Driver/DatabaseLogger.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Logger/Driver/DatabaseLogger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Logger/Driver/FileLogger.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Logger/Driver/FileLogger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Logger/Driver/LogDriverI.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Logger/Driver/LogDriverI.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Logger/LoggableI.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Logger/Logger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/Log/logger.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +67,9 @@
       <workItem from="1633408668655" duration="882000" />
       <workItem from="1633409860154" duration="104000" />
       <workItem from="1633410618178" duration="27595000" />
-      <workItem from="1633512266780" duration="26191000" />
+      <workItem from="1633512266780" duration="26408000" />
+      <workItem from="1633597358379" duration="9588000" />
+      <workItem from="1633639896818" duration="710000" />
     </task>
     <servers />
   </component>

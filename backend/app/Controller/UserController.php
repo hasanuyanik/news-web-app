@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
+use App\Lib\Activity\Activity;
 use App\Lib\Database\DatabaseFactory;
 use App\Lib\Database\MySQLDatabaseFactory;
 use App\Lib\Encoder\Encoder;
 use App\Lib\FileManager\FileManager;
 use App\Lib\Logger\Logger;
+use App\Lib\Logger\LogLevel;
 
 class UserController extends BaseController
 {
@@ -53,6 +55,8 @@ class UserController extends BaseController
             ["id" => 4]));
         echo "<br><br><br>";
 
-        Logger::log(100,"HASAN Log Denemesi");
+
+
+        var_dump(Activity::getActivities(0));
     }
 }

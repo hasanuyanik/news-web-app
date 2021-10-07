@@ -13,7 +13,7 @@ class DatabaseLogger implements LogDriverI
         $this->driver = (new DatabaseFactory())->db;
     }
 
-    public function logMessage(int $level, string $message): void
+    public function logMessage($level, string $message): void
     {
         $created_at = date('Y-m-d H:i:s');
         $this->driver->add("logs",
