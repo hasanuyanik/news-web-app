@@ -3,8 +3,6 @@
 namespace App\Lib\User;
 
 use App\Lib\Database\DatabaseFactory;
-use App\Lib\Database\MySQLDatabaseFactory;
-use UserI;
 
 class User implements UserI
 {
@@ -22,29 +20,72 @@ class User implements UserI
         echo "INDEX";
     }
 
-    public function getUsers(?UserI $user): array
+    public function getUsers(?UserRepository $user): array
     {
-        $db = new MySQLDatabaseFactory();
+        $db = (new DatabaseFactory())->db;
 
+        $fields = ($user->id == null) ? [] : ["id"=>$user->id];
 
+        $likeFields = [];
+        $likeFields["username"] = $user->username;
+        $likeFields["fullname"] = $user->fullname;
+        $likeFields["email"] = $user->email;
+        $likeFields["phone"] = $user->phone;
 
-        $db->createDBHandler()->findAll();
-        return [1,2,3];
+        $users = $db->findAll("user",$fields,0, $likeFields);
+
+        return $users;
     }
 
-    public function add(User $user): string
+    public function add(UserRepository $user): string
     {
+        $db = (new DatabaseFactory())->db;
 
+        $fields = [];
+        $fields["username"] = $user->username;
+        $fields["fullname"] = $user->fullname;
+        $fields["email"] = $user->email;
+        $fields["phone"] = $user->phone;
+        $fields["password"] = $user->password;
+
+        $fields["created_at"] = date('Y.m.d H:i:s');
+        $fields["updated_at"] = date('Y.m.d H:i:s');
+
+        $createResult = $db->add("user",$fields);
+
+        return $createResult;
     }
 
-    public function edit(User $user): string
+    public function edit(UserRepository $user): string
     {
+        $db = (new DatabaseFactory())->db;
 
+        $whereFields = [];
+        $whereFields["id"] = $user->id;
+
+        $setFields["username"] = $user->username;
+        $setFields["fullname"] = $user->fullname;
+        $setFields["email"] = $user->email;
+        $setFields["phone"] = $user->phone;
+        $setFields["password"] = $user->password;
+
+        $setFields["updated_at"] = date('Y.m.d H:i:s');
+
+        $editResult = $db->update("user", $setFields, $whereFields);
+
+        return $editResult;
     }
 
-    public function delete(User $user): string
+    public function delete(UserRepository $user): string
     {
+        $db = (new DatabaseFactory())->db;
 
+        $fields = [];
+        $fields["id"] = $user->id;
+
+        $deleteResult = $db->delete("user", $fields);
+
+        return $deleteResult;
     }
 
     /**

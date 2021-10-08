@@ -4,6 +4,7 @@ class UserWiper
 {
     private mixed $id;
     private mixed $user_id;
+    private int $status;
     private date $requested_at;
 
     public function getRequests(?UserRepository $userRepository, ?date $requested_at): array
