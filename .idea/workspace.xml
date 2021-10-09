@@ -4,10 +4,6 @@
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserI.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserI.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserVM.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserVM.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +63,7 @@
       <workItem from="1633597358379" duration="9588000" />
       <workItem from="1633639896818" duration="710000" />
       <workItem from="1633683206078" duration="7619000" />
+      <workItem from="1633772602468" duration="4808000" />
     </task>
     <servers />
   </component>

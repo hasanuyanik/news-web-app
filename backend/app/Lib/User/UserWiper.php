@@ -1,4 +1,8 @@
 <?php
+namespace App\Lib\User;
+
+use App\Lib\Database\DatabaseFactory;
+use Cassandra\Date;
 
 class UserWiper
 {
@@ -7,23 +11,63 @@ class UserWiper
     private int $status;
     private date $requested_at;
 
-    public function getRequests(?UserRepository $userRepository, ?date $requested_at): array
+    public function getRequests(?int $status = 0): array
     {
+        $db = (new DatabaseFactory())->db;
 
+        $fields = [];
+        $fields["status"] = ($status) ? $status : "";
+
+        $requests = $db->findAll("userwiper",$fields,0);
+
+        return $requests;
     }
 
-    public function add(UserRepository $userRepository): string
+    public function add(int $user_id): string
     {
+        $db = (new DatabaseFactory())->db;
 
+        $fields = [];
+        $fields["user_id"] = $user_id;
+
+        $fields["requested_at"] = date('Y.m.d H:i:s');
+
+        $createResult = $db->add("userwiper",$fields);
+
+        return $createResult;
     }
 
-    public function edit(UserRepository $userRepository): string
+    public function edit(int $user_id, int $status): string
     {
+        $db = (new DatabaseFactory())->db;
+        $user = new User();
+        $userRepository = new UserRepository();
 
+        $whereFields = [];
+        $whereFields["user_id"] = $user_id;
+
+        $setFields["status"] = $status;
+
+        $editResult = $db->update("userwiper", $setFields, $whereFields);
+
+        if ($status == 1 && $editResult)
+        {
+            $userRepository->id = $user_id;
+            $editResult = $user->delete($userRepository);
+        }
+
+        return $editResult;
     }
 
-    public function delete(UserRepository $userRepository): string
+    public function delete(int $id): string
     {
+        $db = (new DatabaseFactory())->db;
 
+        $whereFields = [];
+        $whereFields["id"] = $id;
+
+        $deleteResult = $db->delete("userwiper", $whereFields);
+
+        return $deleteResult;
     }
 }

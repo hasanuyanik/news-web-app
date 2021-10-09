@@ -10,6 +10,7 @@ use App\Lib\Logger\Logger;
 use App\Lib\Logger\LogLevel;
 use App\Lib\User\User;
 use App\Lib\User\UserRepository;
+use App\Lib\User\UserWiper;
 
 class UserController extends BaseController
 {
@@ -56,46 +57,13 @@ class UserController extends BaseController
             ["id" => 4]));
         echo "<br><br><br>";
 
+        $gUser = new UserWiper();
 
+        var_dump($gUser->getRequests());
 
-        var_dump(Activity::getActivities(0));
+        var_dump($gUser->edit(6,1));
 
-        echo "<br><br><br>";
-        $user = new User();
-
-        $cUser = new UserRepository();
-        $cUser->username = "userName";
-        $cUser->fullname = "User Name";
-        $cUser->password = "UserPassword";
-        $cUser->email = "User@Name.com";
-        $cUser->phone = "0555 444 33 22";
-
-        $cResult = $user->add($cUser);
-
-        echo "<br><br>Kullanıcı Ekleme : $cResult <br><br>";
-
-        $eUser = new UserRepository();
-        $eUser->id = 3;
-        $eUser->username = "userNameUpdate";
-        $eUser->fullname = "User NameUpdate";
-        $eUser->password = "UserPasswordUpdate";
-        $eUser->email = "User@NameUpdate.com";
-        $eUser->phone = "0555 444 33 2200";
-
-        $eResult = $user->edit($eUser);
-
-        echo "<br><br>Kullanıcı Düzenleme : $eResult <br><br>";
-
-        $dUser = new UserRepository();
-        $dUser->id = 5;
-
-        $dResult = $user->delete($dUser);
-
-        echo "<br><br>Kullanıcı Silme : $dResult <br><br>";
-
-        $gUser = new UserRepository();
-
-        var_dump($user->getUsers($gUser));
+        $gUser->delete(1);
 
     }
 }
