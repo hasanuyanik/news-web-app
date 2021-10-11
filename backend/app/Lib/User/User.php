@@ -3,6 +3,7 @@
 namespace App\Lib\User;
 
 use App\Lib\Database\DatabaseFactory;
+use App\Lib\Encoder\Encoder;
 
 class User implements UserI
 {
@@ -12,8 +13,8 @@ class User implements UserI
     private string $password;
     private string $email;
     private string $phone;
-    private date $created_at;
-    private date $updated_at;
+    private $created_at;
+    private $updated_at;
 
     public function index()
     {
@@ -41,12 +42,32 @@ class User implements UserI
     {
         $db = (new DatabaseFactory())->db;
 
+        $encoder = new Encoder();
+
         $fields = [];
         $fields["username"] = $user->username;
         $fields["fullname"] = $user->fullname;
         $fields["email"] = $user->email;
         $fields["phone"] = $user->phone;
-        $fields["password"] = $user->password;
+
+        $copyAccountControl = $this->getUsers($user);
+
+        if (count($copyAccountControl) > 0)
+        {
+            return 0;
+        }
+        $primaryCopyUser = new UserRepository();
+        $primaryCopyUser->username = $user->username;
+        $primaryCopyUser->email = $user->email;
+        $primaryCopyUser->phone = $user->phone;
+        $primaryCopyAccountControl = $this->getUsers($primaryCopyUser);
+        if (count($primaryCopyAccountControl) > 0)
+        {
+            return 0;
+        }
+
+        $password = $encoder->salt($encoder->encode($user->password));
+        $fields["password"] = $password;
 
         $fields["created_at"] = date('Y.m.d H:i:s');
         $fields["updated_at"] = date('Y.m.d H:i:s');

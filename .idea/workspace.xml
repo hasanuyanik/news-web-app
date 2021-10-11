@@ -2,9 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/UserAuthService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/hoaxify.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/bootstrap-override.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ButtonWithProgress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Input.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/LanguageSelector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Modal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ProfileCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ProfileImageWithDefault.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Spinner.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/TopBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/UserList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/UserListItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/container/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/i18n.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/AdminLoginPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/AdminSignupPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/HomePage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/UserLoginPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/UserPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/UserSignupPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/Contants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/authActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/authReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/configureStore.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ApiProgress.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +54,13 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/App/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,11 +83,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Hasan\Documents\GitHub\news-web-app\frontend\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Logger\Driver" />
       <recent name="C:\Users\Hasan\Documents\GitHub\news-web-app\backend" />
@@ -63,7 +114,10 @@
       <workItem from="1633597358379" duration="9588000" />
       <workItem from="1633639896818" duration="710000" />
       <workItem from="1633683206078" duration="7619000" />
-      <workItem from="1633772602468" duration="4808000" />
+      <workItem from="1633772602468" duration="24456000" />
+      <workItem from="1633856260904" duration="22998000" />
+      <workItem from="1633926790867" duration="638000" />
+      <workItem from="1633933855977" duration="27781000" />
     </task>
     <servers />
   </component>

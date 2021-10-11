@@ -18,7 +18,7 @@ class Router
 
     public function __invoke()
     {
-        $request = new RequestContext();
+        $request = new RequestContext($_SERVER['REQUEST_URI']);
 
         $matcher = new UrlMatcher($this->routeCollection, $request);
 
@@ -30,10 +30,13 @@ class Router
 
             call_user_func_array([$instance,$match['method']], array_slice($match, 2, -1));
         } catch (MethodNotAllowedException $e) {
+            header('Content-Type: application/json; charset=utf-8',response_code: 301);
             die("HTTP Method doğru değil!");
         } catch (NoConfigurationException $e) {
+            header('Content-Type: application/json; charset=utf-8',response_code: 500);
             die("Sistemsel sorun 500!");
         } catch (ResourceNotFoundException $e) {
+            header('Content-Type: application/json; charset=utf-8',response_code: 404);
             die("İlgili rota bulunamadı!");
         }
 

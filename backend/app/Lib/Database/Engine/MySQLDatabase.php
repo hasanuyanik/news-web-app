@@ -44,7 +44,7 @@ class MySQLDatabase implements DatabaseI
 
         $statement->execute();
 
-        return $statement->fetchAll();
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function find(string $table, array $fields): mixed
@@ -59,7 +59,7 @@ class MySQLDatabase implements DatabaseI
 
         $statement->execute();
 
-        return $statement->fetch();
+        return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function add(string $table, array $fields): string
