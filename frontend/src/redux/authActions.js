@@ -14,12 +14,13 @@ export const loginSuccess = authState => {
     }
 };
 
-export const updateSuccess = ({displayName, image}) => {
+export const updateSuccess = ({fullname, email, phone}) => {
     return {
         type: ACTIONS.UPDATE_SUCCESS,
         payload: {
-            displayName, 
-            image
+            fullname,
+            email,
+            phone
         }
     }
 };

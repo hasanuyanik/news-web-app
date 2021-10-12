@@ -11,7 +11,7 @@ const Input = (props) => {
     }
     
     return(
-        <div className="form-group">
+        <div className="form-group m-2">
             <label>{label}</label>
             <input className={className} name={name} onChange={onChange} type={type} defaultValue={defaultValue}/>
             <div className="invalid-feedback">{error}</div>

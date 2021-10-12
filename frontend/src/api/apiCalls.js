@@ -20,6 +20,10 @@ export const getUsers = (page = 0) => {
     return axios.get(`/api/user/${page}`);
 }
 
+export const getDeleteRequests = (page = 0, status=0) => {
+    return axios.get(`/api/userwiper/${page}/${status}`);
+}
+
 export const setAuthorizationHeader = ({ isLoggedIn, token }) => {
     if(isLoggedIn){
         const authorizationHeaderValue = `Bearer ${token}`;
@@ -32,13 +36,27 @@ export const setAuthorizationHeader = ({ isLoggedIn, token }) => {
 export const getUser = username => {
     return axios.get(`/api/user/${username}`);
 };
-export const updateUser = (username, body) => {
-    return axios.put(`/api/user/${username}`, body);
-};
-export const deleteUser = username => {
-    return axios.delete(`/api/user/${username}`);
+
+export const getDeleteRequest = (body) => {
+    return axios.post(`/api/userwiper/findRequest`, body);
 }
+
+export const updateUser = (body) => {
+    return axios.post(`/api/user/edit`, body);
+};
+
+export const deleteUserAddRequest = (body) => {
+    return axios.post(`/api/userwiper/addRequest`, body);
+};
+
+export const cancelDeleteUser = (body) => {
+    return axios.post(`/api/userwiper/deleteRequest`, body);
+};
+
+export const deleteUser = (body) => {
+    return axios.post(`/api/userwiper/userdelete`, body);
+};
 
 export const changeLanguage = language => {
     axios.defaults.headers['accept-language'] = language;
-}
+};

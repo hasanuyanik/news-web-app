@@ -11,6 +11,7 @@ import UserPage from '../pages/UserPage';
 import TopBar from "../components/TopBar";
 import { useSelector } from 'react-redux';
 import UserList from "../components/UserList";
+import UserRequestPage from "../components/UserRequestList";
 
 const App = () => { 
   const { isLoggedIn, role } = useSelector((store) => ({
@@ -25,6 +26,9 @@ const App = () => {
 
         <Route exact path="/" component={UserList}/>
 
+        {isLoggedIn && (
+        <Route path="/requests" component={UserRequestPage}/>
+        )}
         {!isLoggedIn && (
         <Route path="/login" component={UserLoginPage}/>
         )}
@@ -41,7 +45,6 @@ const App = () => {
         <Redirect to="/"/>
         </Switch>
       </Router>
-    <LanguageSelector />
     </div>
   );
 }

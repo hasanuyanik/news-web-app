@@ -20,7 +20,7 @@ class UserAuthService implements AuthServiceI
         return $tokenController->delete($tokenRepository);
     }
 
-    public function login(UserVM $user): array
+    public function login(UserVM $user): mixed
     {
         $tokenRepository = new TokenRepository();
         $tokenRepository->resource_type = "user";
@@ -44,15 +44,11 @@ class UserAuthService implements AuthServiceI
             $tokenController = new Token();
             $newToken = $tokenController->create($tokenRepository);
 
-            $UserControl[0]["id"] = "";
             $UserControl[0]["password"] = "";
             $UserControl[0]["token"] = $newToken;
             return $UserControl;
         }
 
-        $result = [
-            "Error" => "Kullanıcı Girişi Yapılmadı!"
-        ];
-        return $result;
+        return false;
     }
 }

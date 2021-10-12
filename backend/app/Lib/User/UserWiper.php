@@ -11,12 +11,36 @@ class UserWiper
     private int $status;
     private date $requested_at;
 
-    public function getRequests(?int $status = 0): array
+    public function getRequests(?int $status = 0, int $page = 0): array
     {
         $db = (new DatabaseFactory())->db;
 
         $fields = [];
         $fields["status"] = ($status) ? $status : "";
+
+        $requests = $db->findAll("userwiper",$fields,$page);
+
+        $RequestAndUserList = [];
+        foreach ($requests as $request)
+        {
+            $user_id = $request["user_id"];
+            $User = new User();
+            $UserRepository = new UserRepository();
+            $UserRepository->id = $user_id;
+            $GetUser = $User->getUsers($UserRepository);
+            $GetUser[0]["password"] = "";
+            array_push($RequestAndUserList, [$request,$GetUser[0]]);
+        }
+
+        return $RequestAndUserList;
+    }
+
+    public function findRequest(int $user_id): array
+    {
+        $db = (new DatabaseFactory())->db;
+
+        $fields = [];
+        $fields["user_id"] = $user_id;
 
         $requests = $db->findAll("userwiper",$fields,0);
 

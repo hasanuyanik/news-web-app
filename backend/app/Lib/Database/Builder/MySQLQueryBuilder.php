@@ -38,8 +38,8 @@ class MySQLQueryBuilder implements QueryBuilderI
 
     public function like(array $likeFields): QueryBuilderI
     {
-
-        $where = (count($likeFields)) ? (str_contains($this->patch, " WHERE ")) ? " and " : " WHERE ".$this->serialize("like", $likeFields) : "";
+        $likeSerialize = $this->serialize("like", $likeFields);
+        $where = (count($likeFields)) ? ((str_contains($this->patch, " WHERE ")) ? " and ".$likeSerialize : " WHERE ".$likeSerialize) : "";
         $this->patch .= $where;
         return $this;
     }

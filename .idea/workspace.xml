@@ -2,49 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/UserAuthService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/hoaxify.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/profile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/bootstrap-override.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/ButtonWithProgress.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Input.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/LanguageSelector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Modal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/ProfileCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/ProfileImageWithDefault.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Spinner.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/TopBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/UserList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/UserListItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/container/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/i18n.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/AdminLoginPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/AdminSignupPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/HomePage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/UserLoginPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/UserPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/UserSignupPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/redux/Contants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/redux/authActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/redux/authReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/redux/configureStore.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ApiProgress.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthServiceI.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthServiceI.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/UserAuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/UserAuthService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/MySQLQueryBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/MySQLQueryBuilder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ProfileCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ProfileCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/container/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/container/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/i18n.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/i18n.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/UserPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/UserPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/authActions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +65,7 @@
       <recent name="C:\Users\Hasan\Documents\GitHub\news-web-app\frontend\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Hasan\Documents\GitHub\news-web-app\frontend\src\components" />
       <recent name="C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Logger\Driver" />
       <recent name="C:\Users\Hasan\Documents\GitHub\news-web-app\backend" />
       <recent name="C:\Users\Hasan\Documents\GitHub\news-web-app\app\app" />
@@ -117,7 +90,9 @@
       <workItem from="1633772602468" duration="24456000" />
       <workItem from="1633856260904" duration="22998000" />
       <workItem from="1633926790867" duration="638000" />
-      <workItem from="1633933855977" duration="27781000" />
+      <workItem from="1633933855977" duration="28225000" />
+      <workItem from="1634021731400" duration="12570000" />
+      <workItem from="1634052998952" duration="22386000" />
     </task>
     <servers />
   </component>

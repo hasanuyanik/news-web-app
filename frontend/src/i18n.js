@@ -10,7 +10,6 @@ i18n.use(initReactI18next).init({
                 'Admin Login': 'Admin Login',
                 'Password mismatch': 'Password mismatch',
                 Username: 'Username',
-                'Display Name': 'Display Name',
                 Password: 'Password',
                 'Password Repeat': 'Password Repeat',
                 Logout: 'Logout',
@@ -20,11 +19,14 @@ i18n.use(initReactI18next).init({
                 'Load Failure': 'Load Failure',
                 'User Not Found': 'User Not Found',
                 Edit: 'Edit',
-                'Change Display Name': 'Change Display Name',
+                'Change Full Name': 'Change Full Name',
+                'Change E-Mail': 'Change E-Mail',
+                'Change Phone': 'Change Phone',
                 Save: 'Save',
                 Cancel: 'Cancel',
                 'My Profile': 'My Profile',
                 'Delete My Account': 'Delete My Account',
+                'Cancel Account Deletion': 'Cancel Account Deletion',
                 'Are you sure to delete your account?': 'Are you sure to delete your account?'
             }
         },

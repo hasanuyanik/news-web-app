@@ -6,5 +6,5 @@ use App\Lib\User\UserVM;
 interface AuthServiceI
 {
     public function logout(UserVM $user): string;
-    public function login(UserVM $user): array;
+    public function login(UserVM $user): mixed;
 }

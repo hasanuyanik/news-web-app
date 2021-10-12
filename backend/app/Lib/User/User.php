@@ -21,7 +21,7 @@ class User implements UserI
         echo "INDEX";
     }
 
-    public function getUsers(?UserRepository $user): array
+    public function getUsers(?UserRepository $user, int $page = 0): array
     {
         $db = (new DatabaseFactory())->db;
 
@@ -33,7 +33,7 @@ class User implements UserI
         $likeFields["email"] = $user->email;
         $likeFields["phone"] = $user->phone;
 
-        $users = $db->findAll("user",$fields,0, $likeFields);
+        $users = $db->findAll("user",$fields,$page, $likeFields);
 
         return $users;
     }
