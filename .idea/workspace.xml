@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controller/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/CommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/Follow_Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/Follow_Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controller/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/PermissionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,13 +43,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Hasan\Documents\GitHub\news-web-app" />
       <recent name="C:\Users\Hasan\Documents\GitHub\news-web-app\frontend\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -84,7 +82,7 @@
       <workItem from="1633933855977" duration="28225000" />
       <workItem from="1634021731400" duration="12570000" />
       <workItem from="1634052998952" duration="22386000" />
-      <workItem from="1634098906849" duration="34463000" />
+      <workItem from="1634098906849" duration="39597000" />
     </task>
     <servers />
   </component>
