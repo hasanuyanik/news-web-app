@@ -13,7 +13,7 @@ Değerlendirme sonrası proje kodlanıp, tamamlanacaktır.
 git clone https://github.com/hasanuyanik/news-web-app.git
 ```
 
-- Proje içerisindeki backend -> public klasörünün server'ınızda indeklenen dizin olarak tanımlayın.
+- Proje içerisindeki backend -> public klasörünün server'ınızda indekslenen dizin olarak tanımlayın.
 
 - newsapp.sql dosyasını phpmyadmin'de içe aktarmalısınız.
 
