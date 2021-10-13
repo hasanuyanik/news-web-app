@@ -12,8 +12,8 @@ class Token implements TokenI
         $db = (new DatabaseFactory())->db;
 
         $fields = [];
-        $fields["resource_id"] = $token->resource_id;
-        $fields["resource_type"] = $token->resource_type;
+        if ($token->resource_id) $fields["resource_id"] = $token->resource_id;
+        if ($token->resource_type) $fields["resource_type"] = $token->resource_type;
         $fields["token"] = $token->token;
 
         $result = $db->find("token",$fields);

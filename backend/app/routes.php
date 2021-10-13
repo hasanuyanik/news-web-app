@@ -76,4 +76,40 @@ $routes->add(
 /* AccountDeletionController - End */
 
 
+
+/* CategoryController - Start */
+
+$routes->add(
+    'category',
+    new Route('/api/category/{page}', ['controller' => \App\Controller\CategoryController::class, 'method' => 'getCategories'], ['page' => '[0-9]+'])
+);
+
+$routes->add(
+    'category.categories_news',
+    new Route('/api/category/news', ['controller' => \App\Controller\CategoryController::class, 'method' => 'getCategories_News'])
+);
+
+$routes->add(
+    'category.user_assign',
+    new Route('/api/category/userassign', ['controller' => \App\Controller\CategoryController::class, 'method' => 'userAssign_Category'])
+);
+
+$routes->add(
+    'category.add',
+    new Route('/api/category/add', ['controller' => \App\Controller\CategoryController::class, 'method' => 'add'])
+);
+
+$routes->add(
+    'category.edit',
+    new Route('/api/category/edit', ['controller' => \App\Controller\CategoryController::class, 'method' => 'edit'])
+);
+
+$routes->add(
+    'category.delete',
+    new Route('/api/category/delete', ['controller' => \App\Controller\CategoryController::class, 'method' => 'delete'])
+);
+
+/* CategoryController - End */
+
+
 return $routes;

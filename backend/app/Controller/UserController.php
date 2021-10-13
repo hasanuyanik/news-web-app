@@ -56,8 +56,6 @@ class UserController extends BaseController
             $phone = ($jsonData["phone"]) ? $jsonData["phone"] : null;
             $password = ($jsonData["password"]) ? $jsonData["password"] : null;
 
-            $validator = Validation::createValidator();
-
             $this->UsernameValidation($username);
             $this->FullnameValidation($fullname);
             $this->EmailValidation($email);
