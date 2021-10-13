@@ -109,7 +109,96 @@ $routes->add(
     new Route('/api/category/delete', ['controller' => \App\Controller\CategoryController::class, 'method' => 'delete'])
 );
 
+$routes->add(
+    'category.follow_category',
+    new Route('/api/category/follow', ['controller' => \App\Controller\CategoryController::class, 'method' => 'followCategory'])
+);
+
+$routes->add(
+    'category.user_follow_category',
+    new Route('/api/user/follow/category', ['controller' => \App\Controller\CategoryController::class, 'method' => 'getUser_FollowedCategories'])
+);
+
+$routes->add(
+    'category.category_follow_user',
+    new Route('/api/category/follow/user', ['controller' => \App\Controller\CategoryController::class, 'method' => 'getCategories_FollowingUser'])
+);
+
 /* CategoryController - End */
 
+
+/* NewsController - Start */
+
+$routes->add(
+    'news',
+    new Route('/api/news/{page}', ['controller' => \App\Controller\NewsController::class, 'method' => 'getNews'], ['page' => '[0-9]+'])
+);
+
+$routes->add(
+    'news.news_comment',
+    new Route('/api/news/comment', ['controller' => \App\Controller\NewsController::class, 'method' => 'getNews_Comment'])
+);
+
+$routes->add(
+    'news.read_user',
+    new Route('/api/news/read/user', ['controller' => \App\Controller\NewsController::class, 'method' => 'getNews_ReadUser'])
+);
+
+$routes->add(
+    'news.read_news',
+    new Route('/api/user/read/news', ['controller' => \App\Controller\NewsController::class, 'method' => 'getUser_ReadNews'])
+);
+
+$routes->add(
+    'news.read',
+    new Route('/api/news/read', ['controller' => \App\Controller\NewsController::class, 'method' => 'read_News'])
+);
+
+$routes->add(
+    'news.add',
+    new Route('/api/news/add', ['controller' => \App\Controller\NewsController::class, 'method' => 'add'])
+);
+
+$routes->add(
+    'news.edit',
+    new Route('/api/news/edit', ['controller' => \App\Controller\NewsController::class, 'method' => 'edit'])
+);
+
+$routes->add(
+    'news.delete',
+    new Route('/api/news/delete', ['controller' => \App\Controller\NewsController::class, 'method' => 'delete'])
+);
+
+/* NewsController - End */
+
+
+/* CommentController - Start */
+
+$routes->add(
+    'comment',
+    new Route('/api/comments/{page}', ['controller' => \App\Controller\CommentController::class, 'method' => 'getComments'], ['page' => '[0-9]+'])
+);
+
+$routes->add(
+    'comment.user_comment',
+    new Route('/api/user/comment', ['controller' => \App\Controller\CommentController::class, 'method' => 'getUser_Comment'])
+);
+
+$routes->add(
+    'comment.add',
+    new Route('/api/comment/add', ['controller' => \App\Controller\CommentController::class, 'method' => 'add'])
+);
+
+$routes->add(
+    'comment.edit',
+    new Route('/api/comment/edit', ['controller' => \App\Controller\CommentController::class, 'method' => 'edit'])
+);
+
+$routes->add(
+    'comment.delete',
+    new Route('/api/comment/delete', ['controller' => \App\Controller\CommentController::class, 'method' => 'delete'])
+);
+
+/* CommentController - End */
 
 return $routes;

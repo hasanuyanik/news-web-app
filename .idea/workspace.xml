@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/Token.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/Token.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controller/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/CommentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/NewsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/Follow_Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/Follow_Category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +84,7 @@
       <workItem from="1633933855977" duration="28225000" />
       <workItem from="1634021731400" duration="12570000" />
       <workItem from="1634052998952" duration="22386000" />
-      <workItem from="1634098906849" duration="20323000" />
+      <workItem from="1634098906849" duration="34463000" />
     </task>
     <servers />
   </component>

@@ -10,6 +10,9 @@ use App\Lib\News\News;
 use App\Lib\News\NewsRepository;
 use App\Lib\Relations\Category_News;
 use App\Lib\Relations\News_Comment;
+use App\Lib\Relations\Read_News;
+use App\Lib\User\User;
+use App\Lib\User\UserRepository;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Required;
@@ -97,6 +100,159 @@ class NewsController extends BaseController
                 "content" => $news_comment->getNews_CommentList($page, $newsRepository, $commentRepository)
             ];
 
+            echo json_encode($result);
+        }
+    }
+
+    public function getNews_ReadUser()
+    {
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
+
+        if ($jsonData) {
+            header('Content-Type: application/json; charset=utf-8', response_code: 406);
+
+            $page = ($jsonData["page"]) ? $jsonData["page"] : null;
+
+            $news_id = ($jsonData["news_id"]) ? $jsonData["news_id"] : null;
+            $username = ($jsonData["username"]) ? $jsonData["username"] : null;
+            $token = ($jsonData["token"]) ? $jsonData["token"] : null;
+
+            $readNews = new Read_News();
+            $newsRepository = new NewsRepository();
+            $userRepository = new UserRepository();
+
+            $newsRepository->id = $news_id;
+            $userRepository->username = $username;
+
+            $tokenControl = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenRepository->token = $token;
+            $UserController = new UserController();
+
+            if ($tokenControl->tokenControl($tokenRepository) == false)
+            {
+                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+
+                echo json_encode($UserController->errors);
+
+                exit;
+            }
+
+            header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+            $result = [
+                "content" => $readNews->getNews_UserList($page, $newsRepository, $userRepository)
+            ];
+
+            echo json_encode($result);
+        }
+    }
+
+    public function getUser_ReadNews()
+    {
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
+
+        if ($jsonData) {
+            header('Content-Type: application/json; charset=utf-8', response_code: 406);
+
+            $page = ($jsonData["page"]) ? $jsonData["page"] : null;
+
+            $news_id = ($jsonData["news_id"]) ? $jsonData["news_id"] : null;
+            $username = ($jsonData["username"]) ? $jsonData["username"] : null;
+            $token = ($jsonData["token"]) ? $jsonData["token"] : null;
+
+            $readNews = new Read_News();
+            $newsRepository = new NewsRepository();
+            $userRepository = new UserRepository();
+
+            $newsRepository->id = $news_id;
+            $userRepository->username = $username;
+
+            $tokenControl = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenRepository->token = $token;
+            $UserController = new UserController();
+
+            if ($tokenControl->tokenControl($tokenRepository) == false)
+            {
+                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+
+                echo json_encode($UserController->errors);
+
+                exit;
+            }
+
+            header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+            $result = [
+                "content" => $readNews->getUser_NewsList($page, $newsRepository, $userRepository)
+            ];
+
+            echo json_encode($result);
+        }
+    }
+
+    public function read_News()
+    {
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
+
+        if ($jsonData) {
+            header('Content-Type: application/json; charset=utf-8', response_code: 406);
+
+            $news_id = ($jsonData["news_id"]) ? $jsonData["news_id"] : null;
+            $process = ($jsonData["process"]) ? $jsonData["process"] : null;
+            $username = ($jsonData["username"]) ? $jsonData["username"] : null;
+            $token = ($jsonData["token"]) ? $jsonData["token"] : null;
+
+            $readNews = new Read_News();
+            $user = new User();
+            $newsRepository = new NewsRepository();
+            $userRepository = new UserRepository();
+            $UserController = new UserController();
+
+            $newsRepository->id = $news_id;
+            $userRepository->username = $username;
+
+            $UserController->UsernameValidation($username);
+
+            if ($UserController->validationErrors)
+            {
+                $result = [
+                    "validationErrors" => $UserController->validationErrors
+                ];
+                echo json_encode($result);
+                exit;
+            }
+
+            $tokenControl = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenRepository->token = $token;
+            $UserController = new UserController();
+
+            if ($tokenControl->tokenControl($tokenRepository) == false)
+            {
+                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+
+                echo json_encode($UserController->errors);
+
+                exit;
+            }
+
+            $userRepository->id = ($user->getUsers($userRepository,0))[0]["id"];
+
+            header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+            if ($process == 1)
+            {
+                $result = $readNews->add($newsRepository, $userRepository);
+            }
+            else
+            {
+                $result = $readNews->delete($newsRepository, $userRepository);
+            }
             echo json_encode($result);
         }
     }

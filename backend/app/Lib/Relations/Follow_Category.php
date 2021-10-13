@@ -31,8 +31,7 @@ class Follow_Category
 
         foreach ($category_user as $relation)
         {
-            $UserRepository = new UserRepository();
-            $UserRepository->id = $relation["user_id"];
+            $user->id = $relation["user_id"];
             $getUser = (new User())->getUsers($UserRepository, 0);
 
             $getUser[0]["id"] = "";

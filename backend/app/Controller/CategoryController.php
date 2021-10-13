@@ -8,6 +8,7 @@ use App\Lib\Category\CategoryRepository;
 use App\Lib\News\NewsRepository;
 use App\Lib\Relations\Category_News;
 use App\Lib\Relations\Category_User;
+use App\Lib\Relations\Follow_Category;
 use App\Lib\User\User;
 use App\Lib\User\UserRepository;
 use Symfony\Component\Validator\Constraints\Length;
@@ -100,6 +101,96 @@ class CategoryController extends BaseController
         }
     }
 
+    public function getCategories_FollowingUser()
+    {
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
+
+        if ($jsonData) {
+            header('Content-Type: application/json; charset=utf-8', response_code: 406);
+
+            $page = ($jsonData["page"]) ? $jsonData["page"] : null;
+
+            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
+            $username = ($jsonData["username"]) ? $jsonData["username"] : null;
+            $token = ($jsonData["token"]) ? $jsonData["token"] : null;
+
+            $follow = new Follow_Category();
+            $categoryRepository = new CategoryRepository();
+            $userRepository = new UserRepository();
+
+            $categoryRepository->name = $category_name;
+            $userRepository->username = $username;
+
+            $tokenControl = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenRepository->token = $token;
+            $UserController = new UserController();
+
+            if ($tokenControl->tokenControl($tokenRepository) == false)
+            {
+                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+
+                echo json_encode($UserController->errors);
+
+                exit;
+            }
+
+            header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+            $result = [
+                "content" => $follow->getCategory_UserList($page, $categoryRepository, $userRepository)
+            ];
+
+            echo json_encode($result);
+        }
+    }
+
+    public function getUser_FollowedCategories()
+    {
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
+
+        if ($jsonData) {
+            header('Content-Type: application/json; charset=utf-8', response_code: 406);
+
+            $page = ($jsonData["page"]) ? $jsonData["page"] : null;
+
+            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
+            $username = ($jsonData["username"]) ? $jsonData["username"] : null;
+            $token = ($jsonData["token"]) ? $jsonData["token"] : null;
+
+            $follow = new Follow_Category();
+            $categoryRepository = new CategoryRepository();
+            $userRepository = new UserRepository();
+
+            $categoryRepository->name = $category_name;
+            $userRepository->username = $username;
+
+            $tokenControl = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenRepository->token = $token;
+            $UserController = new UserController();
+
+            if ($tokenControl->tokenControl($tokenRepository) == false)
+            {
+                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+
+                echo json_encode($UserController->errors);
+
+                exit;
+            }
+
+            header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+            $result = [
+                "content" => $follow->getCategory_UserList($page, $categoryRepository, $userRepository)
+            ];
+
+            echo json_encode($result);
+        }
+    }
+
     public function userAssign_Category()
     {
         $posts = file_get_contents('php://input');
@@ -160,6 +251,72 @@ class CategoryController extends BaseController
             else
             {
                 $result = $category_user->delete($categoryRepository, $userRepository);
+            }
+            echo json_encode($result);
+        }
+    }
+
+    public function follow_Category()
+    {
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
+
+        if ($jsonData) {
+            header('Content-Type: application/json; charset=utf-8', response_code: 406);
+
+            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
+            $process = ($jsonData["process"]) ? $jsonData["process"] : null;
+            $username = ($jsonData["username"]) ? $jsonData["username"] : null;
+            $token = ($jsonData["token"]) ? $jsonData["token"] : null;
+
+            $category_user = new Category_User();
+            $category = new Category();
+            $user = new User();
+            $follow = new Follow_Category();
+            $categoryRepository = new CategoryRepository();
+            $userRepository = new UserRepository();
+            $UserController = new UserController();
+
+            $categoryRepository->name = $category_name;
+            $userRepository->username = $username;
+
+            $UserController->UsernameValidation($username);
+
+            if ($UserController->validationErrors)
+            {
+                $result = [
+                    "validationErrors" => $UserController->validationErrors
+                ];
+                echo json_encode($result);
+                exit;
+            }
+
+            $tokenControl = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenRepository->token = $token;
+            $UserController = new UserController();
+
+            if ($tokenControl->tokenControl($tokenRepository) == false)
+            {
+                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+
+                echo json_encode($UserController->errors);
+
+                exit;
+            }
+
+            $categoryRepository->id = ($category->getCategories(0,$categoryRepository))[0]["id"];
+            $userRepository->id = ($user->getUsers($userRepository,0))[0]["id"];
+
+            header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+            if ($process == 1)
+            {
+                $result = $follow->add($categoryRepository, $userRepository);
+            }
+            else
+            {
+                $result = $follow->delete($categoryRepository, $userRepository);
             }
             echo json_encode($result);
         }
