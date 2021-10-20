@@ -3,55 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controller/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/PermissionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Activity/Activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Activity/Activity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Activity/ActivityI.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthServiceI.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/Token.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/Token.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/TokenI.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/TokenRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/TokenRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/UserAuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/UserAuthService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Category/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Category/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Category/CategoryI.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Comment/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Comment/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Comment/CommentI.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Encoder/Encoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Encoder/Encoder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Encoder/EncoderI.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Logger/Driver/DatabaseLogger.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Logger/Driver/DatabaseLogger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Logger/Driver/FileLogger.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Logger/Driver/FileLogger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Logger/Driver/LogDriverI.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Logger/Driver/LogDriverI.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Logger/LogLevel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Logger/Logger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Logger/LoggerInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/News/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/News/News.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/News/NewsI.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Permission/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Permission/Permission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Permission/PermissionI.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/Category_News.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryNews.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/Category_User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/Follow_Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/FollowCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/News_Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/NewsComment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/Read_News.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/ReadNews.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/Resource_Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/ResourcePermission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/Resource_Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/ResourceRole.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/Role_Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/RolePermission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/User_Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/UserComment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/User_News.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/UserNews.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Role/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Role/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Role/RoleI.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserI.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/Log/logger.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/installed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/platform_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/platform_check.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +96,7 @@
       <workItem from="1634560020214" duration="3346000" />
       <workItem from="1634635729398" duration="5635000" />
       <workItem from="1634722573652" duration="800000" />
-      <workItem from="1634723808137" duration="7137000" />
+      <workItem from="1634723808137" duration="11637000" />
     </task>
     <servers />
   </component>

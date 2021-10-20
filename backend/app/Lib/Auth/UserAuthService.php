@@ -13,36 +13,36 @@ class UserAuthService
 
     public function logout(UserVM $user): string
     {
-        $tokenRepository = new TokenRepository();
-        $tokenRepository->token = $user->token;
+        $token = new Token();
+        $token->token = $user->token;
 
-        $tokenController = new Token();
-        return $tokenController->delete($tokenRepository);
+        $tokenRepository = new TokenRepository();
+        return $tokenRepository->delete($token);
     }
 
     public function login(UserVM $user): mixed
     {
-        $tokenRepository = new TokenRepository();
-        $tokenRepository->resource_type = "user";
-        $tokenRepository->token = $user->token;
-        $tokenRepository->created_at = date('Y.m.d H:i:s');
+        $token = new Token();
+        $token->resource_type = "user";
+        $token->token = $user->token;
+        $token->created_at = date('Y.m.d H:i:s');
 
         $encoder = new Encoder();
         $password = $encoder->salt($encoder->encode($user->password));
 
-        $UserRepository = new UserRepository();
-        $UserRepository->username = $user->username;
-        $UserRepository->password = $password;
+        $User = new User();
+        $User->username = $user->username;
+        $User->password = $password;
 
-        $UserController = new User();
-        $UserControl = $UserController->getUsers($UserRepository);
+        $UserRepository = new UserRepository();
+        $UserControl = $UserRepository->getUsers($User);
 
         if (count($UserControl) > 0)
         {
-            $tokenRepository->resource_id = $UserControl[0]["id"];
+            $token->resource_id = $UserControl[0]["id"];
 
-            $tokenController = new Token();
-            $newToken = $tokenController->create($tokenRepository);
+            $tokenRepository = new TokenRepository();
+            $newToken = $tokenRepository->create($token);
 
             $UserControl[0]["password"] = "";
             $UserControl[0]["token"] = $newToken;

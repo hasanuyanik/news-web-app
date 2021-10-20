@@ -34,7 +34,7 @@ class UserController extends BaseController
 
         header('Content-Type: application/json; charset=utf-8',response_code: 201);
         $result = [
-            "content" => $user->getUsers($userRepository)
+            "content" => $userRepository->getUsers($user)
         ];
 
         echo json_encode($result);
@@ -43,7 +43,7 @@ class UserController extends BaseController
 
     public function add()
     {
-        $user = new User();
+        $userRepository = new UserRepository();
 
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
@@ -72,14 +72,14 @@ class UserController extends BaseController
                 exit;
             }
 
-            $userRepository = new UserRepository();
-            $userRepository->username = $username;
-            $userRepository->fullname = $fullname;
-            $userRepository->email = $email;
-            $userRepository->phone = $phone;
-            $userRepository->password = $password;
+            $user = new User();
+            $user->username = $username;
+            $user->fullname = $fullname;
+            $user->email = $email;
+            $user->phone = $phone;
+            $user->password = $password;
 
-            $result = $user->add($userRepository);
+            $result = $userRepository->add($user);
 
             if ($result)
             {
@@ -94,13 +94,13 @@ class UserController extends BaseController
     public function edit()
     {
 
-        $user = new User();
+        $userRepository = new UserRepository();
 
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
 
         if ($jsonData) {
-            $userRepository = new UserRepository();
+            $user = new User();
 
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
@@ -118,19 +118,19 @@ class UserController extends BaseController
                 exit;
             }
 
-            $RepoForId = new UserRepository();
+            $RepoForId = new User();
             $RepoForId->username = $username;
-            $resultForId = $user->getUsers($RepoForId);
+            $resultForId = $userRepository->getUsers($RepoForId);
 
-            $userRepository->id = $resultForId[0]["id"];
+            $user->id = $resultForId[0]["id"];
 
-            $tokenControl = new Token();
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
-            $tokenRepository->resource_id = $resultForId[0]["id"];
-            $tokenRepository->resource_type = "user";
+            $tokenO->token = $token;
+            $tokenO->resource_id = $resultForId[0]["id"];
+            $tokenO->resource_type = "user";
 
-            if ($tokenControl->tokenControl($tokenRepository) == false)
+            if ($tokenRepository->tokenControl($tokenO) == false)
             {
                 header('Content-Type: application/json; charset=utf-8', response_code: 401);
 
@@ -154,21 +154,21 @@ class UserController extends BaseController
                 exit;
             }
 
-            $userRepository->username = $username;
-            $userRepository->fullname = $fullname;
-            $userRepository->email = $email;
-            $userRepository->phone = $phone;
-            $userRepository->password = $resultForId[0]["password"];
+            $user->username = $username;
+            $user->fullname = $fullname;
+            $user->email = $email;
+            $user->phone = $phone;
+            $user->password = $resultForId[0]["password"];
 
-            $result = $user->edit($userRepository);
+            $result = $userRepository->edit($user);
 
             if ($result)
             {
                 header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
-                $editResultRepo = new UserRepository();
-                $editResultRepo->username = $username;
-                $result = $user->getUsers($editResultRepo);
+                $editResult = new User();
+                $editResult->username = $username;
+                $result = $userRepository->getUsers($editResult);
 
                 $result[0]["id"] = "";
 
@@ -186,10 +186,10 @@ class UserController extends BaseController
     {
         $user = new User();
         $userRepository = new UserRepository();
-        $userRepository->username = $name;
+        $user->username = $name;
         header('Content-Type: application/json; charset=utf-8',response_code: 201);
 
-        $result = $user->getUsers($userRepository);
+        $result = $userRepository->getUsers($user);
 
         $result[0]["id"] = "";
 
@@ -229,7 +229,7 @@ class UserController extends BaseController
 
                    echo $result;
                }
-       */
+    */
     /*
         echo "SHOW";
 

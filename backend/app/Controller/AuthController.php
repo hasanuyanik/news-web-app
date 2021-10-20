@@ -2,18 +2,8 @@
 
 namespace App\Controller;
 
-use App\Lib\Auth\Token\Token;
-use App\Lib\Auth\Token\TokenRepository;
 use App\Lib\Auth\UserAuthService;
-use App\Lib\User\User;
-use App\Lib\User\UserRepository;
 use App\Lib\User\UserVM;
-use App\Lib\User\UserWiper;
-use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotNull;
-use Symfony\Component\Validator\Constraints\Required;
-use Symfony\Component\Validator\Validation;
 
 class AuthController extends BaseController
 {
@@ -21,7 +11,6 @@ class AuthController extends BaseController
     public function login()
     {
         $UserController = new UserController();
-        $user = new User();
 
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
@@ -70,7 +59,6 @@ class AuthController extends BaseController
 
     public function logout()
     {
-        $user = new User();
 
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
