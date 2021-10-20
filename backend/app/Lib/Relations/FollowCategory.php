@@ -7,7 +7,7 @@ use App\Lib\Database\DatabaseFactory;
 use App\Lib\User\User;
 use App\Lib\User\UserRepository;
 
-class Category_User
+class FollowCategory
 {
     public function getCategory_UserList(int $page, ?CategoryRepository $category, ?UserRepository $user): array
     {
@@ -25,14 +25,13 @@ class Category_User
 
         $likeFields = [];
 
-        $category_user = $db->findAll("category_user",$fields,$page, $likeFields);
+        $category_user = $db->findAll("follow_category",$fields,$page, $likeFields);
 
         $category_userList = [];
 
         foreach ($category_user as $relation)
         {
-            $UserRepository = new UserRepository();
-            $UserRepository->id = $relation["user_id"];
+            $user->id = $relation["user_id"];
             $getUser = (new User())->getUsers($UserRepository, 0);
 
             $getUser[0]["id"] = "";
@@ -63,7 +62,7 @@ class Category_User
 
         $likeFields = [];
 
-        $category_user = $db->findAll("category_user",$fields,$page, $likeFields);
+        $category_user = $db->findAll("follow_category",$fields,$page, $likeFields);
 
         $user_categoryList = [];
 
@@ -80,7 +79,7 @@ class Category_User
         $getUser[0]["password"] = "";
 
         $result = [
-            "user" => $getUser[0],
+            "user" => $getCategory[0],
             "categoryList" => $user_categoryList
         ];
 
@@ -97,7 +96,7 @@ class Category_User
 
         $likeFields = [];
 
-        $relations = $db->findAll("category_user",$fields,$page, $likeFields);
+        $relations = $db->findAll("follow_category",$fields,$page, $likeFields);
 
         return $relations;
     }
@@ -122,7 +121,7 @@ class Category_User
 
         $fields["created_at"] = date('Y.m.d H:i:s');
 
-        $createResult = $db->add("category_user",$fields);
+        $createResult = $db->add("follow_category",$fields);
 
         return $createResult;
     }
@@ -138,7 +137,7 @@ class Category_User
         $fields["category_id"] = ($category->id) ? $category->id : $getCategory[0]["id"];
         $fields["user_id"] = ($user->id) ? $user->id : $getUser[0]["id"];
 
-        $deleteResult = $db->delete("category_user", $fields);
+        $deleteResult = $db->delete("follow_category", $fields);
 
         return $deleteResult;
     }

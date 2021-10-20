@@ -9,9 +9,9 @@ class ComposerStaticInitb99994f8ab5f5f8b67267a5e980dac35
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
-        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         'e320f53bb3364b7ed572ecc5ef33c5cf' => __DIR__ . '/../..' . '/app/helpers.php',
     );
 
@@ -25,6 +25,10 @@ class ComposerStaticInitb99994f8ab5f5f8b67267a5e980dac35
             'Symfony\\Contracts\\Translation\\' => 30,
             'Symfony\\Component\\Validator\\' => 28,
             'Symfony\\Component\\Routing\\' => 26,
+        ),
+        'P' => 
+        array (
+            'Psr\\Log\\' => 8,
         ),
         'A' => 
         array (
@@ -60,6 +64,10 @@ class ComposerStaticInitb99994f8ab5f5f8b67267a5e980dac35
         'Symfony\\Component\\Routing\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/routing',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/src',
         ),
         'App\\' => 
         array (

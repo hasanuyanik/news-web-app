@@ -7,7 +7,7 @@ use App\Lib\Database\DatabaseFactory;
 use App\Lib\News\News;
 use App\Lib\News\NewsRepository;
 
-class News_Comment
+class NewsComment
 {
     public function getNews_CommentList(int $page, ?NewsRepository $news, ?CommentRepository $comment): array
     {

@@ -118,28 +118,13 @@ class PermissionController extends BaseController
         if ($jsonData) {
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $news_id = ($jsonData["news_id"]) ? $jsonData["news_id"] : null;
-            $username = ($jsonData["username"]) ? $jsonData["username"] : null;
-            $comment_name = ($jsonData["comment_name"]) ? $jsonData["comment_name"] : null;
-            $post_comment = ($jsonData["comment"]) ? $jsonData["comment"] : null;
+            $permission_name = ($jsonData["permission_name"]) ? $jsonData["permission_name"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
+            $permission = new Permission();
+            $permissionRepository = new PermissionRepository();
 
-            $news = new News();
-            $news_comment = new News_Comment();
-            $user_comment = new User_Comment();
-            $comment = new Comment();
-            $userRepository = new UserRepository();
-            $newsRepository = new NewsRepository();
-            $commentRepository = new CommentRepository();
-
-            $userRepository->username = $username;
-            $newsRepository->id = $news_id;
-            $commentRepository->name = $comment_name;
-            $commentRepository->comment = $post_comment;
-
-            $this->NameValidation($comment_name);
-            $this->CommentValidation($post_comment);
+            $this->NameValidation($permission_name);
 
             if ($this->validationErrors)
             {
@@ -165,13 +150,9 @@ class PermissionController extends BaseController
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
-            $comment->add($commentRepository);
+            $permissionRepository->name = $permission_name;
 
-            $commentRepository->id = ($comment->getComments(0,$commentRepository))[0]["id"];
-
-            $user_comment->add($userRepository, $commentRepository);
-
-            $result = $news_comment->add($newsRepository, $commentRepository);
+            $result = $permission->add($permissionRepository);
 
             echo json_encode($result);
         }
@@ -185,30 +166,15 @@ class PermissionController extends BaseController
         if ($jsonData) {
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $news_id = ($jsonData["news_id"]) ? $jsonData["news_id"] : null;
-            $comment_id = ($jsonData["comment_id"]) ? $jsonData["comment_id"] : null;
-            $username = ($jsonData["username"]) ? $jsonData["username"] : null;
-            $comment_name = ($jsonData["comment_name"]) ? $jsonData["comment_name"] : null;
-            $post_comment = ($jsonData["comment"]) ? $jsonData["comment"] : null;
+            $permission_id = ($jsonData["permission_id"]) ? $jsonData["permission_id"] : null;
+            $permission_name = ($jsonData["permission_name"]) ? $jsonData["permission_name"] : null;
+
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
+            $permission = new Permission();
+            $permissionRepository = new PermissionRepository();
 
-            $news = new News();
-            $news_comment = new News_Comment();
-            $user_comment = new User_Comment();
-            $comment = new Comment();
-            $userRepository = new UserRepository();
-            $newsRepository = new NewsRepository();
-            $commentRepository = new CommentRepository();
-
-            $userRepository->username = $username;
-            $newsRepository->id = $news_id;
-            $commentRepository->id = $comment_id;
-            $commentRepository->name = $comment_name;
-            $commentRepository->comment = $post_comment;
-
-            $this->NameValidation($comment_name);
-            $this->CommentValidation($post_comment);
+            $this->NameValidation($permission_name);
 
             if ($this->validationErrors)
             {
@@ -234,7 +200,7 @@ class PermissionController extends BaseController
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
-            $result = $comment->edit($commentRepository);
+            $result = $permission->edit($permissionRepository);
 
             echo json_encode($result);
         }

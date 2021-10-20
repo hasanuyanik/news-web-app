@@ -2,14 +2,15 @@
 
 namespace App\Lib\Logger;
 
-use App\Lib\Database\DatabaseFactory;
 use App\Lib\Logger\Driver\DatabaseLogger;
 use App\Lib\Logger\Driver\FileLogger;
-use App\Lib\Logger\Driver\LogDriverI;
+use Psr\Log\LoggerInterface;
+use Psr\Log\LogLevel;
+use Psr\Log\NullLogger;
 
 class Logger implements LoggerInterface
 {
-    protected LogDriverI $driver;
+    protected $driver;
     private function setUp(): void
     {
         $configdir = __DIR__."/../../../config.php";
@@ -31,70 +32,61 @@ class Logger implements LoggerInterface
             }
             elseif ($logging == "null")
             {
-                die("Loglama Kapalı");
+                $this->driver = new NullLogger();
             }
         }
     }
 
-    public function emergency($message, array $context = array())
+    public function emergency(string|\Stringable $message, array $context = []): void
     {
         $this->log(LogLevel::EMERGENCY, $message, $context);
     }
 
-    public function alert($message, array $context = array())
+    public function alert(string|\Stringable $message, array $context = []): void
     {
         $this->log(LogLevel::ALERT, $message, $context);
     }
 
-    public function critical($message, array $context = array())
+    public function critical(string|\Stringable $message, array $context = []): void
     {
         $this->log(LogLevel::CRITICAL, $message, $context);
     }
 
-    public function error($message, array $context = array())
+    public function error(string|\Stringable $message, array $context = []): void
     {
         $this->log(LogLevel::ERROR, $message, $context);
     }
 
-    public function warning($message, array $context = array())
+    public function warning(string|\Stringable $message, array $context = []): void
     {
         $this->log(LogLevel::WARNING, $message, $context);
     }
 
-    public function notice($message, array $context = array())
+    public function notice(string|\Stringable $message, array $context = []): void
     {
         $this->log(LogLevel::NOTICE, $message, $context);
     }
 
-    public function info($message, array $context = array())
+    public function info(string|\Stringable $message, array $context = []): void
     {
         $this->log(LogLevel::INFO, $message, $context);
     }
 
-    public function debug($message, array $context = array())
+    public function debug(string|\Stringable $message, array $context = []): void
     {
         $this->log(LogLevel::DEBUG, $message, $context);
     }
 
-    public function log($level, $message, array $context = array())
+    public function log($level, string|\Stringable $message, array $context = []): void
     {
         $logger = new static();
 
         $logger->setUp();
 
-
         // a message with brace-delimited placeholder names
         $message = $level.": ".$message;
 
-        var_dump($context);
-
-        $logger->driver->logMessage($level, $this->interpolate($message, $context));
-        $logger->tearDown();
-    }
-
-    private function tearDown(): void
-    {
-        $this->driver->tearDown();
+        $logger->driver->log($level, $this->interpolate($message, $context));
     }
 
     public function interpolate($message, array $context = array())

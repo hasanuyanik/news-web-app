@@ -3,7 +3,7 @@ namespace App\Lib\Category;
 
 use App\Lib\Database\DatabaseFactory;
 
-class Category implements CategoryI
+class Category
 {
 
     public function getCategories(int $page, ?CategoryRepository $category): array

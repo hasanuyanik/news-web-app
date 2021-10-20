@@ -4,7 +4,7 @@ namespace App\Lib\Activity;
 use App\Lib\Database\DatabaseFactory;
 use App\Lib\Logger\Logger;
 
-class Activity implements ActivityI
+class Activity
 {
 
     public static function addActivity(mixed $resource_id, string $activity): void

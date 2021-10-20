@@ -21,6 +21,7 @@ set_error_handler(function ($error_level, $error_message, $error_file, $error_li
 
     $Logger = new \App\Lib\Logger\Logger();
     $Logger->error($message, $context);
+
 });
 
 $routes = require __DIR__.'/../app/routes.php';

@@ -8,7 +8,7 @@ use App\Lib\User\User;
 use App\Lib\User\UserRepository;
 use App\Lib\User\UserVM;
 
-class UserAuthService implements AuthServiceI
+class UserAuthService
 {
 
     public function logout(UserVM $user): string

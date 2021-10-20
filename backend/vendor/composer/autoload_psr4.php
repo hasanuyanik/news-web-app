@@ -13,5 +13,6 @@ return array(
     'Symfony\\Contracts\\Translation\\' => array($vendorDir . '/symfony/translation-contracts'),
     'Symfony\\Component\\Validator\\' => array($vendorDir . '/symfony/validator'),
     'Symfony\\Component\\Routing\\' => array($vendorDir . '/symfony/routing'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
     'App\\' => array($baseDir . '/app'),
 );

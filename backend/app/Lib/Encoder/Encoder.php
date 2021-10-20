@@ -2,7 +2,7 @@
 
 namespace App\Lib\Encoder;
 
-class Encoder implements EncoderI
+class Encoder
 {
 
     public function encode(mixed $data): string

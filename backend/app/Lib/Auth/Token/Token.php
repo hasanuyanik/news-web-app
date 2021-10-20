@@ -4,7 +4,7 @@ namespace App\Lib\Auth\Token;
 use App\Lib\Database\DatabaseFactory;
 use App\Lib\Encoder\Encoder;
 
-class Token implements TokenI
+class Token
 {
 
     public function tokenControl(TokenRepository $token): bool

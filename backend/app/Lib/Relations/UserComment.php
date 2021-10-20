@@ -7,7 +7,7 @@ use App\Lib\Database\DatabaseFactory;
 use App\Lib\User\User;
 use App\Lib\User\UserRepository;
 
-class User_Comment
+class UserComment
 {
     public function getUser_CommentList(int $page, ?UserRepository $user, ?CommentRepository $comment): array
     {

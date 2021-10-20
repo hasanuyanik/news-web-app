@@ -7,7 +7,7 @@ use App\Lib\Permission\PermissionRepository;
 use App\Lib\Role\Role;
 use App\Lib\Role\RoleRepository;
 
-class Role_Permission
+class RolePermission
 {
     public function getRole_PermissionList(int $page, ?RoleRepository $roleRepository, ?PermissionRepository $permissionRepository): array
     {

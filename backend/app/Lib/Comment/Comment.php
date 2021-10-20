@@ -3,7 +3,7 @@ namespace App\Lib\Comment;
 
 use App\Lib\Database\DatabaseFactory;
 
-class Comment implements CommentI
+class Comment
 {
 
     public function getComments(int $page, ?CommentRepository $comment): array

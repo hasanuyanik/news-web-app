@@ -9,3 +9,7 @@
 2021-10-07 19:54:17 info: Test amaçlı info HASAN UYANIK
 2021-10-07 20:35:30 info: Test amaçlı info HASAN UYANIK
 2021-10-07 22:48:35 info: Test amaçlı info HASAN UYANIK
+2021-10-20 14:39:24 error: Error : ErrorLevel1 | Message : ErrorMessage1 | File : ErrorFile1 | line : ErrorLine1 
+2021-10-20 14:40:07 error: Error : ErrorLevel1 | Message : ErrorMessage1 | File : ErrorFile1 | line : ErrorLine1 
+2021-10-20 14:45:38 error: Error : ErrorLevel1 | Message : ErrorMessage1 | File : ErrorFile1 | line : ErrorLine1 
+2021-10-20 15:17:42 error: Error : ErrorLevel1 | Message : ErrorMessage1 | File : ErrorFile1 | line : ErrorLine1 

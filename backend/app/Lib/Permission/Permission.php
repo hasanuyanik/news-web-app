@@ -3,7 +3,7 @@ namespace App\Lib\Permission;
 
 use App\Lib\Database\DatabaseFactory;
 
-class Permission implements PermissionI
+class Permission
 {
     public function getPermissions(int $page, ?PermissionRepository $permissionRepository): array
     {

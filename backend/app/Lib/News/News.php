@@ -3,7 +3,7 @@ namespace App\Lib\News;
 
 use App\Lib\Database\DatabaseFactory;
 
-class News implements NewsI
+class News
 {
 
     public function getNews(int $page, ?NewsRepository $news): array

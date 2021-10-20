@@ -6,7 +6,7 @@ use App\Lib\Resource\ResourceRepository;
 use App\Lib\Role\Role;
 use App\Lib\Role\RoleRepository;
 
-class Resource_Role
+class ResourceRole
 {
 
     public function add(ResourceRepository $resourceRepository, RoleRepository $roleRepository): string

@@ -7,7 +7,7 @@ use App\Lib\Database\DatabaseFactory;
 use App\Lib\News\News;
 use App\Lib\News\NewsRepository;
 
-class User_News
+class UserNews
 {
     public function getUser_NewsList(int $page, ?UserRepository $user, ?NewsRepository $news): array
     {

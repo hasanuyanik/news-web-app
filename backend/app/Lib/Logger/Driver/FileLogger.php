@@ -12,7 +12,7 @@ class FileLogger implements LogDriverI
         $this->logFile = "logger.log";
     }
 
-    public function logMessage($level, string $message): void
+    public function log($level, string $message): void
     {
         $created_at = date("Y-m-d H:i:s");
 
@@ -20,11 +20,6 @@ class FileLogger implements LogDriverI
 
         $FileManager = new FileManager();
         $FileManager->putContentFile($this->logFile,"Log",$logText);
-    }
-
-    public function tearDown(): void
-    {
-        $this->logFile = null;
     }
 
     public function interpolate($message, array $context = array())

@@ -6,7 +6,7 @@ use App\Lib\Permission\Permission;
 use App\Lib\Resource\ResourceRepository;
 use App\Lib\Permission\PermissionRepository;
 
-class Resource_Permission
+class ResourcePermission
 {
     public function add(ResourceRepository $resourceRepository, PermissionRepository $permissionRepository): string
     {

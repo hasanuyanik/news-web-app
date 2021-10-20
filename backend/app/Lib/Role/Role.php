@@ -3,7 +3,7 @@ namespace App\Lib\Role;
 
 use App\Lib\Database\DatabaseFactory;
 
-class Role implements RoleI
+class Role
 {
     public function getRoles(int $page, ?RoleRepository $roleRepository): array
     {

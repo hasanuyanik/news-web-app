@@ -5,7 +5,7 @@ namespace App\Lib\User;
 use App\Lib\Database\DatabaseFactory;
 use App\Lib\Encoder\Encoder;
 
-class User implements UserI
+class User
 {
     private mixed $id;
     private string $username;

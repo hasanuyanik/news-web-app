@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Lib\Auth\Token\Token;
 use App\Lib\Auth\Token\TokenRepository;
 use App\Lib\Auth\UserAuthService;
+use App\Lib\Logger\Logger;
 use App\Lib\User\User;
 use App\Lib\User\UserRepository;
 use App\Lib\User\UserVM;
@@ -30,8 +31,8 @@ class UserController extends BaseController
     {
         $user = new User();
         $userRepository = new UserRepository();
-        header('Content-Type: application/json; charset=utf-8',response_code: 201);
 
+        header('Content-Type: application/json; charset=utf-8',response_code: 201);
         $result = [
             "content" => $user->getUsers($userRepository)
         ];
@@ -193,6 +194,21 @@ class UserController extends BaseController
         $result[0]["id"] = "";
 
         echo json_encode($result);
+    }
+
+    public function index(): void
+    {
+        $message = "Error : {errorlevel} | Message : {errormessage} | File : {errorfile} | line : {errorline} ";
+
+        $context = [
+            "errorlevel" => "ErrorLevel1",
+            "errormessage" => "ErrorMessage1",
+            "errorfile" => "ErrorFile1",
+            "errorline" => "ErrorLine1"
+        ];
+
+        $logger = new Logger();
+        $logger->error($message, $context);
     }
 
     /*
