@@ -14,10 +14,11 @@ class MySQLQueryBuilder implements QueryBuilderI
         return $this;
     }
 
-    public function select(string $table, ?array $whereFields): QueryBuilderI
+    public function select(string $table, ?array $whereFields, ?array $columnsToFetch): QueryBuilderI
     {
+        $columns = (count($columnsToFetch)) ? $this->serialize("columnsToFetch", $columnsToFetch) : "*";
         $where = (count($whereFields)) ? " WHERE ".$this->serialize("where", $whereFields) : "";
-        $this->patch .= "SELECT * FROM ".$table.$where;
+        $this->patch .= "SELECT $columns FROM ".$table.$where;
         return $this;
     }
 
@@ -84,6 +85,10 @@ class MySQLQueryBuilder implements QueryBuilderI
             elseif ($type == 'like')
             {
                 $result .= "$column LIKE '%$value%'";
+            }
+            elseif ($type == 'columnsToFetch')
+            {
+                $result .= "$column as $value";
             }
             $propertiesCounter++;
         }

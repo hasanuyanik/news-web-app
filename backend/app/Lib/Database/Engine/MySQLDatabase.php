@@ -28,15 +28,16 @@ class MySQLDatabase implements DatabaseI
 
     }
 
-    public function findAll(string $table, array $fields, int $page, ?array $likeFields = []): mixed
+    public function findAll(string $table, array $fields, int $page, ?array $likeFields = [], ?array $columnsToFetch = []): mixed
     {
         $start = $page*$this->dataPerPage;
         $end = $start+$this->dataPerPage;
 
         $QueryBuilder = new MySQLQueryBuilder();
-        $QueryBuilder->select($table,$fields)->like($likeFields)->limit($start,$end);
+        $QueryBuilder->select($table,$fields,$columnsToFetch)->like($likeFields)->limit($start,$end);
 
         $query = $QueryBuilder->patch;
+
         $statement = $this->db->prepare(query: $query);
         foreach ($fields as $param => $value) {
             $statement->bindValue(":$param", $value);
@@ -47,10 +48,10 @@ class MySQLDatabase implements DatabaseI
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function find(string $table, array $fields): mixed
+    public function find(string $table, array $fields, ?array $columnsToFetch = []): mixed
     {
         $QueryBuilder = new MySQLQueryBuilder();
-        $QueryBuilder->select($table,$fields);
+        $QueryBuilder->select($table,$fields,$columnsToFetch);
 
         $statement = $this->db->prepare($QueryBuilder->patch);
         foreach ($fields as $param => $value) {

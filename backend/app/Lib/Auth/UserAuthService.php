@@ -1,6 +1,7 @@
 <?php
 namespace App\Lib\Auth;
 
+use App\Controller\UserController;
 use App\Lib\Auth\Token\Token;
 use App\Lib\Auth\Token\TokenRepository;
 use App\Lib\Encoder\Encoder;
@@ -20,7 +21,7 @@ class UserAuthService
         return $tokenRepository->delete($token);
     }
 
-    public function login(UserVM $user): mixed
+    public function login(UserVM $user): void
     {
         $token = new Token();
         $token->resource_type = "user";
@@ -46,9 +47,16 @@ class UserAuthService
 
             $UserControl[0]["password"] = "";
             $UserControl[0]["token"] = $newToken;
-            return $UserControl;
+
+            header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+            echo json_encode($UserControl);
+
+            return;
         }
 
-        return false;
+        $UserController = new UserController();
+
+        echo json_encode($UserController->errors);
     }
 }

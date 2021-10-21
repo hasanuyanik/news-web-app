@@ -19,7 +19,30 @@ class UserRepository
         $likeFields["email"] = $user->email;
         $likeFields["phone"] = $user->phone;
 
-        $users = $db->findAll("user",$fields,$page, $likeFields);
+        $columnsToFetch = [
+            "id" => "id",
+            "username" => "username",
+            "fullname" => "fullname",
+            "email" => "email",
+            "phone" => "phone"
+        ];
+
+        $users = $db->findAll("user",$fields,$page, $likeFields, columnsToFetch: $columnsToFetch);
+
+        return $users;
+    }
+
+    public function UniqueUsername(User $user): mixed
+    {
+        $db = (new DatabaseFactory())->db;
+
+        $fields = ($user->id == null) ? [] : ["id"=>$user->id];
+
+        $likeFields = [];
+
+        $fields["username"] = $user->username;
+
+        $users = $db->find("user",$fields, $likeFields);
 
         return $users;
     }

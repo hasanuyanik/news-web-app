@@ -6,12 +6,6 @@ use Symfony\Component\Routing\RouteCollection;
 
 $routes = new RouteCollection();
 
-$routes->add(
-    'user.log',
-    new Route('/api/log', ['controller' => \App\Controller\UserController::class, 'method' => 'index'])
-);
-
-
 /* UserController - Start */
 
 $routes->add(

@@ -13,3 +13,6 @@
 2021-10-20 14:40:07 error: Error : ErrorLevel1 | Message : ErrorMessage1 | File : ErrorFile1 | line : ErrorLine1 
 2021-10-20 14:45:38 error: Error : ErrorLevel1 | Message : ErrorMessage1 | File : ErrorFile1 | line : ErrorLine1 
 2021-10-20 15:17:42 error: Error : ErrorLevel1 | Message : ErrorMessage1 | File : ErrorFile1 | line : ErrorLine1 
+2021-10-20 22:59:36 error: Error : 2 | Message : Undefined array key "token" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 39 
+2021-10-20 22:59:38 error: Error : 2 | Message : Undefined array key "token" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 39 
+2021-10-20 22:59:44 error: Error : 2 | Message : Undefined array key "token" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 39 

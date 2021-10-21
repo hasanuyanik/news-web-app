@@ -6,7 +6,7 @@ use App\Lib\Encoder\Encoder;
 
 class TokenRepository
 {
-    public function tokenControl(Token $token): bool
+    public function tokenControl(Token $token, $errors): void
     {
         $db = (new DatabaseFactory())->db;
 
@@ -17,7 +17,15 @@ class TokenRepository
 
         $result = $db->find("token",$fields);
 
-        return boolval($result);
+        if ($result != null)
+        {
+            header('Content-Type: application/json; charset=utf-8', response_code: 401);
+
+            echo json_encode($errors);
+
+            exit;
+        }
+
     }
 
     public function create(Token $token): string
@@ -35,14 +43,11 @@ class TokenRepository
             $generatedToken = $this->tokenGenerator();
             $token->token = $generatedToken;
 
-            $tokenControl = $this->tokenControl($token);
+            $this->tokenControl($token, errors: []);
 
-            if ($tokenControl == false)
-            {
-                $newToken = $generatedToken;
-                $token->token = "";
-                $deleteLastToken = $this->delete($token);
-            }
+            $newToken = $generatedToken;
+            $token->token = "";
+            $deleteLastToken = $this->delete($token);
 
         }
 

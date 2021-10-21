@@ -5,11 +5,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/Token.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/Token.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/TokenRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/TokenRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/UserAuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/UserAuthService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/MySQLQueryBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/MySQLQueryBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/QueryBuilderI.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/QueryBuilderI.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/DatabaseI.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/DatabaseI.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/Log/logger.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/UserLoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/UserLoginPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +101,8 @@
       <workItem from="1634560020214" duration="3346000" />
       <workItem from="1634635729398" duration="5635000" />
       <workItem from="1634722573652" duration="800000" />
-      <workItem from="1634723808137" duration="11637000" />
+      <workItem from="1634723808137" duration="12563000" />
+      <workItem from="1634806210869" duration="15971000" />
     </task>
     <servers />
   </component>
