@@ -4,17 +4,20 @@
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controller/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/PermissionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/TokenRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/TokenRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/UserAuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/UserAuthService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/MySQLQueryBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/MySQLQueryBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/QueryBuilderI.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/QueryBuilderI.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/DatabaseI.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/DatabaseI.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/UserAuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Permission/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Permission/Permission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Permission/PermissionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Permission/PermissionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/ResourcePermission.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/ResourcePermission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/ResourceRole.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/ResourceRole.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/RolePermission.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/RolePermission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Resource/ResourceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Resource/Resource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Role/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Role/Role.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Role/RoleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Role/RoleRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/Log/logger.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/UserLoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/UserLoginPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +105,8 @@
       <workItem from="1634635729398" duration="5635000" />
       <workItem from="1634722573652" duration="800000" />
       <workItem from="1634723808137" duration="12563000" />
-      <workItem from="1634806210869" duration="15971000" />
+      <workItem from="1634806210869" duration="16641000" />
+      <workItem from="1634902298733" duration="19452000" />
     </task>
     <servers />
   </component>

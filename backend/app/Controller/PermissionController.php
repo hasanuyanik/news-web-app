@@ -15,7 +15,7 @@ use App\Lib\Relations\Category_News;
 use App\Lib\Relations\News_Comment;
 use App\Lib\Relations\Resource_Permission;
 use App\Lib\Relations\User_Comment;
-use App\Lib\Resource\ResourceRepository;
+use App\Lib\Resource\Resource;
 use App\Lib\User\User;
 use App\Lib\User\UserRepository;
 use Symfony\Component\Validator\Constraints\Length;
@@ -63,7 +63,7 @@ class PermissionController extends BaseController
             $userRepository = new UserRepository();
             $user = new User();
             $permissionRepository = new PermissionRepository();
-            $resourceRepository = new ResourceRepository();
+            $resourceRepository = new Resource();
             $UserController = new UserController();
 
             $permissionRepository->name = $permission_name;

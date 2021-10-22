@@ -5,11 +5,18 @@ use App\Controller\UserController;
 use App\Lib\Auth\Token\Token;
 use App\Lib\Auth\Token\TokenRepository;
 use App\Lib\Encoder\Encoder;
+use App\Lib\Permission\Permission;
+use App\Lib\Relations\ResourcePermission;
+use App\Lib\Relations\ResourceRole;
+use App\Lib\Relations\RolePermission;
+use App\Lib\Resource\Resource;
+use App\Lib\Role\Role;
+use App\Lib\Role\RoleRepository;
 use App\Lib\User\User;
 use App\Lib\User\UserRepository;
 use App\Lib\User\UserVM;
 
-class UserAuthService
+class AuthService
 {
 
     public function logout(UserVM $user): string
@@ -59,4 +66,33 @@ class UserAuthService
 
         echo json_encode($UserController->errors);
     }
+
+    public function UserPermissionControl(User $user, Permission $permission): bool
+    {
+        $Resource = new Resource();
+        $Resource->resource_type = "user";
+        $Resource->resource_id = $user->id;
+
+        $UserPermission = new ResourcePermission();
+        $UserPermissionRelation = $UserPermission->getRelations(0, $Resource, $permission);
+
+        echo "1.Yol<br>";
+
+        if ($UserPermissionRelation)
+        {
+            return true;
+        }
+
+        $Role = new Role();
+        $ResourceRole = new ResourceRole();
+        $ResourceRoleRelation = $ResourceRole->getRelations(0, $Resource, $Role);
+        $Role->id = $ResourceRoleRelation[0]["role_id"];
+
+        $RolePermission = new RolePermission();
+        $RolePermissionRelation = $RolePermission->getRelations(0, $Role, $permission);
+
+        echo "2.Yol<br>";
+        return ($RolePermissionRelation) ? 1 : 0;
+    }
+
 }

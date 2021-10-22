@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
-use App\Lib\Auth\UserAuthService;
+use App\Lib\Auth\AuthService;
+use App\Lib\Permission\Permission;
+use App\Lib\Permission\PermissionRepository;
+use App\Lib\User\User;
+use App\Lib\User\UserRepository;
 use App\Lib\User\UserVM;
 use App\Lib\Validation;
 
@@ -33,7 +37,7 @@ class AuthController extends BaseController
             $UserVM->password = $password;
             $UserVM->token = "";
 
-            $UserAuth = new UserAuthService();
+            $UserAuth = new AuthService();
 
             $UserAuth->login($UserVM);
         }
@@ -53,7 +57,7 @@ class AuthController extends BaseController
             $UserVM = new UserVM();
             $UserVM->token = $token;
 
-            $UserAuth = new UserAuthService();
+            $UserAuth = new AuthService();
             $result = $UserAuth->logout($UserVM);
 
             if ($result)
@@ -63,5 +67,28 @@ class AuthController extends BaseController
 
             echo json_encode($result);
         }
+    }
+
+    public function permissionControl()
+    {
+        $User = new User();
+        $User->username = "username2";
+
+        $UserRepository = new UserRepository();
+        $GetUser = $UserRepository->getUsers($User,0);
+
+        $User->id = $GetUser[0]["id"];
+
+        $Permission = new Permission();
+        $Permission->name = "NewsPublish";
+
+        $PermissionRepository = new PermissionRepository();
+        $GetPermissionInfo = $PermissionRepository->getPermissions(0, $Permission);
+
+        $Permission->id = $GetPermissionInfo[0]["id"];
+
+        $AuthService = new AuthService();
+
+        var_dump($AuthService->UserPermissionControl($User, $Permission));
     }
 }

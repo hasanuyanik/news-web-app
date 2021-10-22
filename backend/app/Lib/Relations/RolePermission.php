@@ -9,15 +9,15 @@ use App\Lib\Role\RoleRepository;
 
 class RolePermission
 {
-    public function getRole_PermissionList(int $page, ?RoleRepository $roleRepository, ?PermissionRepository $permissionRepository): array
+    public function getRole_PermissionList(int $page, ?Role $role, ?Permission $permission): array
     {
         $db = (new DatabaseFactory())->db;
 
-        $fields = ($roleRepository->id == null) ? [] : ["role_id"=>$roleRepository->id];
+        $fields = ($role->id == null) ? [] : ["role_id"=>$role->id];
 
-        $getRole = (new Role())->getRoles(0,$roleRepository);
+        $getRole = (new RoleRepository())->getRoles(0,$role);
 
-        if ($roleRepository->id == null)
+        if ($role->id == null)
         {
             $fields = ($getRole[0]["id"]) ? ["role_id"=>$getRole[0]["id"]] : [];
         }
@@ -30,8 +30,8 @@ class RolePermission
 
         foreach ($roles_permission as $relation)
         {
-            $permissionRepository->id = $relation["permission_id"];
-            $getPermission = (new Permission())->getPermissions(0, $permissionRepository);
+            $permission->id = $relation["permission_id"];
+            $getPermission = (new PermissionRepository())->getPermissions(0, $permission);
             array_push($roles_permissionList, $getPermission[0]);
         }
 
@@ -43,18 +43,18 @@ class RolePermission
         return $result;
     }
 
-    public function add(RoleRepository $roleRepository, PermissionRepository $permissionRepository): string
+    public function add(Role $role, Permission $permission): string
     {
         $db = (new DatabaseFactory())->db;
 
-        $getRole = (new Role())->getRoles(0,$roleRepository);
-        $getPermission = (new Permission())->getPermissions(0, $permissionRepository);
+        $getRole = (new RoleRepository())->getRoles(0,$role);
+        $getPermission = (new PermissionRepository())->getPermissions(0, $permission);
 
         $fields = [];
-        $fields["role_id"] = ($roleRepository->id) ? $roleRepository->id : $getRole[0]["id"];
-        $fields["permission_id"] = ($permissionRepository->id) ? $permissionRepository->id : $getPermission[0]["id"];
+        $fields["role_id"] = ($role->id) ? $role->id : $getRole[0]["id"];
+        $fields["permission_id"] = ($permission->id) ? $permission->id : $getPermission[0]["id"];
 
-        $copyRelationControl = $this->getRelations(0,$roleRepository, $permissionRepository);
+        $copyRelationControl = $this->getRelations(0,$role, $permission);
 
         if (count($copyRelationControl) > 0)
         {
@@ -68,29 +68,29 @@ class RolePermission
         return $createResult;
     }
 
-    public function delete(RoleRepository $roleRepository, PermissionRepository $permissionRepository): string
+    public function delete(Role $role, Permission $permission): string
     {
         $db = (new DatabaseFactory())->db;
 
-        $getRole = (new Role())->getRoles(0,$roleRepository);
-        $getPermission = (new Permission())->getPermissions(0, $permissionRepository);
+        $getRole = (new RoleRepository())->getRoles(0,$role);
+        $getPermission = (new PermissionRepository())->getPermissions(0, $permission);
 
         $fields = [];
-        $fields["role_id"] = ($roleRepository->id) ? $roleRepository->id : $getRole[0]["id"];
-        $fields["permission_id"] = ($permissionRepository->id) ? $permissionRepository->id : $getPermission[0]["id"];
+        $fields["role_id"] = ($role->id) ? $role->id : $getRole[0]["id"];
+        $fields["permission_id"] = ($permission->id) ? $permission->id : $getPermission[0]["id"];
 
         $deleteResult = $db->delete("roles_permission", $fields);
 
         return $deleteResult;
     }
 
-    public function getRelations(int $page, ?RoleRepository $roleRepository, ?PermissionRepository $permissionRepository): array
+    public function getRelations(int $page, ?Role $role, ?Permission $permission): array
     {
         $db = (new DatabaseFactory())->db;
 
         $fields = [];
-        $fields["role_id"] = ($roleRepository->id == null) ? "" : $roleRepository->id;
-        $fields["permission_id"] = ($permissionRepository->id == null) ? "" : $permissionRepository->id;
+        $fields["role_id"] = ($role->id == null) ? "" : $role->id;
+        $fields["permission_id"] = ($permission->id == null) ? "" : $permission->id;
 
         $likeFields = [];
 

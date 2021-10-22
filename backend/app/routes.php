@@ -6,6 +6,13 @@ use Symfony\Component\Routing\RouteCollection;
 
 $routes = new RouteCollection();
 
+
+$routes->add(
+    'auth.permission',
+    new Route('/api/auth/userpermission', ['controller' => \App\Controller\AuthController::class, 'method' => 'permissionControl'])
+);
+
+
 /* UserController - Start */
 
 $routes->add(

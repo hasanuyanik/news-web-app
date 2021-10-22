@@ -61,23 +61,23 @@ class UserController extends BaseController
             $this->PhoneValidation($phone);
             $this->PasswordValidation($password);
 
-
-
             $user = new User();
             $userRepository = new UserRepository();
+
+            if ($userRepository->UniqueUsername($username))
+            {
+                $this->validationErrors["username"] = "Username Not Unique";
+            }
+
+            $Validation->ValidationErrorControl($this->validationErrors);
+
+
 
             $user->username = $username;
             $user->fullname = $fullname;
             $user->email = $email;
             $user->phone = $phone;
             $user->password = $password;
-
-            if ($userRepository->UniqueUsername($user))
-            {
-                $this->validationErrors["username"] = "Username Not Unique";
-            }
-            
-            $Validation->ValidationErrorControl($this->validationErrors);
 
             $result = $userRepository->add($user);
 

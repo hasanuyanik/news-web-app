@@ -32,15 +32,13 @@ class UserRepository
         return $users;
     }
 
-    public function UniqueUsername(User $user): mixed
+    public function UniqueUsername(string $username): mixed
     {
         $db = (new DatabaseFactory())->db;
 
-        $fields = ($user->id == null) ? [] : ["id"=>$user->id];
-
         $likeFields = [];
 
-        $fields["username"] = $user->username;
+        $fields["username"] = $username;
 
         $users = $db->find("user",$fields, $likeFields);
 
