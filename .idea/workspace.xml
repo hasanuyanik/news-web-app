@@ -3,19 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controller/AccountDeletionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/AccountDeletionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/TokenRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/TokenRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/Log/logger.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ProfileCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ProfileCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/UserRequestItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UserRequestItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/UserRequestList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UserRequestList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/container/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/container/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Category/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Category/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Category/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Category/CategoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Comment/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Comment/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Comment/CommentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Comment/CommentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/News/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/News/News.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/News/NewsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/News/NewsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryNews.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryNews.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/FollowCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/FollowCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/NewsComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/NewsComment.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +111,7 @@
       <workItem from="1634723808137" duration="12563000" />
       <workItem from="1634806210869" duration="16641000" />
       <workItem from="1634902298733" duration="19452000" />
-      <workItem from="1634981559829" duration="25684000" />
+      <workItem from="1634981559829" duration="29676000" />
     </task>
     <servers />
   </component>

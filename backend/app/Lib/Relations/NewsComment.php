@@ -9,48 +9,48 @@ use App\Lib\News\NewsRepository;
 
 class NewsComment
 {
-    public function getNews_CommentList(int $page, ?NewsRepository $news, ?CommentRepository $comment): array
+    public function getNewsCommentList(int $page, ?News $News, ?Comment $Comment): array
     {
         $db = (new DatabaseFactory())->db;
 
-        $fields = ($news->id == null) ? [] : ["news_id"=>$news->id];
+        $fields = ($News->id == null) ? [] : ["news_id"=>$News->id];
 
-        $getNews = (new News())->getNews(0,$news);
+        $getNews = (new NewsRepository())->getNews(0,$News);
 
-        if ($news->id == null)
+        if ($News->id == null)
         {
             $fields = ($getNews[0]["id"]) ? ["news_id"=>$getNews[0]["id"]] : [];
         }
 
         $likeFields = [];
 
-        $news_comment = $db->findAll("news_comment",$fields,$page, $likeFields);
+        $newsComment = $db->findAll("news_comment",$fields,$page, $likeFields);
 
-        $news_commentList = [];
+        $newsCommentList = [];
 
-        foreach ($news_comment as $relation)
+        foreach ($newsComment as $relation)
         {
-            $CommentRepository = new CommentRepository();
-            $CommentRepository->id = $relation["comment_id"];
-            $getComment = (new Comment())->getComments(0, $CommentRepository);
-            array_push($news_commentList, $getComment[0]);
+            $Comment = new Comment();
+            $Comment->id = $relation["comment_id"];
+            $getComment = (new CommentRepository())->getComments(0, $Comment);
+            array_push($newsCommentList, $getComment[0]);
         }
 
         $result = [
             "news" => $getNews[0],
-            "commentList" => $news_commentList
+            "commentList" => $newsCommentList
         ];
 
         return $result;
     }
 
-    public function getRelations(int $page, ?NewsRepository $news, ?CommentRepository $comment): array
+    public function getRelations(int $page, ?News $News, ?Comment $Comment): array
     {
         $db = (new DatabaseFactory())->db;
 
         $fields = [];
-        $fields["comment_id"] = ($comment->id == null) ? "" : $comment->id;
-        $fields["news_id"] = ($news->id == null) ? "" : $news->id;
+        $fields["comment_id"] = ($Comment->id == null) ? "" : $Comment->id;
+        $fields["news_id"] = ($News->id == null) ? "" : $News->id;
 
         $likeFields = [];
 
@@ -59,18 +59,18 @@ class NewsComment
         return $relations;
     }
 
-    public function add(NewsRepository $news, CommentRepository $comment): string
+    public function add(News $News, Comment $Comment): string
     {
         $db = (new DatabaseFactory())->db;
 
-        $getComment = (new Comment())->getComments(0,$comment);
-        $getNews = (new News())->getNews(0, $news);
+        $getComment = (new CommentRepository())->getComments(0,$Comment);
+        $getNews = (new NewsRepository())->getNews(0, $News);
 
         $fields = [];
-        $fields["comment_id"] = ($comment->id) ? $comment->id : $getComment[0]["id"];
-        $fields["news_id"] = ($news->id) ? $news->id : $getNews[0]["id"];
+        $fields["comment_id"] = ($Comment->id) ? $Comment->id : $getComment[0]["id"];
+        $fields["news_id"] = ($News->id) ? $News->id : $getNews[0]["id"];
 
-        $copyRelationControl = $this->getRelations(0, $news, $comment);
+        $copyRelationControl = $this->getRelations(0, $News, $Comment);
 
         if (count($copyRelationControl) > 0)
         {
@@ -84,16 +84,16 @@ class NewsComment
         return $createResult;
     }
 
-    public function delete(NewsRepository $news, CommentRepository $comment): string
+    public function delete(News $News, Comment $Comment): string
     {
         $db = (new DatabaseFactory())->db;
 
-        $getComment = (new Comment())->getComments(0,$comment);
-        $getNews = (new News())->getNews(0, $news);
+        $getComment = (new CommentRepository())->getComments(0, $Comment);
+        $getNews = (new NewsRepository())->getNews(0, $News);
 
         $fields = [];
-        $fields["comment_id"] = ($comment->id) ? $comment->id : $getComment[0]["id"];
-        $fields["news_id"] = ($news->id) ? $news->id : $getNews[0]["id"];
+        $fields["comment_id"] = ($Comment->id) ? $Comment->id : $getComment[0]["id"];
+        $fields["news_id"] = ($News->id) ? $News->id : $getNews[0]["id"];
 
         $deleteResult = $db->delete("news_comment", $fields);
 

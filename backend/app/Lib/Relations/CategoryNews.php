@@ -9,48 +9,54 @@ use App\Lib\News\NewsRepository;
 
 class CategoryNews
 {
-    public function getCategory_NewsList(int $page, ?CategoryRepository $category, ?NewsRepository $NewsRepository): array
+    public function getCategoryNewsList(int $page, ?Category $Category, ?News $News): array
     {
         $db = (new DatabaseFactory())->db;
 
-        $fields = ($category->id == null) ? [] : ["category_id"=>$category->id];
+        $fields = ($Category->id == null) ? [] : ["category_id"=>$Category->id];
 
-        $getCategory = (new Category())->getCategories(0,$category);
+        $getCategory = (new CategoryRepository())->getCategories(0,$Category);
 
-        if ($category->id == null)
+        if ($Category->id == null)
         {
             $fields = ($getCategory[0]["id"]) ? ["category_id"=>$getCategory[0]["id"]] : [];
         }
-        $categoryName = ($category->name) ? $category->name : $getCategory[0]["name"];
+        $categoryName = ($Category->name) ? $Category->name : $getCategory[0]["name"];
+
+        if ($News->id == null)
+        {
+            $fields = ($getCategory[0]["id"]) ? ["category_id"=>$getCategory[0]["id"]] : [];
+        }
+
 
         $likeFields = [];
 
-        $category_news = $db->findAll("category_news",$fields,$page, $likeFields);
+        $categoryNews = $db->findAll("category_news",$fields,$page, $likeFields);
 
-        $category_newsList = [];
+        $categoryNewsList = [];
 
-        foreach ($category_news as $relation)
+        foreach ($categoryNews as $relation)
         {
-            $NewsRepository->id = $relation["news_id"];
-            $getNews = (new News())->getNews(0, $NewsRepository);
-            array_push($category_newsList, $getNews[0]);
+            $News->id = $relation["news_id"];
+            $getNews = (new NewsRepository())->getNews(0, $News);
+            array_push($categoryNewsList, $getNews[0]);
         }
 
         $result = [
             "category" => $getCategory[0],
-            "newsList" => $category_newsList
+            "newsList" => $categoryNewsList
         ];
 
         return $result;
     }
 
-    public function getRelations(int $page, ?CategoryRepository $category, ?NewsRepository $news): array
+    public function getRelations(int $page, ?Category $Category, ?News $News): array
     {
         $db = (new DatabaseFactory())->db;
 
         $fields = [];
-        $fields["category_id"] = ($category->id == null) ? "" : $category->id;
-        $fields["news_id"] = ($news->id == null) ? "" : $news->id;
+        $fields["category_id"] = ($Category->id == null) ? "" : $Category->id;
+        $fields["news_id"] = ($News->id == null) ? "" : $News->id;
 
         $likeFields = [];
 
@@ -59,18 +65,18 @@ class CategoryNews
         return $relations;
     }
 
-    public function add(CategoryRepository $category, NewsRepository $news): string
+    public function add(Category $Category, News $News): string
     {
         $db = (new DatabaseFactory())->db;
 
-        $getCategory = (new Category())->getCategories(0,$category);
-        $getNews = (new News())->getNews(0, $news);
+        $getCategory = (new CategoryRepository())->getCategories(0,$Category);
+        $getNews = (new NewsRepository())->getNews(0, $News);
 
         $fields = [];
-        $fields["category_id"] = ($category->id) ? $category->id : $getCategory[0]["id"];
-        $fields["news_id"] = ($news->id) ? $news->id : $getNews[0]["id"];
+        $fields["category_id"] = ($Category->id) ? $Category->id : $getCategory[0]["id"];
+        $fields["news_id"] = ($News->id) ? $News->id : $getNews[0]["id"];
 
-        $copyRelationControl = $this->getRelations(0,$category, $news);
+        $copyRelationControl = $this->getRelations(0,$Category, $News);
 
         if (count($copyRelationControl) > 0)
         {
@@ -84,16 +90,16 @@ class CategoryNews
         return $createResult;
     }
 
-    public function delete(CategoryRepository $category, NewsRepository $news): string
+    public function delete(Category $Category, News $News): string
     {
         $db = (new DatabaseFactory())->db;
 
-        $getCategory = (new Category())->getCategories(0,$category);
-        $getNews = (new News())->getNews(0, $news);
+        $getCategory = (new CategoryRepository())->getCategories(0,$Category);
+        $getNews = (new NewsRepository())->getNews(0, $News);
 
         $fields = [];
-        $fields["category_id"] = ($category->id) ? $category->id : $getCategory[0]["id"];
-        $fields["news_id"] = ($news->id) ? $news->id : $getNews[0]["id"];
+        $fields["category_id"] = ($Category->id) ? $Category->id : $getCategory[0]["id"];
+        $fields["news_id"] = ($News->id) ? $News->id : $getNews[0]["id"];
 
         $deleteResult = $db->delete("category_news", $fields);
 

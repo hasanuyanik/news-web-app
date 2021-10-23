@@ -5,10 +5,10 @@ use App\Lib\Auth\Token\Token;
 use App\Lib\Auth\Token\TokenRepository;
 use App\Lib\Category\Category;
 use App\Lib\Category\CategoryRepository;
-use App\Lib\News\NewsRepository;
-use App\Lib\Relations\Category_News;
-use App\Lib\Relations\Category_User;
-use App\Lib\Relations\Follow_Category;
+use App\Lib\News\News;
+use App\Lib\Relations\CategoryNews;
+use App\Lib\Relations\CategoryUser;
+use App\Lib\Relations\FollowCategory;
 use App\Lib\User\User;
 use App\Lib\User\UserRepository;
 use Symfony\Component\Validator\Constraints\Length;
@@ -27,12 +27,12 @@ class CategoryController extends BaseController
 
     public function getCategories(int $page)
     {
-        $category = new Category();
-        $categoryRepository = new CategoryRepository();
+        $Category = new Category();
+        $CategoryRepository = new CategoryRepository();
         header('Content-Type: application/json; charset=utf-8',response_code: 201);
 
         $result = [
-            "content" => $category->getCategories($page, $categoryRepository)
+            "content" => $CategoryRepository->getCategories($page, $Category)
         ];
 
         echo json_encode($result);
@@ -48,21 +48,21 @@ class CategoryController extends BaseController
 
             $page = ($jsonData["page"]) ? $jsonData["page"] : null;
 
-            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
+            $categoryName = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
             $title = ($jsonData["title"]) ? $jsonData["title"] : null;
             $description = ($jsonData["description"]) ? $jsonData["description"] : null;
             $content = ($jsonData["content"]) ? $jsonData["content"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
-            $category_news = new Category_News();
-            $categoryRepository = new CategoryRepository();
-            $newsRepository = new NewsRepository();
+            $CategoryNews = new CategoryNews();
+            $Category = new Category();
+            $News = new News();
             $NewsController = new NewsController();
 
-            $categoryRepository->name = $category_name;
-            $newsRepository->title = $title;
-            $newsRepository->description = $description;
-            $newsRepository->content = $content;
+            $Category->name = $categoryName;
+            $News->title = $title;
+            $News->description = $description;
+            $News->content = $content;
 
             $NewsController->TitleValidation($title);
             $NewsController->DescriptionValidation($description);
@@ -77,24 +77,17 @@ class CategoryController extends BaseController
                 exit;
             }
 
-            $tokenControl = new Token();
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
+            $tokenO->token = $token;
             $UserController = new UserController();
 
-            if ($tokenControl->tokenControl($tokenRepository) == false)
-            {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
-
-                echo json_encode($UserController->errors);
-
-                exit;
-            }
+            $tokenRepository->tokenControl($tokenO, $UserController->errors);
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
             $result = [
-                "content" => $category_news->getCategory_NewsList($page, $categoryRepository, $newsRepository)
+                "content" => $CategoryNews->getCategory_NewsList($page, $Category, $News)
             ];
 
             echo json_encode($result);
