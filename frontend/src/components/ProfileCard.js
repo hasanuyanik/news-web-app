@@ -114,6 +114,7 @@ const ProfileCard = props => {
     const onClickCancelDeleteUser = async () => {
         const body = {
             username,
+            authUser: props.user.username,
             token: props.token
         };
         await cancelDeleteUser(body);
@@ -122,6 +123,7 @@ const ProfileCard = props => {
 
     const pendingApiCall = useApiProgress('put','/api/user/' + username);
     const { fullname: fullnameError, email: emailError, phone: phoneError} = validationErrors;
+    const { deleteRequest: delRequest } = props;
 
     return (
         <div className="card text-center">
@@ -194,20 +196,19 @@ const ProfileCard = props => {
                                 {t('Edit')}
                             </button>
                             <div className="pt-2">
-                                {!props.deleteRequest && (
+                                {!delRequest && (
                                     <button className="btn btn-danger d-inline-flex" onClick={() => setModalVisible(true)}>
                                         <i className="material-icons">directions_run</i>
                                         {t('Delete My Account')}
                                     </button>
                                 )}
-                                {props.deleteRequest && (
+                                {delRequest && (
                                     <button className="btn btn-primary d-inline-flex" onClick={onClickCancelDeleteUser}>
                                         <i className="material-icons">directions_run</i>
                                         {t('Cancel Account Deletion')}
                                     </button>
                                 )}
                             </div>
-
                         </>
                     )}
 
@@ -216,7 +217,7 @@ const ProfileCard = props => {
                     <h6 title="Last Update"><i className="material-icons">update</i>{updated_at}</h6>
                 </div>
             </div>
-            {!props.deleteRequest && (
+            {!delRequest && (
                 <Modal
                     visible={modalVisible}
                     title={t('Delete My Account')}

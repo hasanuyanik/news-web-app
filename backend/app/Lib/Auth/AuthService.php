@@ -43,7 +43,7 @@ class AuthService
         $User->password = $password;
 
         $UserRepository = new UserRepository();
-        $UserControl = $UserRepository->getUsers($User);
+        $UserControl = $UserRepository->findUser($User);
 
         if (count($UserControl) > 0)
         {
@@ -67,7 +67,7 @@ class AuthService
         echo json_encode($UserController->errors);
     }
 
-    public function UserPermissionControl(User $user, Permission $permission): bool
+    public function UserPermissionControl(User $user, Permission $permission): int
     {
         $Resource = new Resource();
         $Resource->resource_type = "user";
@@ -76,11 +76,9 @@ class AuthService
         $UserPermission = new ResourcePermission();
         $UserPermissionRelation = $UserPermission->getRelations(0, $Resource, $permission);
 
-        echo "1.Yol<br>";
-
         if ($UserPermissionRelation)
         {
-            return true;
+            return 1;
         }
 
         $Role = new Role();
@@ -91,7 +89,6 @@ class AuthService
         $RolePermission = new RolePermission();
         $RolePermissionRelation = $RolePermission->getRelations(0, $Role, $permission);
 
-        echo "2.Yol<br>";
         return ($RolePermissionRelation) ? 1 : 0;
     }
 

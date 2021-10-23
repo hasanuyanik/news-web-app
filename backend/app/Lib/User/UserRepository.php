@@ -32,6 +32,32 @@ class UserRepository
         return $users;
     }
 
+    public function findUser(?User $user): array
+    {
+        $db = (new DatabaseFactory())->db;
+
+        $fields = ($user->id == null) ? [] : ["id"=>$user->id];
+        $fields["username"] = $user->username;
+        $fields["password"] = $user->password;
+
+        $likeFields = [];
+        $likeFields["fullname"] = $user->fullname;
+        $likeFields["email"] = $user->email;
+        $likeFields["phone"] = $user->phone;
+
+        $columnsToFetch = [
+            "id" => "id",
+            "username" => "username",
+            "fullname" => "fullname",
+            "email" => "email",
+            "phone" => "phone"
+        ];
+
+        $users = $db->findAll("user",$fields,0, $likeFields, columnsToFetch: $columnsToFetch);
+
+        return $users;
+    }
+
     public function UniqueUsername(string $username): mixed
     {
         $db = (new DatabaseFactory())->db;

@@ -3,21 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controller/AccountDeletionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/AccountDeletionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controller/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/PermissionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/UserAuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Permission/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Permission/Permission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Permission/PermissionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Permission/PermissionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/ResourcePermission.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/ResourcePermission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/ResourceRole.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/ResourceRole.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/RolePermission.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/RolePermission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Resource/ResourceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Resource/Resource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Role/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Role/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Role/RoleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Role/RoleRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/TokenRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/TokenRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/Log/logger.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ProfileCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ProfileCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/UserRequestItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UserRequestItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/UserRequestList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UserRequestList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/container/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/container/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +35,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -107,6 +113,7 @@
       <workItem from="1634723808137" duration="12563000" />
       <workItem from="1634806210869" duration="16641000" />
       <workItem from="1634902298733" duration="19452000" />
+      <workItem from="1634981559829" duration="25684000" />
     </task>
     <servers />
   </component>

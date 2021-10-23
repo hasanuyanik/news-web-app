@@ -11,29 +11,13 @@ class AccountDeletionController extends BaseController
 {
     public function getRequest(int $page, int $status)
     {
-            $UserWiper = new UserWiper();
-            header('Content-Type: application/json; charset=utf-8',response_code: 201);
-
-            $result = [
-                "content" => $UserWiper->getRequests($status,$page)
-            ];
-
-            echo json_encode($result);
-    }
-
-    public function findRequest()
-    {
-
-        $user = new User();
-        $UserController = new UserController();
-
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
 
-
         if ($jsonData) {
-            $userRepository = new UserRepository();
-
+            $UserController = new UserController();
+            $User = new User();
+            $UserRepository = new UserRepository();
 
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
@@ -47,21 +31,47 @@ class AccountDeletionController extends BaseController
                 exit;
             }
 
-            $RepoForId = new UserRepository();
-            $RepoForId->username = $username;
-            $resultForId = $user->getUsers($RepoForId);
+            $User->username = $username;
+            $resultForId = $UserRepository->getUsers($User);
 
-            $userRepository->id = $resultForId[0]["id"];
+            $User->id = $resultForId[0]["id"];
 
-            $tokenControl = new Token();
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
-            $tokenRepository->resource_id = $resultForId[0]["id"];
-            $tokenRepository->resource_type = "user";
+            $tokenO->token = $token;
+            $tokenO->resource_id = $resultForId[0]["id"];
+            $tokenO->resource_type = "user";
 
-            /* \/ Yetkili kişi dışındakiler için burası */
-            /*
-            if ($tokenControl->tokenControl($tokenRepository) == false)
+            $tokenRepository->tokenControl($tokenO, $UserController->errors);
+
+            $AuthController = new AuthController();
+            $AuthController->permissionControl($username, "UserDelete");
+
+            $UserWiper = new UserWiper();
+            header('Content-Type: application/json; charset=utf-8',response_code: 201);
+
+            $result = [
+                "content" => $UserWiper->getRequests($status,$page)
+            ];
+
+            echo json_encode($result);
+        }
+    }
+
+    public function findRequest()
+    {
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
+
+        if ($jsonData) {
+            $UserController = new UserController();
+            $User = new User();
+            $UserRepository = new UserRepository();
+
+            $username = ($jsonData["username"]) ? $jsonData["username"] : null;
+            $token = ($jsonData["token"]) ? $jsonData["token"] : null;
+
+            if ($token == null)
             {
                 header('Content-Type: application/json; charset=utf-8', response_code: 401);
 
@@ -69,12 +79,22 @@ class AccountDeletionController extends BaseController
 
                 exit;
             }
-            */
-            /* /\ Yetkili kişi dışındakiler için burası */
-            $userRepository->password = $resultForId[0]["password"];
+
+            $User->username = $username;
+            $resultForId = $UserRepository->getUsers($User);
+
+            $User->id = $resultForId[0]["id"];
+
+            $tokenO = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenO->token = $token;
+            $tokenO->resource_id = $resultForId[0]["id"];
+            $tokenO->resource_type = "user";
+
+            $tokenRepository->tokenControl($tokenO, $UserController->errors);
 
             $UserWiper = new UserWiper();
-            $GetRequest = $UserWiper->findRequest($userRepository->id);
+            $GetRequest = $UserWiper->findRequest($User->id);
 
             if ($GetRequest)
             {
@@ -97,16 +117,14 @@ class AccountDeletionController extends BaseController
 
     public function addRequest()
     {
-        $user = new User();
-        $UserController = new UserController();
-
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
 
         if ($jsonData) {
-            $userRepository = new UserRepository();
+            $UserController = new UserController();
+            $User = new User();
+            $UserRepository = new UserRepository();
 
-            header('Content-Type: application/json; charset=utf-8', response_code: 406);
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
@@ -119,37 +137,27 @@ class AccountDeletionController extends BaseController
                 exit;
             }
 
-            $RepoForId = new UserRepository();
-            $RepoForId->username = $username;
-            $resultForId = $user->getUsers($RepoForId);
+            $User->username = $username;
+            $resultForId = $UserRepository->getUsers($User);
 
-            $userRepository->id = $resultForId[0]["id"];
+            $User->id = $resultForId[0]["id"];
 
-            $tokenControl = new Token();
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
-            $tokenRepository->resource_id = $resultForId[0]["id"];
-            $tokenRepository->resource_type = "user";
+            $tokenO->token = $token;
+            $tokenO->resource_id = $resultForId[0]["id"];
+            $tokenO->resource_type = "user";
 
-            if ($tokenControl->tokenControl($tokenRepository) == false)
-            {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
-
-                echo json_encode($UserController->errors);
-
-                exit;
-            }
-
-            $userRepository->password = $resultForId[0]["password"];
+            $tokenRepository->tokenControl($tokenO, $UserController->errors);
 
             $result = null;
 
             $UserWiper = new UserWiper();
-            $GetRequest = $UserWiper->findRequest($userRepository->id);
+            $GetRequest = $UserWiper->findRequest($User->id);
 
             if (!$GetRequest)
             {
-                $result = $UserWiper->add($userRepository->id);
+                $result = $UserWiper->add($User->id);
             }
             if ($result)
             {
@@ -162,25 +170,21 @@ class AccountDeletionController extends BaseController
 
             echo json_encode($result);
         }
-
     }
 
     public function deleteRequest()
     {
-        $user = new User();
-        $UserController = new UserController();
-
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
 
         if ($jsonData) {
-            $userRepository = new UserRepository();
+            $UserController = new UserController();
+            $AuthUser = new User();
+            $UserRepository = new UserRepository();
 
-            header('Content-Type: application/json; charset=utf-8', response_code: 406);
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
+            $authUsername = ($jsonData["authUser"]) ? $jsonData["authUser"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
-
-
 
             if ($token == null)
             {
@@ -191,34 +195,28 @@ class AccountDeletionController extends BaseController
                 exit;
             }
 
-            $RepoForId = new UserRepository();
-            $RepoForId->username = $username;
-            $resultForId = $user->getUsers($RepoForId);
 
-            $userRepository->id = $resultForId[0]["id"];
+            $AuthUser->username = $authUsername;
+            $resultForId = $UserRepository->getUsers($AuthUser);
 
-            $tokenControl = new Token();
+            $AuthUser->id = $resultForId[0]["id"];
+
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
-            $tokenRepository->resource_id = $resultForId[0]["id"];
-            $tokenRepository->resource_type = "user";
+            $tokenO->token = $token;
+            $tokenO->resource_id = $AuthUser->id;
+            $tokenO->resource_type = "user";
 
+            $tokenRepository->tokenControl($tokenO, $UserController->errors);
 
+            $User = new User();
+            $User->username = $username;
+            $resultForId = $UserRepository->getUsers($User);
 
-            /* \/ Yetkili kişi dışındakiler için burası */
-            /*
-            if ($tokenControl->tokenControl($tokenRepository) == false)
-            {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+            $User->id = $resultForId[0]["id"];
 
-                echo json_encode($UserController->errors);
-
-                exit;
-            }
-            */
-            /* /\ Yetkili kişi dışındakiler için burası */
             $UserWiper = new UserWiper();
-            $GetRequest = $UserWiper->findRequest($userRepository->id);
+            $GetRequest = $UserWiper->findRequest($User->id);
 
             $result = $UserWiper->delete($GetRequest[0]["id"]);
 
@@ -233,22 +231,20 @@ class AccountDeletionController extends BaseController
 
             echo json_encode($result);
         }
-
     }
 
     public function userDelete()
     {
-        $user = new User();
-        $UserController = new UserController();
-
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
 
         if ($jsonData) {
-            $userRepository = new UserRepository();
+            $UserController = new UserController();
+            $AuthUser = new User();
+            $UserRepository = new UserRepository();
 
-            header('Content-Type: application/json; charset=utf-8', response_code: 406);
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
+            $authUsername = ($jsonData["authUser"]) ? $jsonData["authUser"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
             if ($token == null)
@@ -260,36 +256,29 @@ class AccountDeletionController extends BaseController
                 exit;
             }
 
-            $RepoForId = new UserRepository();
-            $RepoForId->username = $username;
-            $resultForId = $user->getUsers($RepoForId);
+            $AuthUser->username = $authUsername;
+            $resultForId = $UserRepository->getUsers($AuthUser);
 
-            $userRepository->id = $resultForId[0]["id"];
+            $AuthUser->id = $resultForId[0]["id"];
 
-            $tokenControl = new Token();
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
-            $tokenRepository->resource_id = $resultForId[0]["id"];
-            $tokenRepository->resource_type = "user";
+            $tokenO->token = $token;
+            $tokenO->resource_id = $AuthUser->id;
+            $tokenO->resource_type = "user";
 
-            /* \/ Yetkili kişi dışındakiler için burası */
-            /*
-            if ($tokenControl->tokenControl($tokenRepository) == false)
-            {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+            $tokenRepository->tokenControl($tokenO, $UserController->errors);
 
-                echo json_encode($UserController->errors);
+            $User = new User();
+            $User->username = $username;
+            $resultForId = $UserRepository->getUsers($User);
 
-                exit;
-            }
-            */
-            /* \/ Yetkili kişi dışındakiler için burası */
+            $User->id = $resultForId[0]["id"];
 
-            $result = $user->delete($userRepository);
+            $result = $UserRepository->delete($User);
 
             $UserWiper = new UserWiper();
-
-            $result = $UserWiper->edit($userRepository->id, 1);
+            $result = $UserWiper->edit($User->id, 1);
 
             if ($result)
             {

@@ -50,6 +50,11 @@ $routes->add(
     new Route('/api/logout', ['controller' => \App\Controller\AuthController::class, 'method' => 'logout'])
 );
 
+$routes->add(
+    'user.sessionControl',
+    new Route('/api/sessionControl', ['controller' => \App\Controller\AuthController::class, 'method' => 'SessionControl'])
+);
+
 /* AuthController - End */
 
 

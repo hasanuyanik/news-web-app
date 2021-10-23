@@ -6,18 +6,51 @@ import AdminSignupPage from "../pages/AdminSignupPage";
 import AdminLoginPage from "../pages/AdminLoginPage";
 import LanguageSelector from "../components/LanguageSelector";
 import HomePage from "../pages/HomePage";
-import {HashRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
+import {HashRouter as Router, Redirect, Route, Switch, useHistory} from 'react-router-dom';
 import UserPage from '../pages/UserPage';
 import TopBar from "../components/TopBar";
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import UserList from "../components/UserList";
 import UserRequestPage from "../components/UserRequestList";
+import {cancelDeleteUser, logout, sessionControl} from "../api/apiCalls";
+import {logoutHandler} from "../redux/authActions";
 
-const App = () => { 
-  const { isLoggedIn, role } = useSelector((store) => ({
+const App = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const { isLoggedIn, role, token, username } = useSelector((store) => ({
     isLoggedIn: store.isLoggedIn,
-    role: store.role
+    role: store.role,
+    token: store.token,
+    username: store.username
   }));
+
+
+
+
+  const onLogoutSuccess = async () => {
+    const creds = {
+      token
+    }
+    dispatch(logoutHandler(creds));
+  };
+
+  const sessionController = async () => {
+    const body = {
+      username,
+      token
+    };
+    try {
+      await sessionControl(body);
+    }
+    catch (errors)
+    {
+      await onLogoutSuccess();
+    }
+  };
+
+  sessionController();
+
   return (
     <div>
       <Router>

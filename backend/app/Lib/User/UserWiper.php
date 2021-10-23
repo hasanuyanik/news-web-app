@@ -26,8 +26,8 @@ class UserWiper
             $user_id = $request["user_id"];
             $User = new User();
             $UserRepository = new UserRepository();
-            $UserRepository->id = $user_id;
-            $GetUser = $User->getUsers($UserRepository);
+            $User->id = $user_id;
+            $GetUser = $UserRepository->getUsers($User);
             $GetUser[0]["password"] = "";
             array_push($RequestAndUserList, [$request,$GetUser[0]]);
         }
@@ -64,8 +64,8 @@ class UserWiper
     public function edit(int $user_id, int $status): string
     {
         $db = (new DatabaseFactory())->db;
-        $user = new User();
-        $userRepository = new UserRepository();
+        $User = new User();
+        $UserRepository = new UserRepository();
 
         $whereFields = [];
         $whereFields["user_id"] = $user_id;
@@ -76,8 +76,8 @@ class UserWiper
 
         if ($status == 1 && $editResult)
         {
-            $userRepository->id = $user_id;
-            $editResult = $user->delete($userRepository);
+            $User->id = $user_id;
+            $editResult = $UserRepository->delete($User);
         }
 
         return $editResult;

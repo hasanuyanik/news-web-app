@@ -20,8 +20,8 @@ export const getUsers = (page = 0) => {
     return axios.get(`/api/user/${page}`);
 }
 
-export const getDeleteRequests = (page = 0, status=0) => {
-    return axios.get(`/api/userwiper/${page}/${status}`);
+export const getDeleteRequests = (page = 0, status=0, creds) => {
+    return axios.post(`/api/userwiper/${page}/${status}`, creds);
 }
 
 export const setAuthorizationHeader = ({ isLoggedIn, token }) => {
@@ -43,6 +43,10 @@ export const getDeleteRequest = (body) => {
 
 export const updateUser = (body) => {
     return axios.post(`/api/user/edit`, body);
+};
+
+export const sessionControl = (body) => {
+    return axios.post(`/api/sessionControl`, body);
 };
 
 export const deleteUserAddRequest = (body) => {

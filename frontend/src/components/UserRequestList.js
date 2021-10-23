@@ -7,7 +7,12 @@ import { useApiProgress } from '../shared/ApiProgress';
 import Spinner from './Spinner';
 
 const UserRequestList = (props) => {
-
+    const { isLoggedIn, role, token, username } = useSelector((store) => ({
+        isLoggedIn: store.isLoggedIn,
+        role: store.role,
+        token: store.token,
+        username: store.username
+    }));
     const [page, setPage] = useState({
         content:[],
         size: 3,
@@ -22,10 +27,6 @@ const UserRequestList = (props) => {
         loadUsers();
     }, []);
 
-    const { isLoggedIn} = useSelector((store) => ({
-        isLoggedIn: store.isLoggedIn
-    }));
-
     const onClickNext = () => {
         const nextPage = page.number + 1;
         loadUsers(nextPage);
@@ -36,9 +37,13 @@ const UserRequestList = (props) => {
     };
 
     const loadUsers = async page => {
+        const creds = {
+            "username": username,
+            "token": token
+        };
         setLoadFailure(false);
         try{
-            const response = await getDeleteRequests(page,0);
+            const response = await getDeleteRequests(page,0, creds);
             console.log(response);
             setPage(response.data);
         }catch(error){

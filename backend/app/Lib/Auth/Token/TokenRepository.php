@@ -17,7 +17,7 @@ class TokenRepository
 
         $result = $db->find("token",$fields);
 
-        if ($result != null)
+        if ($result == null && !is_null($errors))
         {
             header('Content-Type: application/json; charset=utf-8', response_code: 401);
 
@@ -30,6 +30,7 @@ class TokenRepository
 
     public function create(Token $token): string
     {
+
         $db = (new DatabaseFactory())->db;
 
         $fields = [];
@@ -43,7 +44,7 @@ class TokenRepository
             $generatedToken = $this->tokenGenerator();
             $token->token = $generatedToken;
 
-            $this->tokenControl($token, errors: []);
+            $this->tokenControl($token, errors: null);
 
             $newToken = $generatedToken;
             $token->token = "";

@@ -10,15 +10,17 @@ const UserRequestItem = (props) => {
     const { username, fullname } = user[1];
     const { t } = useTranslation();
     const history = useHistory();
-    const { isLoggedIn, role, token } = useSelector((store) => ({
+    const { isLoggedIn, role, authUser, token } = useSelector((store) => ({
         isLoggedIn: store.isLoggedIn,
         role: store.role,
+        authUser : store.username,
         token: store.token
     }));
 
     const onClickCancelDeleteUser = async () => {
         const body = {
             username,
+            authUser,
             token
         };
         await cancelDeleteUser(body);
@@ -27,6 +29,7 @@ const UserRequestItem = (props) => {
     const onClickDeleteUser = async () => {
         const body = {
             username,
+            authUser,
             token
         };
         await deleteUser(body);
