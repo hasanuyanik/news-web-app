@@ -20,6 +20,14 @@ export const getUsers = (page = 0) => {
     return axios.get(`/api/user/${page}`);
 }
 
+export const getCategories = (page = 0) => {
+    return axios.get(`/api/category/${page}`);
+}
+
+export const createCategory = body => {
+    return axios.post(`/api/category/add`, body);
+}
+
 export const getDeleteRequests = (page = 0, status=0, creds) => {
     return axios.post(`/api/userwiper/${page}/${status}`, creds);
 }
@@ -35,6 +43,10 @@ export const setAuthorizationHeader = ({ isLoggedIn, token }) => {
 
 export const getUser = username => {
     return axios.get(`/api/user/${username}`);
+};
+
+export const getCategory = categoryName => {
+    return axios.get(`/api/category/${categoryName}`);
 };
 
 export const getDeleteRequest = (body) => {

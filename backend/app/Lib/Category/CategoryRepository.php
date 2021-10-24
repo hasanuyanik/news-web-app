@@ -25,6 +25,7 @@ class CategoryRepository
 
         $fields = [];
         $fields["name"] = $category->name;
+        $fields["url"] = $category->url;
 
         $copyCategoryControl = $this->getCategories(0, $category);
 

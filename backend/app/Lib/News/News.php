@@ -5,6 +5,7 @@ class News
 {
     public mixed $id = "";
     public string $title = "";
+    public string $url = "";
     public string $description = "";
     public string $content = "";
     public string $img = "";

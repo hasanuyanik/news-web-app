@@ -3,17 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controller/AccountDeletionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/AccountDeletionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/Token.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/Token.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/TokenRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/Token/TokenRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/Category/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Category/Category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/Category/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Category/CategoryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Comment/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Comment/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Comment/CommentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Comment/CommentRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/News/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/News/News.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/News/NewsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/News/NewsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryNews.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryNews.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/FollowCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/FollowCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/NewsComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/NewsComment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/Log/logger.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/TopBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TopBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/container/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/container/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/authActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/authReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +65,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="ts.external.directory.path" value="C:\Users\Hasan\AppData\Local\JetBrains\PhpStorm 2021.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -112,6 +115,7 @@
       <workItem from="1634806210869" duration="16641000" />
       <workItem from="1634902298733" duration="19452000" />
       <workItem from="1634981559829" duration="29676000" />
+      <workItem from="1635068004387" duration="25609000" />
     </task>
     <servers />
   </component>

@@ -17,8 +17,10 @@ const { username, isLoggedIn, fullname, image, role, token} = useSelector((store
     token: store.token
 }));
 
-const menuArea = useRef(null);
+const menuArea1 = useRef(null);
+const menuArea2 = useRef(null);
 const [menuVisible, setMenuVisible] = useState(false);
+const [catMenuVisible ,setCatMenuVisible] = useState(false);
 
 useEffect(() => {
     document.addEventListener('click', menuClickTracker)
@@ -28,8 +30,11 @@ useEffect(() => {
 }, [isLoggedIn]);
 
 const menuClickTracker = event => {
-    if(menuArea.current == null || !menuArea.current.contains(event.target)){
+    if(menuArea1.current == null || !menuArea1.current.contains(event.target)){
         setMenuVisible(false);
+    }
+    if(menuArea2.current == null || !menuArea2.current.contains(event.target)){
+        setCatMenuVisible(false);
     }
 };
 
@@ -42,7 +47,7 @@ const onLogoutSuccess = async event => {
     dispatch(logoutHandler(creds));
 };
    
-let links = (
+let links1 = (
 <ul className="navbar-nav ms-auto">
 <li>
     <Link className="nav-link" to="/login">
@@ -62,13 +67,15 @@ let links = (
 </ul>
 );
 
+let categoryLinks = (<></>);
+
     if(isLoggedIn){
-        let dropDownClass = 'dropdown-menu p-0 shadow';
+        let dropDownClass1 = 'dropdown-menu p-0 shadow';
         if(menuVisible){
-            dropDownClass += ' show';
+            dropDownClass1 += ' show';
         }
-        links = (
-            <ul className="navbar-nav ms-auto" ref={menuArea}>
+        links1 = (
+            <ul className="navbar-nav ms-auto" ref={menuArea1}>
             <li className="nav-item dropdown">
             <div className="nav-link d-flex" style={{ cursor: 'pointer'}} onClick={()=> setMenuVisible(true)}>
                 <ProfileImageWithDefault 
@@ -77,31 +84,63 @@ let links = (
                 className="rounded-circle img-circle m-auto"/>
                 <span className="dropdown-toggle p-2">{fullname}{!fullname && `${username}-${role}`}</span>
             </div>
-            <div className={dropDownClass}>
+            <div className={dropDownClass1}>
                 {role == "user" && (
                 <Link className="dropdown-item d-flex" to={`/user/${username}`}  onClick={()=> setMenuVisible(false)}>
-                    <i className="material-icons text-info">person</i>
-                    <span className="">{t("My Profile")}</span>
+                    <i className="material-icons text-info p-1">person</i>
+                    <span className="p-1">{t("My Profile")}</span>
                 </Link>
                 )}
                 <span className="dropdown-item d-flex" onClick={onLogoutSuccess} style={{ cursor: 'pointer'}}>
-                    <i className="material-icons text-info">power_settings_new</i>
-                    <span className="">{t("Logout")}</span>
+                    <i className="material-icons text-info p-1">power_settings_new</i>
+                    <span className="p-1">{t("Logout")}</span>
                 </span> 
             </div>
             </li>
             </ul>
-        ); 
+        );
+
+        let dropDownClass2 = 'dropdown-menu p-0 shadow';
+        if(catMenuVisible){
+            dropDownClass2 += ' show';
+        }
+        categoryLinks = (
+            <ul className="navbar-nav" ref={menuArea2}>
+                <li className="nav-item dropdown">
+                    <div className="nav-link d-flex" style={{ cursor: 'pointer'}} onClick={()=> setCatMenuVisible(true)}>
+                        <i className="material-icons p-2">category</i>
+                        <span className="dropdown-toggle p-2">{t("Category Actions")}</span>
+                    </div>
+                    <div className={dropDownClass2}>
+                        {role == "user" && (
+                            <Link className="dropdown-item d-flex" to={`/category/create`}  onClick={()=> setCatMenuVisible(false)}>
+                                <i className="material-icons p-1">add_circle</i>
+                                <span className="p-1">{t("Create")}</span>
+                            </Link>
+                        )}
+                        <Link className="dropdown-item d-flex" to={`/category/assign`}  onClick={()=> setCatMenuVisible(false)}>
+                            <i className="material-icons p-1">assignment_ind</i>
+                            <span className="p-1">{t("Category Assign")}</span>
+                        </Link>
+                        <Link className="dropdown-item d-flex" to={`/category/list`}  onClick={()=> setCatMenuVisible(false)}>
+                            <i className="material-icons p-1">format_list_bulleted</i>
+                            <span className="p-1">{t("Category List")}</span>
+                        </Link>
+                    </div>
+                </li>
+            </ul>
+        );
     };
 
     return (
         <div className="shadow-sm bg-light mb-2">
             <nav className="navbar navbar-light navbar-expand container">
-                <Link className="navbar-brand d-flex" to="/">
+                {categoryLinks}
+                <Link className="navbar-brand ms-auto" to="/">
                     {/* <img src={logo} width="60" alt="User&Admin Logo"/> */}
-                    <span className="m-auto p-2">User&Admin</span>
+                    <span className="m-auto p-2">Turkish News</span>
                 </Link>
-                {links}
+                {links1}
                </nav>
         </div>
         

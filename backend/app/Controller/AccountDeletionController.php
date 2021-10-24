@@ -275,6 +275,14 @@ class AccountDeletionController extends BaseController
 
             $User->id = $resultForId[0]["id"];
 
+            $AuthController = new AuthController();
+            $AuthController->permissionControl($authUsername, "UserDelete");
+
+            $tokenToBeDelete = new Token();
+            $tokenToBeDelete->resource_id = $User->id;
+            $tokenToBeDelete->resource_type = "user";
+
+            $tokenRepository->delete($tokenToBeDelete);
             $result = $UserRepository->delete($User);
 
             $UserWiper = new UserWiper();

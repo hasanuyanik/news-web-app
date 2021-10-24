@@ -5,6 +5,7 @@ use App\Lib\Auth\Token\Token;
 use App\Lib\Auth\Token\TokenRepository;
 use App\Lib\Category\Category;
 use App\Lib\Category\CategoryRepository;
+use App\Lib\Corrector;
 use App\Lib\News\News;
 use App\Lib\Relations\CategoryNews;
 use App\Lib\Relations\CategoryUser;
@@ -21,7 +22,8 @@ class CategoryController extends BaseController
     public array $validationErrors = [];
     public array $errors = [
         "validationErrors" => [
-            "category_name" => "Unauthorized"
+            "name" => "Unauthorized",
+            "url" => "Unauthorized"
         ]
     ];
 
@@ -38,17 +40,19 @@ class CategoryController extends BaseController
         echo json_encode($result);
     }
 
-    public function getCategories_News()
+    public function getCategoriesNews()
     {
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
 
         if ($jsonData) {
+            $Validation = new \App\Lib\Validation();
+
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
             $page = ($jsonData["page"]) ? $jsonData["page"] : null;
 
-            $categoryName = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
+            $categoryName = ($jsonData["categoryName"]) ? $jsonData["categoryName"] : null;
             $title = ($jsonData["title"]) ? $jsonData["title"] : null;
             $description = ($jsonData["description"]) ? $jsonData["description"] : null;
             $content = ($jsonData["content"]) ? $jsonData["content"] : null;
@@ -68,14 +72,7 @@ class CategoryController extends BaseController
             $NewsController->DescriptionValidation($description);
             $NewsController->ContentValidation($content);
 
-            if ($NewsController->validationErrors)
-            {
-                $result = [
-                    "validationErrors" => $NewsController->validationErrors
-                ];
-                echo json_encode($result);
-                exit;
-            }
+            $Validation->ValidationErrorControl($NewsController->validationErrors);
 
             $tokenO = new Token();
             $tokenRepository = new TokenRepository();
@@ -87,14 +84,14 @@ class CategoryController extends BaseController
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
             $result = [
-                "content" => $CategoryNews->getCategory_NewsList($page, $Category, $News)
+                "content" => $CategoryNews->getCategoryNewsList($page, $Category, $News)
             ];
 
             echo json_encode($result);
         }
     }
 
-    public function getCategories_FollowingUser()
+    public function getCategoriesFollowingUser()
     {
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
@@ -104,42 +101,35 @@ class CategoryController extends BaseController
 
             $page = ($jsonData["page"]) ? $jsonData["page"] : null;
 
-            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
+            $categoryName = ($jsonData["categoryName"]) ? $jsonData["categoryName"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
-            $follow = new Follow_Category();
-            $categoryRepository = new CategoryRepository();
-            $userRepository = new UserRepository();
+            $FollowCategory = new FollowCategory();
+            $Category = new Category();
+            $User = new User();
 
-            $categoryRepository->name = $category_name;
-            $userRepository->username = $username;
+            $Category->name = $categoryName;
+            $User->username = $username;
 
-            $tokenControl = new Token();
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
+            $tokenO->token = $token;
             $UserController = new UserController();
 
-            if ($tokenControl->tokenControl($tokenRepository) == false)
-            {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
-
-                echo json_encode($UserController->errors);
-
-                exit;
-            }
+            $tokenRepository->tokenControl($tokenO, $UserController->errors);
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
             $result = [
-                "content" => $follow->getCategory_UserList($page, $categoryRepository, $userRepository)
+                "content" => $FollowCategory->getCategoryUserList($page, $Category, $User)
             ];
 
             echo json_encode($result);
         }
     }
 
-    public function getUser_FollowedCategories()
+    public function getUserFollowedCategories()
     {
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
@@ -149,167 +139,136 @@ class CategoryController extends BaseController
 
             $page = ($jsonData["page"]) ? $jsonData["page"] : null;
 
-            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
+            $categoryName = ($jsonData["categoryName"]) ? $jsonData["categoryName"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
-            $follow = new Follow_Category();
-            $categoryRepository = new CategoryRepository();
-            $userRepository = new UserRepository();
+            $FollowCategory = new FollowCategory();
+            $Category = new Category();
+            $User = new User();
 
-            $categoryRepository->name = $category_name;
-            $userRepository->username = $username;
+            $Category->name = $categoryName;
+            $User->username = $username;
 
-            $tokenControl = new Token();
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
+            $tokenO->token = $token;
             $UserController = new UserController();
 
-            if ($tokenControl->tokenControl($tokenRepository) == false)
-            {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
-
-                echo json_encode($UserController->errors);
-
-                exit;
-            }
+            $tokenRepository->tokenControl($tokenO, $UserController->errors);
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
             $result = [
-                "content" => $follow->getCategory_UserList($page, $categoryRepository, $userRepository)
+                "content" => $FollowCategory->getCategoryUserList($page, $Category, $User)
             ];
 
             echo json_encode($result);
         }
     }
 
-    public function userAssign_Category()
+    public function userAssignCategory()
     {
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
 
         if ($jsonData) {
+            $Validation = new \App\Lib\Validation();
+
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
+            $categoryName = ($jsonData["categoryName"]) ? $jsonData["categoryName"] : null;
             $process = ($jsonData["process"]) ? $jsonData["process"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
-            $category_user = new Category_User();
-            $category = new Category();
-            $user = new User();
-            $categoryRepository = new CategoryRepository();
-            $userRepository = new UserRepository();
+            $CategoryUser = new CategoryUser();
+            $Category = new Category();
+            $User = new User();
+            $CategoryRepository = new CategoryRepository();
+            $UserRepository = new UserRepository();
             $UserController = new UserController();
 
-            $categoryRepository->name = $category_name;
-            $userRepository->username = $username;
+            $Category->name = $categoryName;
+            $User->username = $username;
 
             $UserController->UsernameValidation($username);
 
-            if ($UserController->validationErrors)
-            {
-                $result = [
-                    "validationErrors" => $UserController->validationErrors
-                ];
-                echo json_encode($result);
-                exit;
-            }
+            $Validation->ValidationErrorControl($UserController->validationErrors);
 
-            $tokenControl = new Token();
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
+            $tokenO->token = $token;
             $UserController = new UserController();
 
-            if ($tokenControl->tokenControl($tokenRepository) == false)
-            {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+            $tokenRepository->tokenControl($tokenO, $UserController->errors);
 
-                echo json_encode($UserController->errors);
-
-                exit;
-            }
-
-            $categoryRepository->id = ($category->getCategories(0,$categoryRepository))[0]["id"];
-            $userRepository->id = ($user->getUsers($userRepository,0))[0]["id"];
+            $Category->id = ($CategoryRepository->getCategories(0,$Category))[0]["id"];
+            $User->id = ($UserRepository->getUsers($User,0))[0]["id"];
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
             if ($process == 1)
             {
-                $result = $category_user->add($categoryRepository, $userRepository);
+                $result = $CategoryUser->add($Category, $User);
             }
             else
             {
-                $result = $category_user->delete($categoryRepository, $userRepository);
+                $result = $CategoryUser->delete($Category, $User);
             }
             echo json_encode($result);
         }
     }
 
-    public function follow_Category()
+    public function followCategory()
     {
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
 
         if ($jsonData) {
+            $Validation = new \App\Lib\Validation();
+
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
+            $categoryName = ($jsonData["categoryName"]) ? $jsonData["categoryName"] : null;
             $process = ($jsonData["process"]) ? $jsonData["process"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
-            $category_user = new Category_User();
-            $category = new Category();
-            $user = new User();
-            $follow = new Follow_Category();
-            $categoryRepository = new CategoryRepository();
-            $userRepository = new UserRepository();
+            $CategoryUser = new CategoryUser();
+            $Category = new Category();
+            $User = new User();
+            $FollowCategory = new FollowCategory();
+            $CategoryRepository = new CategoryRepository();
+            $UserRepository = new UserRepository();
             $UserController = new UserController();
 
-            $categoryRepository->name = $category_name;
-            $userRepository->username = $username;
+            $Category->name = $categoryName;
+            $User->username = $username;
 
             $UserController->UsernameValidation($username);
 
-            if ($UserController->validationErrors)
-            {
-                $result = [
-                    "validationErrors" => $UserController->validationErrors
-                ];
-                echo json_encode($result);
-                exit;
-            }
+            $Validation->ValidationErrorControl($UserController->validationErrors);
 
-            $tokenControl = new Token();
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
+            $tokenO->token = $token;
             $UserController = new UserController();
 
-            if ($tokenControl->tokenControl($tokenRepository) == false)
-            {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+            $tokenRepository->tokenControl($tokenO, $UserController->errors);
 
-                echo json_encode($UserController->errors);
-
-                exit;
-            }
-
-            $categoryRepository->id = ($category->getCategories(0,$categoryRepository))[0]["id"];
-            $userRepository->id = ($user->getUsers($userRepository,0))[0]["id"];
+            $Category->id = ($CategoryRepository->getCategories(0,$Category))[0]["id"];
+            $User->id = ($UserRepository->getUsers($User,0))[0]["id"];
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
             if ($process == 1)
             {
-                $result = $follow->add($categoryRepository, $userRepository);
+                $result = $FollowCategory->add($Category, $User);
             }
             else
             {
-                $result = $follow->delete($categoryRepository, $userRepository);
+                $result = $FollowCategory->delete($Category, $User);
             }
             echo json_encode($result);
         }
@@ -321,46 +280,40 @@ class CategoryController extends BaseController
         $jsonData = json_decode($posts, true);
 
         if ($jsonData) {
+            $Validation = new \App\Lib\Validation();
+
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
+            $categoryName = ($jsonData["name"]) ? $jsonData["name"] : null;
+            $categoryUrl = ($jsonData["url"]) ? $jsonData["url"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
-            $category = new Category();
-            $categoryRepository = new CategoryRepository();
+            $Category = new Category();
+            $CategoryRepository = new CategoryRepository();
+            $CharCorrector = new Corrector();
 
-            $categoryRepository->name = $category_name;
 
-            $this->CategoryNameValidation($category_name);
 
-            if ($this->validationErrors)
-            {
-                $result = [
-                    "validationErrors" => $this->validationErrors
-                ];
-                echo json_encode($result);
-                exit;
-            }
+            $Category->name = $categoryName;
+            $Category->url = $CharCorrector->charCorrectorSentenceToUrl($categoryUrl);
 
-            $tokenControl = new Token();
+            $this->CategoryNameValidation($categoryName);
+            $this->CategoryUrlValidation($Category->url);
+
+            $Validation->ValidationErrorControl($this->validationErrors);
+
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
+            $tokenO->token = $token;
 
-            if ($tokenControl->tokenControl($tokenRepository) == false)
-            {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+            $tokenRepository->tokenControl($tokenO, $this->errors);
 
-                echo json_encode($this->errors);
-
-                exit;
-            }
-
-            $categoryRepository->id = ($category->getCategories(0,$categoryRepository))[0]["id"];
+            $Category->id = ($CategoryRepository->getCategories(0,$Category))[0]["id"];
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
-            $result = $category->add($categoryRepository);
+            $result = $CategoryRepository->add($Category);
 
             echo json_encode($result);
         }
@@ -372,46 +325,34 @@ class CategoryController extends BaseController
         $jsonData = json_decode($posts, true);
 
         if ($jsonData) {
+            $Validation = new \App\Lib\Validation();
+
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
+            $categoryName = ($jsonData["categoryName"]) ? $jsonData["categoryName"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
-            $category = new Category();
-            $categoryRepository = new CategoryRepository();
+            $Category = new Category();
+            $CategoryRepository = new CategoryRepository();
 
-            $categoryRepository->name = $category_name;
+            $Category->name = $categoryName;
 
-            $this->CategoryNameValidation($category_name);
+            $this->CategoryNameValidation($categoryName);
 
-            if ($this->validationErrors)
-            {
-                $result = [
-                    "validationErrors" => $this->validationErrors
-                ];
-                echo json_encode($result);
-                exit;
-            }
+            $Validation->ValidationErrorControl($this->validationErrors);
 
-            $tokenControl = new Token();
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
+            $tokenO->token = $token;
 
-            if ($tokenControl->tokenControl($tokenRepository) == false)
-            {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+            $tokenRepository->tokenControl($tokenO, $this->errors);
 
-                echo json_encode($this->errors);
-
-                exit;
-            }
-
-            $categoryRepository->id = ($category->getCategories(0,$categoryRepository))[0]["id"];
+            $Category->id = ($CategoryRepository->getCategories(0,$Category))[0]["id"];
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
-            $result = $category->edit($categoryRepository);
+            $result = $CategoryRepository->edit($Category);
 
             echo json_encode($result);
         }
@@ -423,56 +364,44 @@ class CategoryController extends BaseController
         $jsonData = json_decode($posts, true);
 
         if ($jsonData) {
+            $Validation = new \App\Lib\Validation();
+
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
+            $categoryName = ($jsonData["categoryName"]) ? $jsonData["categoryName"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
-            $category = new Category();
-            $categoryRepository = new CategoryRepository();
+            $Category = new Category();
+            $CategoryRepository = new CategoryRepository();
 
-            $categoryRepository->name = $category_name;
+            $Category->name = $categoryName;
 
-            $this->CategoryNameValidation($category_name);
+            $this->CategoryNameValidation($categoryName);
 
-            if ($this->validationErrors)
-            {
-                $result = [
-                    "validationErrors" => $this->validationErrors
-                ];
-                echo json_encode($result);
-                exit;
-            }
+            $Validation->ValidationErrorControl($this->validationErrors);
 
-            $tokenControl = new Token();
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
+            $tokenO->token = $token;
 
-            if ($tokenControl->tokenControl($tokenRepository) == false)
-            {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+            $tokenRepository->tokenControl($tokenO, $this->errors);
 
-                echo json_encode($this->errors);
-
-                exit;
-            }
-
-            $categoryRepository->id = ($category->getCategories(0,$categoryRepository))[0]["id"];
+            $Category->id = ($CategoryRepository->getCategories(0,$Category))[0]["id"];
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
-            $result = $category->delete($categoryRepository);
+            $result = $CategoryRepository->delete($Category);
 
             echo json_encode($result);
         }
     }
 
-    public function CategoryNameValidation($category_name)
+    public function CategoryNameValidation($categoryName)
     {
 
         $validator = Validation::createValidator();
-        $violations = $validator->validate($category_name, [
+        $violations = $validator->validate($categoryName, [
             new Length(['min' => 4,'max' => 50]),
             new NotNull(),
             new Required()
@@ -482,7 +411,27 @@ class CategoryController extends BaseController
 
             foreach ($violations as $violation)
             {
-                $this->validationErrors["category_name"] = $violation->getMessage();
+                $this->validationErrors["name"] = $violation->getMessage();
+            }
+
+        }
+    }
+
+    public function CategoryUrlValidation($categoryUrl)
+    {
+
+        $validator = Validation::createValidator();
+        $violations = $validator->validate($categoryUrl, [
+            new Length(['min' => 3,'max' => 150]),
+            new NotNull(),
+            new Required()
+        ]);
+
+        if (0 !== count($violations)) {
+
+            foreach ($violations as $violation)
+            {
+                $this->validationErrors["url"] = $violation->getMessage();
             }
 
         }

@@ -1,5 +1,5 @@
 import * as ACTIONS from './Contants';
-import { login, signup, logout, loginAdmin, signupAdmin } from '../api/apiCalls';
+import {login, signup, logout, loginAdmin, signupAdmin, createCategory} from '../api/apiCalls';
 
 export const logoutSuccess = () => {
     return {
@@ -71,6 +71,13 @@ export const signupAdminHandler = user => {
     return async function (dispatch) {
         const response = await signupAdmin(user);
         dispatch(loginAdminHandler(user));
+        return response;
+    }
+};
+
+export const createCategoryHandler = category => {
+    return async function (dispatch) {
+        const response = await createCategory(category);
         return response;
     }
 };

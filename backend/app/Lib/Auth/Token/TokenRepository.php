@@ -67,7 +67,7 @@ class TokenRepository
         $db = (new DatabaseFactory())->db;
 
         $fields = [];
-        if ($token->token)
+        if ($token->token != "")
         {
             $fields["token"] = $token->token;
         }

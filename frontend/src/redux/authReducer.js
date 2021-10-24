@@ -3,8 +3,9 @@ import * as ACTIONS from './Contants';
 const defaultState = {
     isLoggedIn: false,
     username: undefined,
-    displayName: undefined,
-    image: undefined,
+    fullname: undefined,
+    email: undefined,
+    phone: undefined,
     password: undefined
   };
   

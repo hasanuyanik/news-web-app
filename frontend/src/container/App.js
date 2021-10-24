@@ -11,9 +11,11 @@ import UserPage from '../pages/UserPage';
 import TopBar from "../components/TopBar";
 import {useDispatch, useSelector} from 'react-redux';
 import UserList from "../components/UserList";
+import CategoryList from "../components/CategoryList";
 import UserRequestPage from "../components/UserRequestList";
 import {cancelDeleteUser, logout, sessionControl} from "../api/apiCalls";
 import {logoutHandler} from "../redux/authActions";
+import CategoryCreateForm from "../components/CategoryCreateForm";
 
 const App = () => {
   const history = useHistory();
@@ -59,6 +61,15 @@ const App = () => {
 
         <Route exact path="/" component={UserList}/>
 
+          {isLoggedIn && (
+              <Route path="/category/list" component={CategoryList}/>
+          )}
+          {isLoggedIn && (
+              <Route path="/category/create" component={CategoryCreateForm}/>
+          )}
+          {isLoggedIn && (
+              <Route path="/category/assign" component={UserList}/>
+          )}
         {isLoggedIn && (
         <Route path="/requests" component={UserRequestPage}/>
         )}
