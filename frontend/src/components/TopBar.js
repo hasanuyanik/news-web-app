@@ -122,7 +122,7 @@ let categoryLinks = (<></>);
                             <i className="material-icons p-1">assignment_ind</i>
                             <span className="p-1">{t("Category Assign")}</span>
                         </Link>
-                        <Link className="dropdown-item d-flex" to={`/category/list`}  onClick={()=> setCatMenuVisible(false)}>
+                        <Link className="dropdown-item d-flex" to={`/category/list/0`}  onClick={()=> setCatMenuVisible(false)}>
                             <i className="material-icons p-1">format_list_bulleted</i>
                             <span className="p-1">{t("Category List")}</span>
                         </Link>

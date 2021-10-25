@@ -62,10 +62,12 @@ const App = () => {
         <Route exact path="/" component={UserList}/>
 
           {isLoggedIn && (
-              <Route path="/category/list" component={CategoryList}/>
+              <>
+                <Route path="/category/list/:pageNumber" component={CategoryList}/>
+              </>
           )}
           {isLoggedIn && (
-              <Route path="/category/create" component={CategoryCreateForm}/>
+              <Route path="/category/create/" component={CategoryCreateForm}/>
           )}
           {isLoggedIn && (
               <Route path="/category/assign" component={UserList}/>

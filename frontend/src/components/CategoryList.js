@@ -5,21 +5,23 @@ import CategoryListItem from './CategoryListItem';
 import { useSelector } from 'react-redux';
 import { useApiProgress } from '../shared/ApiProgress';
 import Spinner from './Spinner';
+import {useParams} from "react-router";
+import {Link} from "react-router-dom";
 
 const CategoryList = (props) => {
-
+    const { pageNumber } = useParams();
     const [page, setPage] = useState({
         content:[],
         size: 3,
-        number: 0
+        number: pageNumber
     });
 
     const [loadFailure, setLoadFailure] = useState(false);
 
-    const pendingApiCall = useApiProgress('get','/api/category/0');
+    const pendingApiCall = useApiProgress('get',`/api/category/${page.number}`);
 
     useEffect(() => {
-        loadCategories();
+        loadCategories(page.number);
     }, []);
 
     const { isLoggedIn, admin} = useSelector((store) => ({
@@ -38,6 +40,8 @@ const CategoryList = (props) => {
     const loadCategories = async page => {
         setLoadFailure(false);
         try{
+            console.log("PageNumber:");
+            console.log(page);
             const response = await getCategories(page);
             console.log(response);
             setPage(response.data);
@@ -51,16 +55,12 @@ const CategoryList = (props) => {
 
     let actionDiv = (
         <div>
-            {first == false && <button
-                className="btn btn-sm btn-light"
-                onClick={onClickPrevious}>
-                {t('Previous')}
-            </button>}
-            {last == false && <button
-                className="btn btn-sm btn-light float-right"
-                onClick={onClickNext}>
-                {t('Next')}
-            </button>}
+            <Link to={`/category/list/${first}`} className="btn btn-outline-secondary m-2" title={t('Previous')} >
+                {t(`Previous`)}
+            </Link>
+            <Link to={`/category/list/${last}`} className="btn btn-outline-secondary m-2" title={t('Next')} >
+                {t(`Next`)}
+            </Link>
         </div>
     );
     if(pendingApiCall){

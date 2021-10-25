@@ -73,6 +73,10 @@ export const deleteUser = (body) => {
     return axios.post(`/api/userwiper/userdelete`, body);
 };
 
+export const deleteCategory = (body) => {
+    return axios.post(`/api/category/delete`, body);
+};
+
 export const changeLanguage = language => {
     axios.defaults.headers['accept-language'] = language;
 };

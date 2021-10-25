@@ -31,9 +31,7 @@ class UserController extends BaseController
         $userRepository = new UserRepository();
 
         header('Content-Type: application/json; charset=utf-8',response_code: 201);
-        $result = [
-            "content" => $userRepository->getUsers($user, $page)
-        ];
+        $result = $userRepository->getUsers($user, $page);
 
         echo json_encode($result);
 
@@ -172,11 +170,11 @@ class UserController extends BaseController
         $user->username = $name;
         header('Content-Type: application/json; charset=utf-8',response_code: 201);
 
-        $result = $userRepository->getUsers($user);
+        $result = $userRepository->findUser($user);
 
-        $result[0]["id"] = "";
+        $result["id"] = "";
 
-        echo json_encode($result);
+        echo json_encode([$result]);
     }
 
     /*

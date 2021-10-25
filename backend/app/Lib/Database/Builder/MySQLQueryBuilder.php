@@ -22,6 +22,13 @@ class MySQLQueryBuilder implements QueryBuilderI
         return $this;
     }
 
+    public function dataCount(string $table, ?array $whereFields): QueryBuilderI
+    {
+        $where = (count($whereFields)) ? " WHERE ".$this->serialize("where", $whereFields) : "";
+        $this->patch .= "SELECT count(id) as 'dataCount' FROM ".$table.$where;
+        return $this;
+    }
+
     public function update(string $table, array $setFields, array $whereFields): QueryBuilderI
     {
         $set = (count($setFields)) ? " SET ".$this->serialize("set", $setFields) : "";

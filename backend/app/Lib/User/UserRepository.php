@@ -38,7 +38,6 @@ class UserRepository
 
         $fields = ($user->id == null) ? [] : ["id"=>$user->id];
         $fields["username"] = $user->username;
-        $fields["password"] = $user->password;
 
         $likeFields = [];
         $likeFields["fullname"] = $user->fullname;
@@ -53,7 +52,7 @@ class UserRepository
             "phone" => "phone"
         ];
 
-        $users = $db->findAll("user",$fields,0, $likeFields, columnsToFetch: $columnsToFetch);
+        $users = $db->find("user",$fields, columnsToFetch: $columnsToFetch);
 
         return $users;
     }

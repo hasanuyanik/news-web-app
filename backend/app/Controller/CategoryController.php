@@ -33,9 +33,7 @@ class CategoryController extends BaseController
         $CategoryRepository = new CategoryRepository();
         header('Content-Type: application/json; charset=utf-8',response_code: 201);
 
-        $result = [
-            "content" => $CategoryRepository->getCategories($page, $Category)
-        ];
+        $result = $CategoryRepository->getCategories($page, $Category);
 
         echo json_encode($result);
     }
@@ -368,7 +366,8 @@ class CategoryController extends BaseController
 
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $categoryName = ($jsonData["categoryName"]) ? $jsonData["categoryName"] : null;
+            $categoryName = ($jsonData["name"]) ? $jsonData["name"] : null;
+            $categoryUrl = ($jsonData["url"]) ? $jsonData["url"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 

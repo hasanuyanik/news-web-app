@@ -6,6 +6,7 @@ interface QueryBuilderI
 {
     public function add(string $table, array $fields): QueryBuilderI;
     public function select(string $table, ?array $whereFields, ?array $columnsToFetch): QueryBuilderI;
+    public function dataCount(string $table, ?array $whereFields): QueryBuilderI;
     public function update(string $table, array $setFields, array $whereFields): QueryBuilderI;
     public function delete(string $table, array $whereFields): QueryBuilderI;
     public function limit(int $start, int $end): QueryBuilderI;

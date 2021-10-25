@@ -20,8 +20,13 @@ class UserWiper
 
         $requests = $db->findAll("userwiper",$fields,$page);
 
+        $lastPage = $requests["lastPage"];
+        $contents = $requests["contents"];
+
+        var_dump($requests);
+
         $RequestAndUserList = [];
-        foreach ($requests as $request)
+        foreach ($contents as $request)
         {
             $user_id = $request["user_id"];
             $User = new User();

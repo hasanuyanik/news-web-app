@@ -33,6 +33,21 @@ class MySQLDatabase implements DatabaseI
         $start = $page*$this->dataPerPage;
         $end = $start+$this->dataPerPage;
 
+        $CountQueryBuilder = new MySQLQueryBuilder();
+        $CountQueryBuilder->dataCount($table,$fields)->like($likeFields);
+        $CountQuery = $CountQueryBuilder->patch;
+
+        $countStatement = $this->db->prepare(query: $CountQuery);
+        foreach ($fields as $param => $value) {
+            $countStatement->bindValue(":$param", $value);
+        }
+
+        $countStatement->execute();
+
+        $dataCount = $countStatement->fetch(\PDO::FETCH_ASSOC);
+
+        $pageCount = ceil($dataCount["dataCount"] / $this->dataPerPage);
+
         $QueryBuilder = new MySQLQueryBuilder();
         $QueryBuilder->select($table,$fields,$columnsToFetch)->like($likeFields)->limit($start,$end);
 
@@ -45,7 +60,12 @@ class MySQLDatabase implements DatabaseI
 
         $statement->execute();
 
-        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+        $content = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        return [
+            "lastPage" => $pageCount,
+            "content" => $content
+        ];
     }
 
     public function find(string $table, array $fields, ?array $columnsToFetch = []): mixed

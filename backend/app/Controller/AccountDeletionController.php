@@ -32,7 +32,7 @@ class AccountDeletionController extends BaseController
             }
 
             $User->username = $username;
-            $resultForId = $UserRepository->getUsers($User);
+            $resultForId = $UserRepository->findUser($User);
 
             $User->id = $resultForId[0]["id"];
 
@@ -81,14 +81,14 @@ class AccountDeletionController extends BaseController
             }
 
             $User->username = $username;
-            $resultForId = $UserRepository->getUsers($User);
+            $resultForId = $UserRepository->findUser($User);
 
-            $User->id = $resultForId[0]["id"];
+            $User->id = $resultForId["id"];
 
             $tokenO = new Token();
             $tokenRepository = new TokenRepository();
             $tokenO->token = $token;
-            $tokenO->resource_id = $resultForId[0]["id"];
+            $tokenO->resource_id = $resultForId["id"];
             $tokenO->resource_type = "user";
 
             $tokenRepository->tokenControl($tokenO, $UserController->errors);
@@ -138,14 +138,14 @@ class AccountDeletionController extends BaseController
             }
 
             $User->username = $username;
-            $resultForId = $UserRepository->getUsers($User);
+            $resultForId = $UserRepository->findUser($User);
 
-            $User->id = $resultForId[0]["id"];
+            $User->id = $resultForId["id"];
 
             $tokenO = new Token();
             $tokenRepository = new TokenRepository();
             $tokenO->token = $token;
-            $tokenO->resource_id = $resultForId[0]["id"];
+            $tokenO->resource_id = $resultForId["id"];
             $tokenO->resource_type = "user";
 
             $tokenRepository->tokenControl($tokenO, $UserController->errors);
@@ -197,9 +197,9 @@ class AccountDeletionController extends BaseController
 
 
             $AuthUser->username = $authUsername;
-            $resultForId = $UserRepository->getUsers($AuthUser);
+            $resultForId = $UserRepository->findUser($AuthUser);
 
-            $AuthUser->id = $resultForId[0]["id"];
+            $AuthUser->id = $resultForId["id"];
 
             $tokenO = new Token();
             $tokenRepository = new TokenRepository();

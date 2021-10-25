@@ -41,7 +41,7 @@ const CategoryCreateForm = (props) => {
         };
         try{
             await dispatch(createCategoryHandler(body));
-            push('/category/list');
+            push('/category/list/0');
         }catch(error){
             if(error.response.data.validationErrors){
                 setErrors(error.response.data.validationErrors);
