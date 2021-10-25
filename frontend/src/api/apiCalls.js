@@ -28,6 +28,10 @@ export const createCategory = body => {
     return axios.post(`/api/category/add`, body);
 }
 
+export const editCategory = body => {
+    return axios.post(`/api/category/edit`, body);
+}
+
 export const getDeleteRequests = (page = 0, status=0, creds) => {
     return axios.post(`/api/userwiper/${page}/${status}`, creds);
 }
@@ -46,7 +50,7 @@ export const getUser = username => {
 };
 
 export const getCategory = categoryName => {
-    return axios.get(`/api/category/${categoryName}`);
+    return axios.get(`/api/category/show/${categoryName}`);
 };
 
 export const getDeleteRequest = (body) => {

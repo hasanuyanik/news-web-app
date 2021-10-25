@@ -5,8 +5,11 @@ import UserRequestItem from './UserRequestItem';
 import { useSelector } from 'react-redux';
 import { useApiProgress } from '../shared/ApiProgress';
 import Spinner from './Spinner';
+import {useParams} from "react-router";
+import {Link} from "react-router-dom";
 
 const UserRequestList = (props) => {
+    const { pageNumber } = useParams();
     const { isLoggedIn, role, token, username } = useSelector((store) => ({
         isLoggedIn: store.isLoggedIn,
         role: store.role,
@@ -16,15 +19,15 @@ const UserRequestList = (props) => {
     const [page, setPage] = useState({
         content:[],
         size: 3,
-        number: 0
+        number: pageNumber
     });
 
     const [loadFailure, setLoadFailure] = useState(false);
 
-    const pendingApiCall = useApiProgress('get','/api/userwiper/0/0');
+    const pendingApiCall = useApiProgress('get',`/api/userwiper/${page.number}/0`);
 
     useEffect(() => {
-        loadUsers();
+        loadUsers(page.number);
     }, []);
 
     const onClickNext = () => {
@@ -56,16 +59,12 @@ const UserRequestList = (props) => {
 
     let actionDiv = (
         <div>
-            {first == false && <button
-                className="btn btn-sm btn-light"
-                onClick={onClickPrevious}>
-                {t('Previous')}
-            </button>}
-            {last == false && <button
-                className="btn btn-sm btn-light float-right"
-                onClick={onClickNext}>
-                {t('Next')}
-            </button>}
+            <Link to={`/category/list/${first}`} className="btn btn-outline-secondary m-2" title={t('Previous')} >
+                {t(`Previous`)}
+            </Link>
+            <Link to={`/category/list/${last}`} className="btn btn-outline-secondary m-2" title={t('Next')} >
+                {t(`Next`)}
+            </Link>
         </div>
     );
     if(pendingApiCall){
@@ -80,7 +79,7 @@ const UserRequestList = (props) => {
                 <h3 className="card-header text-center">{t(`Users's Delete Requests`)}</h3>
                 <div className="list-group-flush">
                     {users.map(user => (
-                            <UserRequestItem key={user[1].username} user={user} />
+                            <UserRequestItem key={user.username} user={user} />
                         )
                     )}
                 </div>

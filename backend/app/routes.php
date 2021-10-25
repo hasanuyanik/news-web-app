@@ -97,6 +97,11 @@ $routes->add(
 );
 
 $routes->add(
+    'category.show',
+    new Route('/api/category/show/{categoryUrl}', ['controller' => \App\Controller\CategoryController::class, 'method' => 'show'], ['categoryUrl' => '[A-Za-z0-9_-]+'])
+);
+
+$routes->add(
     'category.categories_news',
     new Route('/api/category/news', ['controller' => \App\Controller\CategoryController::class, 'method' => 'getCategories_News'])
 );

@@ -30,16 +30,17 @@ class MySQLDatabase implements DatabaseI
 
     public function findAll(string $table, array $fields, int $page, ?array $likeFields = [], ?array $columnsToFetch = []): mixed
     {
-        $start = $page*$this->dataPerPage;
-        $end = $start+$this->dataPerPage;
-
         $CountQueryBuilder = new MySQLQueryBuilder();
         $CountQueryBuilder->dataCount($table,$fields)->like($likeFields);
         $CountQuery = $CountQueryBuilder->patch;
 
+
         $countStatement = $this->db->prepare(query: $CountQuery);
         foreach ($fields as $param => $value) {
-            $countStatement->bindValue(":$param", $value);
+            if ($value != null || $value != "")
+            {
+                $countStatement->bindValue(":$param", $value);
+            }
         }
 
         $countStatement->execute();
@@ -48,6 +49,13 @@ class MySQLDatabase implements DatabaseI
 
         $pageCount = ceil($dataCount["dataCount"] / $this->dataPerPage);
 
+        $pageNumber = ($page < 1) ? 1 : (($page > $pageCount) ? $pageCount : $page);
+        $start = ($pageNumber-1)*$this->dataPerPage;
+        $end = $this->dataPerPage;
+
+        $first = ($pageNumber > 1) ? ($pageNumber-1) : "";
+        $last = ($pageCount > $pageNumber) ? $pageCount : "";
+
         $QueryBuilder = new MySQLQueryBuilder();
         $QueryBuilder->select($table,$fields,$columnsToFetch)->like($likeFields)->limit($start,$end);
 
@@ -55,7 +63,10 @@ class MySQLDatabase implements DatabaseI
 
         $statement = $this->db->prepare(query: $query);
         foreach ($fields as $param => $value) {
-            $statement->bindValue(":$param", $value);
+            if ($value != null || $value != "")
+            {
+                $statement->bindValue(":$param", $value);
+            }
         }
 
         $statement->execute();
@@ -63,8 +74,10 @@ class MySQLDatabase implements DatabaseI
         $content = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
         return [
-            "lastPage" => $pageCount,
-            "content" => $content
+            "content" => $content,
+            "pageNumber" =>  $pageNumber,
+            "first" => $first,
+            "last" => $last
         ];
     }
 
@@ -74,8 +87,12 @@ class MySQLDatabase implements DatabaseI
         $QueryBuilder->select($table,$fields,$columnsToFetch);
 
         $statement = $this->db->prepare($QueryBuilder->patch);
-        foreach ($fields as $param => $value) {
-            $statement->bindValue(":$param", $value);
+        foreach ($fields as $param => $value)
+        {
+            if ($value != null || $value != "")
+            {
+                $statement->bindValue(":$param", $value);
+            }
         }
 
         $statement->execute();

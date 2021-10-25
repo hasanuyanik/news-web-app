@@ -16,6 +16,7 @@ import UserRequestPage from "../components/UserRequestList";
 import {cancelDeleteUser, logout, sessionControl} from "../api/apiCalls";
 import {logoutHandler} from "../redux/authActions";
 import CategoryCreateForm from "../components/CategoryCreateForm";
+import CategoryEditForm from "../components/CategoryEditForm";
 
 const App = () => {
   const history = useHistory();
@@ -62,9 +63,10 @@ const App = () => {
         <Route exact path="/" component={UserList}/>
 
           {isLoggedIn && (
-              <>
                 <Route path="/category/list/:pageNumber" component={CategoryList}/>
-              </>
+          )}
+          {isLoggedIn && (
+              <Route path="/category/edit/:categoryUrl" component={CategoryEditForm}/>
           )}
           {isLoggedIn && (
               <Route path="/category/create/" component={CategoryCreateForm}/>
@@ -73,7 +75,7 @@ const App = () => {
               <Route path="/category/assign" component={UserList}/>
           )}
         {isLoggedIn && (
-        <Route path="/requests" component={UserRequestPage}/>
+        <Route path="/requests/:pageNumber" component={UserRequestPage}/>
         )}
         {!isLoggedIn && (
         <Route path="/login" component={UserLoginPage}/>

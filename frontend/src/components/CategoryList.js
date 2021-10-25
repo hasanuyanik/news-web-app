@@ -12,16 +12,17 @@ const CategoryList = (props) => {
     const { pageNumber } = useParams();
     const [page, setPage] = useState({
         content:[],
-        size: 3,
-        number: pageNumber
+        pageNumber,
+        first: 1,
+        last: 1
     });
 
     const [loadFailure, setLoadFailure] = useState(false);
 
-    const pendingApiCall = useApiProgress('get',`/api/category/${page.number}`);
+    const pendingApiCall = useApiProgress('get',`/api/category/${pageNumber}`);
 
     useEffect(() => {
-        loadCategories(page.number);
+        loadCategories(pageNumber);
     }, []);
 
     const { isLoggedIn, admin} = useSelector((store) => ({
@@ -29,21 +30,26 @@ const CategoryList = (props) => {
     }));
 
     const onClickNext = () => {
-        const nextPage = page.number + 1;
+        const { history } = props;
+        const { push } = history;
+
+        const nextPage = page.pageNumber + 1;
+        push(`/category/list/${nextPage}`);
         loadCategories(nextPage);
     };
     const onClickPrevious = () => {
-        const previousPage = page.number - 1;
+        const { history } = props;
+        const { push } = history;
+
+        const previousPage = page.pageNumber - 1;
+        push(`/category/list/${previousPage}`);
         loadCategories(previousPage);
     };
 
     const loadCategories = async page => {
         setLoadFailure(false);
         try{
-            console.log("PageNumber:");
-            console.log(page);
             const response = await getCategories(page);
-            console.log(response);
             setPage(response.data);
         }catch(error){
             setLoadFailure(true);
@@ -51,16 +57,20 @@ const CategoryList = (props) => {
     };
 
     const { t } = useTranslation();
-    const { content : categories, last, first} = page;
+    const { content : categories, first, last} = page;
 
     let actionDiv = (
         <div>
-            <Link to={`/category/list/${first}`} className="btn btn-outline-secondary m-2" title={t('Previous')} >
-                {t(`Previous`)}
-            </Link>
-            <Link to={`/category/list/${last}`} className="btn btn-outline-secondary m-2" title={t('Next')} >
-                {t(`Next`)}
-            </Link>
+            {first >= 1 && <button
+                className="btn btn-sm btn-light"
+                onClick={onClickPrevious}>
+                {t('Previous')}
+            </button>}
+            {last >= 1 && <button
+                className="btn btn-sm btn-light float-right"
+                onClick={onClickNext}>
+                {t('Next')}
+            </button>}
         </div>
     );
     if(pendingApiCall){
@@ -75,7 +85,7 @@ const CategoryList = (props) => {
                 <h3 className="card-header text-center">{t('Categories')}</h3>
                 <div className="list-group">
                     {categories.map(category => (
-                            <CategoryListItem key={category.name} category={category} />
+                            <CategoryListItem key={category.name} category={category} pageNumber={pageNumber}/>
                         )
                     )}
                 </div>

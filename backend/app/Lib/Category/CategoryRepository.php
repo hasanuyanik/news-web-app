@@ -19,6 +19,20 @@ class CategoryRepository
         return $categories;
     }
 
+    public function findCategory(?Category $category): mixed
+    {
+        $db = (new DatabaseFactory())->db;
+
+        $fields = [];
+        $fields["id"] = ($category->id == null) ? "" : $category->id;
+        $fields["name"] = ($category->name == null) ? "" : $category->name;
+        $fields["url"] = ($category->url == null) ? "" : $category->url;
+
+        $category = $db->find("category",$fields);
+
+        return $category;
+    }
+
     public function add(Category $category): string
     {
         $db = (new DatabaseFactory())->db;
@@ -27,16 +41,16 @@ class CategoryRepository
         $fields["name"] = $category->name;
         $fields["url"] = $category->url;
 
-        $copyCategoryControl = $this->getCategories(0, $category);
+        $copyCategoryControl = $this->findCategory($category);
 
-        if (count($copyCategoryControl) > 0)
+        if ($copyCategoryControl != false)
         {
             return 0;
         }
         $primaryCopyCategory = new Category();
         $primaryCopyCategory->name = $category->name;
-        $primaryCopyCategoryControl = $this->getCategories(0, $primaryCopyCategory);
-        if (count($primaryCopyCategoryControl) > 0)
+        $primaryCopyCategoryControl = $this->findCategory($primaryCopyCategory);
+        if ($primaryCopyCategoryControl != false)
         {
             return 0;
         }
@@ -56,10 +70,12 @@ class CategoryRepository
         $whereFields["id"] = $category->id;
 
         $setFields["name"] = $category->name;
+        $setFields["url"] = $category->url;
         $primaryCopyCategory = new Category();
         $primaryCopyCategory->name = $category->name;
-        $primaryCopyCategoryControl = $this->getCategories(0, $primaryCopyCategory);
-        if (count($primaryCopyCategoryControl) > 0)
+        $primaryCopyCategory->url = $category->url;
+        $primaryCopyCategoryControl = $this->findCategory($primaryCopyCategory);
+        if ($primaryCopyCategoryControl != false)
         {
             return 0;
         }

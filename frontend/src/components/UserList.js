@@ -11,7 +11,7 @@ const UserList = (props) => {
     const [page, setPage] = useState({
         content:[],
         size: 3,
-        number: 0
+        number: 1
     });
 
     const [loadFailure, setLoadFailure] = useState(false);
@@ -61,7 +61,7 @@ const UserList = (props) => {
                         onClick={onClickNext}>
                             {t('Next')}
                     </button>}
-                </div>
+        </div>
     );
     if(pendingApiCall){
         actionDiv = (

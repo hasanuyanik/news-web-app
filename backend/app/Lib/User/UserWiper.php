@@ -21,9 +21,7 @@ class UserWiper
         $requests = $db->findAll("userwiper",$fields,$page);
 
         $lastPage = $requests["lastPage"];
-        $contents = $requests["contents"];
-
-        var_dump($requests);
+        $contents = $requests["content"];
 
         $RequestAndUserList = [];
         foreach ($contents as $request)
@@ -32,12 +30,16 @@ class UserWiper
             $User = new User();
             $UserRepository = new UserRepository();
             $User->id = $user_id;
-            $GetUser = $UserRepository->getUsers($User);
-            $GetUser[0]["password"] = "";
-            array_push($RequestAndUserList, [$request,$GetUser[0]]);
+            $GetUser = $UserRepository->findUser($User);
+            $GetUser["password"] = "";
+
+            array_push($RequestAndUserList, [$request,$GetUser]);
         }
 
-        return $RequestAndUserList;
+        return [
+            "lastPage" => $lastPage,
+            "content" => $RequestAndUserList
+        ];
     }
 
     public function findRequest(int $user_id): array

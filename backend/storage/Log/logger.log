@@ -525,3 +525,223 @@
 2021-10-25 02:24:18 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 102 
 2021-10-25 02:24:36 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 102 
 2021-10-25 02:24:36 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 102 
+2021-10-25 05:22:18 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 102 
+2021-10-25 05:22:19 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 102 
+2021-10-25 05:22:30 error: Error : 2 | Message : Undefined array key "token" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 72 
+2021-10-25 05:22:45 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Auth\AuthService.php | line : 50 
+2021-10-25 05:22:45 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Auth\AuthService.php | line : 50 
+2021-10-25 05:23:00 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Auth\AuthService.php | line : 50 
+2021-10-25 05:23:00 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Auth\AuthService.php | line : 50 
+2021-10-25 05:25:09 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 86 
+2021-10-25 05:25:26 error: Error : 2 | Message : Undefined array key "token" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 72 
+2021-10-25 05:26:26 error: Error : 2 | Message : Undefined array key "token" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 72 
+2021-10-25 05:26:31 error: Error : 2 | Message : Undefined array key "token" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 72 
+2021-10-25 05:26:44 error: Error : 2 | Message : Undefined array key "token" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 72 
+2021-10-25 05:30:04 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 102 
+2021-10-25 05:30:04 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 102 
+2021-10-25 05:33:25 error: Error : 2 | Message : Undefined array key "token" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 72 
+2021-10-25 05:38:03 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 37 
+2021-10-25 05:38:03 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 37 
+2021-10-25 05:38:03 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 42 
+2021-10-25 05:38:03 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 42 
+2021-10-25 05:38:04 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 05:38:04 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 05:38:04 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 05:38:04 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 05:38:15 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 37 
+2021-10-25 05:38:15 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 37 
+2021-10-25 05:38:15 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 42 
+2021-10-25 05:38:15 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 42 
+2021-10-25 05:38:15 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 05:38:15 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 05:38:15 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 05:38:15 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 05:38:54 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 37 
+2021-10-25 05:38:54 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 37 
+2021-10-25 05:38:54 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 42 
+2021-10-25 05:38:54 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AccountDeletionController.php | line : 42 
+2021-10-25 05:38:54 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 05:38:54 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 05:38:54 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 05:38:54 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 06:41:43 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:41:43 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:41:43 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 06:41:43 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 06:42:25 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:42:25 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:42:25 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 06:42:25 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 06:43:07 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:43:07 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:43:07 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 06:43:07 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 06:44:00 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:44:00 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:44:00 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 06:44:00 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 06:46:37 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:46:37 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:46:37 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 06:46:37 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 06:49:24 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:49:25 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:49:25 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 06:49:25 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 06:49:38 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:49:38 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:49:39 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 06:49:39 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 06:50:42 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:50:42 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:50:42 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 06:50:42 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 06:51:02 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:51:02 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:51:02 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 06:51:02 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 06:52:30 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:52:30 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:52:30 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 06:52:30 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 06:52:53 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:52:53 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:52:53 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 06:52:53 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 06:53:23 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:53:23 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:53:23 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 06:53:24 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 29 
+2021-10-25 06:54:09 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:54:09 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:54:09 error: Error : 2 | Message : Undefined array key "contents" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 24 
+2021-10-25 06:54:09 error: Error : 2 | Message : foreach() argument must be of type array|object, null given | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 30 
+2021-10-25 06:54:29 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:54:29 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:56:40 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 06:56:40 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:10:05 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:10:05 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:10:45 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:10:45 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:13:48 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:13:48 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:17:25 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:17:25 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:17:25 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 32 
+2021-10-25 07:17:44 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:17:44 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:18:48 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:18:48 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:18:48 error: Error : 2 | Message : Undefined array key 1 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 33 
+2021-10-25 07:20:31 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:20:31 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:25:36 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:25:36 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:26:37 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:26:37 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:28:51 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:28:51 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:32:03 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:32:03 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:32:28 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:32:28 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:36:12 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:36:12 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:38:29 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:38:29 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:38:57 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:38:57 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:39:09 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:39:09 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:39:54 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:39:54 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:39:56 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:39:56 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:46:36 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:46:36 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:46:44 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:46:44 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:46:45 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:46:45 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:46:49 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 07:46:49 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 17:35:27 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 310 
+2021-10-25 17:35:27 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 310 
+2021-10-25 17:36:07 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 310 
+2021-10-25 17:36:07 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 310 
+2021-10-25 17:38:30 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 310 
+2021-10-25 17:38:30 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 310 
+2021-10-25 18:19:05 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 18:19:05 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 18:19:05 error: Error : 2 | Message : Undefined array key "lastPage" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 23 
+2021-10-25 18:19:06 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 18:19:06 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 18:19:06 error: Error : 2 | Message : Undefined array key "lastPage" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 23 
+2021-10-25 18:19:12 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 18:19:12 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 18:19:12 error: Error : 2 | Message : Undefined array key "lastPage" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 23 
+2021-10-25 18:41:24 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 308 
+2021-10-25 18:42:17 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 308 
+2021-10-25 18:42:48 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 308 
+2021-10-25 18:43:00 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 308 
+2021-10-25 18:43:13 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 308 
+2021-10-25 18:43:37 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 308 
+2021-10-25 18:43:47 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 308 
+2021-10-25 18:43:56 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 308 
+2021-10-25 18:44:19 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 308 
+2021-10-25 18:44:32 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 308 
+2021-10-25 18:45:22 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 308 
+2021-10-25 18:45:35 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 308 
+2021-10-25 22:56:53 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 22:56:53 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
+2021-10-25 22:56:54 error: Error : 2 | Message : Undefined array key "lastPage" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\User\UserWiper.php | line : 23 
+2021-10-26 00:03:13 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:05:28 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:06:58 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:07:45 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:08:11 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:21:36 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:21:54 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:22:25 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:31:12 error: Error : 2 | Message : Undefined array key "name" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:41:26 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 363 
+2021-10-26 00:41:26 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:41:26 error: Error : 2 | Message : Undefined array key "name" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:41:26 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 366 
+2021-10-26 00:41:26 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 366 
+2021-10-26 00:41:28 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 363 
+2021-10-26 00:41:28 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:41:28 error: Error : 2 | Message : Undefined array key "name" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:41:28 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 366 
+2021-10-26 00:41:28 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 366 
+2021-10-26 00:41:41 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 363 
+2021-10-26 00:41:41 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:41:41 error: Error : 2 | Message : Undefined array key "name" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:41:41 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 366 
+2021-10-26 00:41:41 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 366 
+2021-10-26 00:43:20 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 363 
+2021-10-26 00:43:20 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:43:20 error: Error : 2 | Message : Undefined array key "name" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:43:20 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 366 
+2021-10-26 00:43:21 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 366 
+2021-10-26 00:43:24 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 363 
+2021-10-26 00:43:24 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:43:24 error: Error : 2 | Message : Undefined array key "name" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 365 
+2021-10-26 00:43:24 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 366 
+2021-10-26 00:43:24 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 366 
+2021-10-26 00:44:01 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 366 
+2021-10-26 00:44:01 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 368 
+2021-10-26 00:44:01 error: Error : 2 | Message : Undefined array key "name" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 368 
+2021-10-26 00:44:01 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 369 
+2021-10-26 00:44:01 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 369 
+2021-10-26 00:45:25 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 366 
+2021-10-26 00:45:25 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 368 
+2021-10-26 00:45:25 error: Error : 2 | Message : Undefined array key "name" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 368 
+2021-10-26 00:45:25 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 369 
+2021-10-26 00:45:25 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 369 
+2021-10-26 00:46:08 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 366 
+2021-10-26 00:46:08 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 368 
+2021-10-26 00:46:09 error: Error : 2 | Message : Undefined array key "name" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 368 
+2021-10-26 00:46:09 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 369 
+2021-10-26 00:46:09 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 369 

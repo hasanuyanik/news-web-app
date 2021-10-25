@@ -32,14 +32,14 @@ class AccountDeletionController extends BaseController
             }
 
             $User->username = $username;
-            $resultForId = $UserRepository->findUser($User);
 
-            $User->id = $resultForId[0]["id"];
+            $resultForId = $UserRepository->findUser($User);
+            $User->id = $resultForId["id"];
 
             $tokenO = new Token();
             $tokenRepository = new TokenRepository();
             $tokenO->token = $token;
-            $tokenO->resource_id = $resultForId[0]["id"];
+            $tokenO->resource_id = $resultForId["id"];
             $tokenO->resource_type = "user";
 
             $tokenRepository->tokenControl($tokenO, $UserController->errors);
@@ -50,9 +50,7 @@ class AccountDeletionController extends BaseController
             $UserWiper = new UserWiper();
             header('Content-Type: application/json; charset=utf-8',response_code: 201);
 
-            $result = [
-                "content" => $UserWiper->getRequests($status,$page)
-            ];
+            $result = $UserWiper->getRequests($status,$page);
 
             echo json_encode($result);
         }
@@ -211,14 +209,14 @@ class AccountDeletionController extends BaseController
 
             $User = new User();
             $User->username = $username;
-            $resultForId = $UserRepository->getUsers($User);
+            $resultForId = $UserRepository->findUser($User);
 
-            $User->id = $resultForId[0]["id"];
+            $User->id = $resultForId["id"];
 
             $UserWiper = new UserWiper();
             $GetRequest = $UserWiper->findRequest($User->id);
 
-            $result = $UserWiper->delete($GetRequest[0]["id"]);
+            $result = $UserWiper->delete($GetRequest["id"]);
 
             if ($result)
             {
@@ -257,9 +255,9 @@ class AccountDeletionController extends BaseController
             }
 
             $AuthUser->username = $authUsername;
-            $resultForId = $UserRepository->getUsers($AuthUser);
+            $resultForId = $UserRepository->findUser($AuthUser);
 
-            $AuthUser->id = $resultForId[0]["id"];
+            $AuthUser->id = $resultForId["id"];
 
             $tokenO = new Token();
             $tokenRepository = new TokenRepository();
@@ -271,9 +269,9 @@ class AccountDeletionController extends BaseController
 
             $User = new User();
             $User->username = $username;
-            $resultForId = $UserRepository->getUsers($User);
+            $resultForId = $UserRepository->findUser($User);
 
-            $User->id = $resultForId[0]["id"];
+            $User->id = $resultForId["id"];
 
             $AuthController = new AuthController();
             $AuthController->permissionControl($authUsername, "UserDelete");

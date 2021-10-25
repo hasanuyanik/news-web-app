@@ -69,8 +69,6 @@ class UserController extends BaseController
 
             $Validation->ValidationErrorControl($this->validationErrors);
 
-
-
             $user->username = $username;
             $user->fullname = $fullname;
             $user->email = $email;
@@ -117,9 +115,9 @@ class UserController extends BaseController
             }
 
             $user->username = $username;
-            $resultForId = $userRepository->getUsers($user);
+            $resultForId = $userRepository->findUser($user);
 
-            $user->id = $resultForId[0]["id"];
+            $user->id = $resultForId["id"];
 
             $tokenO = new Token();
             $tokenRepository = new TokenRepository();
@@ -139,7 +137,7 @@ class UserController extends BaseController
             $user->fullname = $fullname;
             $user->email = $email;
             $user->phone = $phone;
-            $user->password = $resultForId[0]["password"];
+            $user->password = $resultForId["password"];
 
             $result = $userRepository->edit($user);
 
@@ -149,9 +147,9 @@ class UserController extends BaseController
 
                 $currentUser = new User();
                 $currentUser->username = $username;
-                $result = $userRepository->getUsers($currentUser);
+                $result = $userRepository->findUser($currentUser);
 
-                $result[0]["id"] = "";
+                $result["id"] = "";
 
                 echo json_encode($result);
 
@@ -174,7 +172,7 @@ class UserController extends BaseController
 
         $result["id"] = "";
 
-        echo json_encode([$result]);
+        echo json_encode($result);
     }
 
     /*

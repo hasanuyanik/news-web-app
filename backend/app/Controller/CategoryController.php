@@ -38,6 +38,19 @@ class CategoryController extends BaseController
         echo json_encode($result);
     }
 
+    public function show(string $categoryUrl): void
+    {
+        $Category = new Category();
+        $CategoryRepository = new CategoryRepository();
+        $Category->url = $categoryUrl;
+
+        header('Content-Type: application/json; charset=utf-8',response_code: 201);
+
+        $result = $CategoryRepository->findCategory($Category);
+
+        echo json_encode($result);
+    }
+
     public function getCategoriesNews()
     {
         $posts = file_get_contents('php://input');
@@ -201,8 +214,8 @@ class CategoryController extends BaseController
 
             $tokenRepository->tokenControl($tokenO, $UserController->errors);
 
-            $Category->id = ($CategoryRepository->getCategories(0,$Category))[0]["id"];
-            $User->id = ($UserRepository->getUsers($User,0))[0]["id"];
+            $Category->id = ($CategoryRepository->findCategory($Category))["id"];
+            $User->id = ($UserRepository->findUser($User))["id"];
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
@@ -255,8 +268,8 @@ class CategoryController extends BaseController
 
             $tokenRepository->tokenControl($tokenO, $UserController->errors);
 
-            $Category->id = ($CategoryRepository->getCategories(0,$Category))[0]["id"];
-            $User->id = ($UserRepository->getUsers($User,0))[0]["id"];
+            $Category->id = ($CategoryRepository->findCategory($Category))["id"];
+            $User->id = ($UserRepository->findUser($User))["id"];
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
@@ -291,8 +304,6 @@ class CategoryController extends BaseController
             $CategoryRepository = new CategoryRepository();
             $CharCorrector = new Corrector();
 
-
-
             $Category->name = $categoryName;
             $Category->url = $CharCorrector->charCorrectorSentenceToUrl($categoryUrl);
 
@@ -307,7 +318,7 @@ class CategoryController extends BaseController
 
             $tokenRepository->tokenControl($tokenO, $this->errors);
 
-            $Category->id = ($CategoryRepository->getCategories(0,$Category))[0]["id"];
+            $Category->id = ($CategoryRepository->findCategory($Category))["id"];
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
@@ -327,16 +338,42 @@ class CategoryController extends BaseController
 
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $categoryName = ($jsonData["categoryName"]) ? $jsonData["categoryName"] : null;
+            $categoryId = ($jsonData["id"]) ? $jsonData["id"] : null;
+            $categoryName = ($jsonData["name"]) ? $jsonData["name"] : null;
+            $categoryUrl = ($jsonData["url"]) ? $jsonData["url"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
             $Category = new Category();
             $CategoryRepository = new CategoryRepository();
+            $CharCorrector = new Corrector();
 
+            $Category->id = $categoryId;
             $Category->name = $categoryName;
+            $Category->url = $CharCorrector->charCorrectorSentenceToUrl($categoryUrl);
 
-            $this->CategoryNameValidation($categoryName);
+            $this->CategoryNameValidation($Category->name);
+            $this->CategoryUrlValidation($Category->url);
+
+            $CategoryForUnique = new Category();
+            $CategoryForUnique->name = $Category->name;
+
+            $uniqueNameControl = $CategoryRepository->findCategory($CategoryForUnique);
+
+            if ($uniqueNameControl["id"] != $Category->id)
+            {
+                $this->validationErrors["name"] = ($uniqueNameControl["name"] == $Category->name) ? "Category Name is Unique!" : $this->validationErrors["name"];
+            }
+
+            $CategoryForUnique->name = "";
+            $CategoryForUnique->url = $Category->url;
+
+            $uniqueUrlControl = $CategoryRepository->findCategory($CategoryForUnique);
+
+            if ($uniqueUrlControl["id"] != $Category->id)
+            {
+                $this->validationErrors["url"] = ($uniqueUrlControl["url"] == $Category->url) ? "Category Url is Unique!" : $this->validationErrors["url"];
+            }
 
             $Validation->ValidationErrorControl($this->validationErrors);
 
@@ -345,8 +382,6 @@ class CategoryController extends BaseController
             $tokenO->token = $token;
 
             $tokenRepository->tokenControl($tokenO, $this->errors);
-
-            $Category->id = ($CategoryRepository->getCategories(0,$Category))[0]["id"];
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
@@ -386,7 +421,7 @@ class CategoryController extends BaseController
 
             $tokenRepository->tokenControl($tokenO, $this->errors);
 
-            $Category->id = ($CategoryRepository->getCategories(0,$Category))[0]["id"];
+            $Category->id = ($CategoryRepository->findCategory($Category))["id"];
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 

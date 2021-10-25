@@ -32,17 +32,11 @@ class UserRepository
         return $users;
     }
 
-    public function findUser(?User $user): array
+    public function findUser(?User $user): mixed
     {
         $db = (new DatabaseFactory())->db;
 
-        $fields = ($user->id == null) ? [] : ["id"=>$user->id];
-        $fields["username"] = $user->username;
-
-        $likeFields = [];
-        $likeFields["fullname"] = $user->fullname;
-        $likeFields["email"] = $user->email;
-        $likeFields["phone"] = $user->phone;
+        $fields = ($user->id == null) ? (($user->username == "") ? [] : ["username" => $user->username]) : ["id" => $user->id];
 
         $columnsToFetch = [
             "id" => "id",
@@ -82,9 +76,9 @@ class UserRepository
         $fields["email"] = $user->email;
         $fields["phone"] = $user->phone;
 
-        $copyAccountControl = $this->getUsers($user);
+        $copyAccountControl = $this->findUser($user);
 
-        if (count($copyAccountControl) > 0)
+        if ($copyAccountControl != false)
         {
             return 0;
         }
@@ -92,8 +86,8 @@ class UserRepository
         $primaryCopyUser->username = $user->username;
         $primaryCopyUser->email = $user->email;
         $primaryCopyUser->phone = $user->phone;
-        $primaryCopyAccountControl = $this->getUsers($primaryCopyUser);
-        if (count($primaryCopyAccountControl) > 0)
+        $primaryCopyAccountControl = $this->findUser($primaryCopyUser);
+        if ($primaryCopyAccountControl != false)
         {
             return 0;
         }

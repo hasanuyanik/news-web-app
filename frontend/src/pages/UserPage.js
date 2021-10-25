@@ -31,7 +31,7 @@ const UserPage = () => {
             };
             try{
             const response = await getUser(username);
-            setUser(response.data[0]);
+            setUser(response.data);
             const responseRequest = await getDeleteRequest(body);
             console.log(responseRequest);
             setDeleteRequest(responseRequest.data["DeleteRequest"]);

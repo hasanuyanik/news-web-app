@@ -4,20 +4,27 @@
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/AccountDeletionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/AccountDeletionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Category/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Category/CategoryRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/MySQLQueryBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/MySQLQueryBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/QueryBuilderI.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/QueryBuilderI.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/Log/logger.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/CategoryCreateForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CategoryCreateForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/CategoryList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CategoryList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/CategoryListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CategoryListItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/TopBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TopBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/UserList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UserList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/UserRequestList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UserRequestList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/container/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/container/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/UserPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/UserPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/authActions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +125,7 @@
       <workItem from="1634902298733" duration="19452000" />
       <workItem from="1634981559829" duration="29676000" />
       <workItem from="1635068004387" duration="32972000" />
+      <workItem from="1635132069416" duration="31106000" />
     </task>
     <servers />
   </component>

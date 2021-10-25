@@ -24,8 +24,13 @@ class MySQLQueryBuilder implements QueryBuilderI
 
     public function dataCount(string $table, ?array $whereFields): QueryBuilderI
     {
-        $where = (count($whereFields)) ? " WHERE ".$this->serialize("where", $whereFields) : "";
+        $serializeWhere = $this->serialize("where", $whereFields);
+
+        $where = (count($whereFields) > 0 && $serializeWhere != "") ? " WHERE ".$serializeWhere : "";
+
         $this->patch .= "SELECT count(id) as 'dataCount' FROM ".$table.$where;
+
+
         return $this;
     }
 
@@ -47,7 +52,7 @@ class MySQLQueryBuilder implements QueryBuilderI
     public function like(array $likeFields): QueryBuilderI
     {
         $likeSerialize = $this->serialize("like", $likeFields);
-        $where = (count($likeFields)) ? ((str_contains($this->patch, " WHERE ")) ? " and ".$likeSerialize : " WHERE ".$likeSerialize) : "";
+        $where = (count($likeFields) > 0 && $likeSerialize != null) ? ((str_contains($this->patch, " WHERE ")) ? " and ".$likeSerialize : " WHERE ".$likeSerialize) : "";
         $this->patch .= $where;
         return $this;
     }
@@ -65,39 +70,29 @@ class MySQLQueryBuilder implements QueryBuilderI
 
         foreach ($fields as $column => $value)
         {
-            if ($propertiesCounter > 1)
-            {
-                if ($type == 'where' || $type == 'like')
-                {
-                    $result .= " and ";
-                }
-                else
-                {
-                    $result .= ",";
-                }
-            }
+            if ($value != null || $value != "") {
 
-            if ($type == 'value')
-            {
-                $result .= ":$column";
+                if ($propertiesCounter > 1) {
+                    if ($type == 'where' || $type == 'like') {
+                        $result .= " and ";
+                    } else {
+                        $result .= ",";
+                    }
+                }
+
+                if ($type == 'value') {
+                    $result .= ":$column";
+                } elseif ($type == 'column') {
+                    $result .= $column;
+                } elseif ($type == 'set' || $type == 'where') {
+                    $result .= "$column=:$column";
+                } elseif ($type == 'like') {
+                    $result .= "$column LIKE '%$value%'";
+                } elseif ($type == 'columnsToFetch') {
+                    $result .= "$column as $value";
+                }
+                $propertiesCounter++;
             }
-            elseif ($type == 'column')
-            {
-                $result .= $column;
-            }
-            elseif ($type == 'set' || $type == 'where')
-            {
-                $result .= "$column=:$column";
-            }
-            elseif ($type == 'like')
-            {
-                $result .= "$column LIKE '%$value%'";
-            }
-            elseif ($type == 'columnsToFetch')
-            {
-                $result .= "$column as $value";
-            }
-            $propertiesCounter++;
         }
 
         return $result;

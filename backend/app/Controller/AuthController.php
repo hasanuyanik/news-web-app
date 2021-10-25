@@ -97,9 +97,9 @@ class AuthController extends BaseController
 
 
             $User->username = $username;
-            $resultForId = $UserRepository->getUsers($User);
+            $resultForId = $UserRepository->findUser($User);
 
-            $User->id = $resultForId[0]["id"];
+            $User->id = $resultForId["id"];
 
             $tokenO = new Token();
             $tokenRepository = new TokenRepository();
@@ -121,9 +121,9 @@ class AuthController extends BaseController
         $User->username = $UserName;
 
         $UserRepository = new UserRepository();
-        $GetUser = $UserRepository->getUsers($User,0);
+        $GetUser = $UserRepository->findUser($User);
 
-        $User->id = $GetUser[0]["id"];
+        $User->id = $GetUser["id"];
 
         $Permission = new Permission();
         $Permission->name = $PermissionName;

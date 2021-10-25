@@ -12,11 +12,13 @@ const CategoryListItem = (props) => {
         role: store.role,
         token: store.token
     }));
+    const [CategoryCard, setCategoryCard] = useState(true);
     const history = useHistory();
     const { category } = props;
     const { t } = useTranslation();
     const { id, name, url, created_at } = category;
     const onClickDeleteCategory = async event => {
+        const { push } = history;
         event.preventDefault();
         const body = {
             username,
@@ -26,7 +28,8 @@ const CategoryListItem = (props) => {
         };
         try{
             await deleteCategory(body);
-            history.push('/category/list/0');
+            setCategoryCard(false);
+            push(`/category/list/${props.pageNumber}`);
         }catch(error){
             if(error.response.data.validationErrors){
                 console.log(error.response.data.validationErrors);
@@ -34,6 +37,12 @@ const CategoryListItem = (props) => {
 
         }
     }
+
+    if (CategoryCard === false)
+    {
+        return (<></>);
+    }
+
     return (
     <li className="list-group-item d-flex justify-content-between align-items-center">
         <div className="d-inline">

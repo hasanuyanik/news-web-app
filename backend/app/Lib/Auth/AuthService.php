@@ -47,13 +47,13 @@ class AuthService
 
         if (count($UserControl) > 0)
         {
-            $token->resource_id = $UserControl[0]["id"];
+            $token->resource_id = $UserControl["id"];
 
             $tokenRepository = new TokenRepository();
             $newToken = $tokenRepository->create($token);
 
-            $UserControl[0]["password"] = "";
-            $UserControl[0]["token"] = $newToken;
+            $UserControl["password"] = "";
+            $UserControl["token"] = $newToken;
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
