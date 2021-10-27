@@ -38,6 +38,36 @@ class CategoryController extends BaseController
         echo json_encode($result);
     }
 
+    public function getCategoryUserList(string $categoryUrl, int $page)
+    {
+        $Category = new Category();
+        $User = new User();
+        $CategoryUser = new CategoryUser();
+
+        $Category->url = $categoryUrl;
+
+        header('Content-Type: application/json; charset=utf-8',response_code: 201);
+
+        $result = $CategoryUser->getCategoryUserList($page, $Category, $User);
+
+        echo json_encode($result);
+    }
+
+    public function getCategoryUserRelation(string $categoryUrl, int $page)
+    {
+        $Category = new Category();
+        $User = new User();
+        $CategoryUser = new CategoryUser();
+
+        $Category->url = $categoryUrl;
+
+        header('Content-Type: application/json; charset=utf-8',response_code: 201);
+
+        $result = $CategoryUser->getRelations($page, $Category, $User);
+
+        echo json_encode($result);
+    }
+
     public function show(string $categoryUrl): void
     {
         $Category = new Category();

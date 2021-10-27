@@ -239,7 +239,7 @@ class UserController extends BaseController
 
         $validator = Validation::createValidator();
         $violations = $validator->validate($username, [
-            new Length(['min' => 6,'max' => 50]),
+            new Length(['min' => 4,'max' => 50]),
             new NotNull(),
             new Required()
         ]);

@@ -52,8 +52,14 @@ class AuthService
             $tokenRepository = new TokenRepository();
             $newToken = $tokenRepository->create($token);
 
-            $UserControl["password"] = "";
             $UserControl["token"] = $newToken;
+            $ResourceRole = new ResourceRole();
+            $Resource = new Resource();
+            $Role = new Role();
+            $Resource->resource_id = $UserControl["id"];
+            $getRole = $ResourceRole->getRole(1, $Resource, $Role);
+
+            $UserControl["role"] = $getRole->name;
 
             header('Content-Type: application/json; charset=utf-8', response_code: 201);
 

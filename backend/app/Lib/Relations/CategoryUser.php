@@ -15,13 +15,13 @@ class CategoryUser
 
         $fields = ($Category->id == null) ? [] : ["category_id"=>$Category->id];
 
-        $getCategory = (new CategoryRepository())->getCategories(0,$Category);
+        $getCategory = (new CategoryRepository())->findCategory($Category);
 
         if ($Category->id == null)
         {
-            $fields = ($getCategory[0]["id"]) ? ["category_id"=>$getCategory[0]["id"]] : [];
+            $fields = ($getCategory["id"]) ? ["category_id"=>$getCategory["id"]] : [];
         }
-        $categoryName = ($Category->name) ? $Category->name : $getCategory[0]["name"];
+        $categoryName = ($Category->name) ? $Category->name : $getCategory["name"];
 
         $likeFields = [];
 
@@ -29,20 +29,22 @@ class CategoryUser
 
         $categoryUserList = [];
 
-        foreach ($categoryUser as $relation)
+        foreach ($categoryUser["content"] as $relation)
         {
             $User = new User();
             $User->id = $relation["user_id"];
-            $getUser = (new UserRepository())->getUsers($User, 0);
+            $getUser = (new UserRepository())->findUser($User);
 
-            $getUser[0]["id"] = "";
-            $getUser[0]["password"] = "";
-            array_push($categoryUserList, $getUser[0]);
+            $getUser["id"] = "";
+            array_push($categoryUserList, $getUser);
         }
 
         $result = [
-            "category" => $getCategory[0],
-            "userList" => $categoryUserList
+            "category" => $getCategory,
+            "content" => $categoryUserList,
+            "first" => $categoryUser["first"],
+            "last" => $categoryUser["last"],
+            "pageNumber" => $categoryUser["pageNumber"]
         ];
 
         return $result;
@@ -106,8 +108,8 @@ class CategoryUser
     {
         $db = (new DatabaseFactory())->db;
 
-        $getCategory = (new CategoryRepository())->getCategories(0,$Category);
-        $getUser = (new UserRepository())->getUser($User,0);
+        $getCategory = (new CategoryRepository())->findCategory($Category);
+        $getUser = (new UserRepository())->findUser($User);
 
         $fields = [];
         $fields["category_id"] = ($Category->id) ? $Category->id : $getCategory[0]["id"];

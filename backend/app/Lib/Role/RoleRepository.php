@@ -12,7 +12,7 @@ class RoleRepository
         $fields = ($role->id == null) ? [] : ["id"=>$role->id];
 
         $likeFields = [];
-        $likeFields["name"] = $role->name;
+        $likeFields["name"] = ($role->name == "") ? "" : $role->name;
 
         $roles = $db->findAll("roles",$fields,$page, $likeFields);
 

@@ -37,8 +37,7 @@ export const loginHandler = (credentials) => {
     return async function (dispatch) {
     const response = await login(credentials);
     const authState = {
-         ...response.data,
-        role: "user"
+         ...response.data
     };
     dispatch(loginSuccess(authState));
     return response;

@@ -127,6 +127,16 @@ $routes->add(
 );
 
 $routes->add(
+    'category.assignlist',
+    new Route('/api/category/assign/list/{categoryUrl}/{page}', ['controller' => \App\Controller\CategoryController::class, 'method' => 'getCategoryUserList'], ['categoryUrl' => '[A-Za-z0-9_-]+'], ['page' => '[0-9]+'])
+);
+
+$routes->add(
+    'category.userAssignRelation',
+    new Route('/api/category/assign/relation', ['controller' => \App\Controller\CategoryController::class, 'method' => 'getCategoryUserRelation'])
+);
+
+$routes->add(
     'category.follow_category',
     new Route('/api/category/follow', ['controller' => \App\Controller\CategoryController::class, 'method' => 'followCategory'])
 );

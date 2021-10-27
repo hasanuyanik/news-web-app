@@ -16,12 +16,20 @@ export const logout = creds =>{
     return axios.post('/api/logout', creds);
 };
 
-export const getUsers = (page = 0) => {
+export const getUsers = (page = 1) => {
     return axios.get(`/api/user/${page}`);
 }
 
-export const getCategories = (page = 0) => {
+export const getCategories = (page = 1) => {
     return axios.get(`/api/category/${page}`);
+}
+
+export const getCategoryUserList = (body, page = 1) => {
+    return axios.post(`/api/category/assign/list/${body.categoryUrl}/${page}`, body);
+}
+
+export const getRelation = (body) => {
+    return axios.post(`/api/category/assign/relation`, body);
 }
 
 export const createCategory = body => {

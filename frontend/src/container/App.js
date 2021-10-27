@@ -17,6 +17,7 @@ import {cancelDeleteUser, logout, sessionControl} from "../api/apiCalls";
 import {logoutHandler} from "../redux/authActions";
 import CategoryCreateForm from "../components/CategoryCreateForm";
 import CategoryEditForm from "../components/CategoryEditForm";
+import CategoryUserList from "../components/CategoryUserList";
 
 const App = () => {
   const history = useHistory();
@@ -65,6 +66,9 @@ const App = () => {
           {isLoggedIn && (
                 <Route path="/category/list/:pageNumber" component={CategoryList}/>
           )}
+            {isLoggedIn && (
+                <Route path="/category/assign/list/:categoryUrl/:pageNumber" component={CategoryUserList}/>
+            )}
           {isLoggedIn && (
               <Route path="/category/edit/:categoryUrl" component={CategoryEditForm}/>
           )}

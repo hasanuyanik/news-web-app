@@ -49,7 +49,7 @@ class MySQLDatabase implements DatabaseI
 
         $pageCount = ceil($dataCount["dataCount"] / $this->dataPerPage);
 
-        $pageNumber = ($page < 1) ? 1 : (($page > $pageCount) ? $pageCount : $page);
+        $pageNumber = ($page < 1) ? 1 : (($page > $pageCount) ? (($pageCount > 0) ? $pageCount : 1) : $page);
         $start = ($pageNumber-1)*$this->dataPerPage;
         $end = $this->dataPerPage;
 
