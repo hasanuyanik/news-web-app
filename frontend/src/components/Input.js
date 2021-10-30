@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 
 const Input = (props) => {
-    const {label, error, name, onChange, type, defaultValue} = props
-    let className = 'form-control';
+    const {label, error, name, onChange, type, defaultValue, className} = props
+    let inputClassName = (className) ? className : 'form-control';
     if(type == 'file'){
-        className += '-file';
+        inputClassName += '-file';
     } 
     if(error != undefined){
-        className += ' is-invalid';
+        inputClassName += ' is-invalid';
     }
     
     return(
         <div className="form-group m-2">
             <label>{label}</label>
-            <input className={className} name={name} onChange={onChange} type={type} defaultValue={defaultValue}/>
+            <input className={inputClassName} name={name} onChange={onChange} type={type} defaultValue={defaultValue}/>
             <div className="invalid-feedback">{error}</div>
         </div>
     );

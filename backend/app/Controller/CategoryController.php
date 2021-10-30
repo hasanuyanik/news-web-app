@@ -55,17 +55,49 @@ class CategoryController extends BaseController
 
     public function getCategoryUserRelation(string $categoryUrl, int $page)
     {
-        $Category = new Category();
-        $User = new User();
-        $CategoryUser = new CategoryUser();
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
 
-        $Category->url = $categoryUrl;
+        if ($jsonData) {
+            $Validation = new \App\Lib\Validation();
 
-        header('Content-Type: application/json; charset=utf-8',response_code: 201);
+            header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-        $result = $CategoryUser->getRelations($page, $Category, $User);
+            $page = ($jsonData["page"]) ? $jsonData["page"] : null;
 
-        echo json_encode($result);
+            $categoryName = ($jsonData["name"]) ? $jsonData["name"] : null;
+            $categoryUrl = ($jsonData["url"]) ? $jsonData["url"] : null;
+            $username = ($jsonData["username"]) ? $jsonData["username"] : null;
+            $authUser = ($jsonData["authUser"]) ? $jsonData["authUser"] : null;
+            $token = ($jsonData["token"]) ? $jsonData["token"] : null;
+
+            $CategoryUser = new CategoryUser();
+            $Category = new Category();
+            $User = new User();
+            $UserController = new UserController();
+
+            $Category->name = $categoryName;
+            $Category->url = $categoryUrl;
+            $User->username = $username;
+
+            $UserController->UsernameValidation($username);
+
+            $Validation->ValidationErrorControl($UserController->validationErrors);
+
+            $tokenO = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenO->token = $token;
+
+            $tokenRepository->tokenControl($tokenO, $UserController->errors);
+
+            header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+            $result = [
+                "content" => $CategoryUser->getRelations($page, $Category, $User)
+            ];
+
+            echo json_encode($result);
+        }
     }
 
     public function show(string $categoryUrl): void

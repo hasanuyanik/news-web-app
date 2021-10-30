@@ -16,8 +16,8 @@ export const logout = creds =>{
     return axios.post('/api/logout', creds);
 };
 
-export const getUsers = (page = 1) => {
-    return axios.get(`/api/user/${page}`);
+export const getUsers = (page = 1, body) => {
+    return axios.post(`/api/user/${page}`, body);
 }
 
 export const getCategories = (page = 1) => {

@@ -5,6 +5,9 @@ namespace App\Controller;
 use App\Lib\Auth\Token\Token;
 use App\Lib\Auth\Token\TokenRepository;
 use App\Lib\Logger\Logger;
+use App\Lib\Relations\ResourceRole;
+use App\Lib\Resource\Resource;
+use App\Lib\Role\Role;
 use App\Lib\User\User;
 use App\Lib\User\UserRepository;
 use Symfony\Component\Validator\Constraints\Email;
@@ -27,14 +30,86 @@ class UserController extends BaseController
 
     public function getUsers(int $page)
     {
-        $user = new User();
-        $userRepository = new UserRepository();
+        $Validation = new \App\Lib\Validation();
 
-        header('Content-Type: application/json; charset=utf-8',response_code: 201);
-        $result = $userRepository->getUsers($user, $page);
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
 
-        echo json_encode($result);
+        header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
+        if ($jsonData) {
+
+            $authUsername = ($jsonData["authUser"]) ? $jsonData["authUser"] : "";
+            $username = ($jsonData["username"]) ? $jsonData["username"] : "";
+            $token = ($jsonData["token"]) ? $jsonData["token"] : "";
+
+            $tokenO = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenO->token = $token;
+            $tokenO->resource_type = "user";
+
+            $tokenRepository->tokenControl($tokenO, $this->errors);
+
+            $user = new User();
+            $authUser = new User();
+            $UserRepository = new UserRepository();
+
+            $user->username = $username;
+            $authUser->username = $authUsername;
+
+            $getAuthUser = $UserRepository->findUser($authUser);
+
+            $Role = new Role();
+            $Resource = new Resource();
+            $Resource->resource_id = $getAuthUser["id"];
+            $Resource->resource_type = "user";
+
+            $ResourceRole = new ResourceRole();
+            $getAuthRole = $ResourceRole->getRole(0, $Resource, $Role);
+
+
+            $result = $UserRepository->getUsers($user, $page);
+
+            $pageNumber = $result["pageNumber"];
+            $first = $result["first"];
+            $last = $result["last"];
+            $users = $result["content"];
+
+            $UserList = [];
+
+            if ($getAuthRole->name == "Admin" || $getAuthRole->name == "Moderator") {
+
+                foreach ($users as $userInfo)
+                {
+                    $Resource->resource_id = $userInfo["id"];
+                    $ResourceRole = new ResourceRole();
+                    $getRole = $ResourceRole->getRole(0, $Resource, $Role);
+
+                    if ($getAuthRole->name == "Admin" || ($getAuthRole->name == "Moderator" && ($getRole->name != "Admin" || $getRole->name != "Moderator")))
+                    {
+                        array_push($UserList, $userInfo);
+                    }
+                }
+
+            }
+
+            if ($result)
+            {
+                header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+            echo json_encode([
+                "content" => $UserList,
+                "pageNumber" => $pageNumber,
+                "first" => $first,
+                "last" => $last
+            ]);
+
+            exit;
+
+            }
+
+            echo json_encode($this->errors);
+        }
     }
 
     public function add()
@@ -150,6 +225,7 @@ class UserController extends BaseController
                 $result = $userRepository->findUser($currentUser);
 
                 $result["id"] = "";
+                $result["password"] = "";
 
                 echo json_encode($result);
 
@@ -171,6 +247,7 @@ class UserController extends BaseController
         $result = $userRepository->findUser($user);
 
         $result["id"] = "";
+        $result["password"] = "";
 
         echo json_encode($result);
     }

@@ -43,7 +43,8 @@ class UserRepository
             "username" => "username",
             "fullname" => "fullname",
             "email" => "email",
-            "phone" => "phone"
+            "phone" => "phone",
+            "password" => "password"
         ];
 
         $users = $db->find("user",$fields, columnsToFetch: $columnsToFetch);

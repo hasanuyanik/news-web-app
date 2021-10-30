@@ -14,7 +14,7 @@ const CategoryUserList = (props) => {
 
     const [page, setPage] = useState({
         content:[],
-        pageNumber,
+        pageNumber: 1,
         first: 1,
         last: 1
     });
@@ -30,7 +30,7 @@ const CategoryUserList = (props) => {
     const pendingApiCall = useApiProgress('get',`/api/user/${pageNumber}`);
 
     useEffect(() => {
-        loadUsers(pageNumber);
+        loadUsers(categoryUrl, pageNumber);
     }, []);
 
     const onClickNext = () => {
@@ -52,13 +52,13 @@ const CategoryUserList = (props) => {
 
     const loadUsers = async (categoryUrl, page) => {
         const body = {
-            username,
+            authUser: username,
             token,
             categoryUrl
         };
         setLoadFailure(false);
         try{
-            const response = await getUsers(page);
+            const response = await getUsers(page, body);
             console.log(response.data);
             setPage(response.data);
         }catch(error){

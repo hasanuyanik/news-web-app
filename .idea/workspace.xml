@@ -5,20 +5,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/ResourceRole.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/ResourceRole.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Role/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Role/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Role/RoleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Role/RoleRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserVM.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserVM.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/Log/logger.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CategoryListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CategoryListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TopBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TopBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/container/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/container/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/authActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CategoryUserList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CategoryUserList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CategoryUserListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CategoryUserListItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ProfileCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ProfileCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/UserList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UserList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +27,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -66,6 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="ts.external.directory.path" value="C:\Users\Hasan\AppData\Local\JetBrains\PhpStorm 2021.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -123,6 +120,8 @@
       <workItem from="1635220192205" duration="4716000" />
       <workItem from="1635247595881" duration="8365000" />
       <workItem from="1635334149942" duration="14540000" />
+      <workItem from="1635419804463" duration="11786000" />
+      <workItem from="1635480574604" duration="13094000" />
     </task>
     <servers />
   </component>

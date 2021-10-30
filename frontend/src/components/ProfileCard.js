@@ -87,7 +87,7 @@ const ProfileCard = props => {
         try{
             const response = await  updateUser(body);
             setInEditMode(false);
-            setUser(response.data[0]);
+            setUser(response.data);
             dispatch(updateSuccess(response.data));
         }catch(error){
             setValidationErrors(error.response.data.validationErrors);

@@ -10,8 +10,9 @@ const UserList = (props) => {
 
     const [page, setPage] = useState({
         content:[],
-        size: 3,
-        number: 1
+        pageNumber: 1,
+        first: 1,
+        last: 1
     });
 
     const [loadFailure, setLoadFailure] = useState(false);
@@ -22,8 +23,10 @@ const UserList = (props) => {
         loadUsers();
     }, []);
 
-    const { isLoggedIn, admin} = useSelector((store) => ({
-        isLoggedIn: store.isLoggedIn
+    const { isLoggedIn, admin, username, token} = useSelector((store) => ({
+        isLoggedIn: store.isLoggedIn,
+        username: store.username,
+        token: store.token
     }));
 
     const onClickNext = () => {
@@ -36,9 +39,13 @@ const UserList = (props) => {
     };
 
     const loadUsers = async page => {
+        const body = {
+            authUser: username,
+            token
+        };
         setLoadFailure(false);
         try{
-            const response = await getUsers(page);
+            const response = await getUsers(page, body);
             console.log(response);
             setPage(response.data);
         }catch(error){
@@ -51,12 +58,12 @@ const UserList = (props) => {
 
     let actionDiv = (
         <div>
-                    {first == false && <button
+                    {first === false && <button
                         className="btn btn-sm btn-light"
                         onClick={onClickPrevious}>
                             {t('Previous')}
                     </button>}
-                    {last == false && <button
+                    {last === false && <button
                         className="btn btn-sm btn-light float-right"
                         onClick={onClickNext}>
                             {t('Next')}
