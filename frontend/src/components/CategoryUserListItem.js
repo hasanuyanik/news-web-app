@@ -1,20 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import ProfileImageWithDefault from './ProfileImageWithDefault';
-import {getRelation, getUsers} from "../api/apiCalls";
+import {assignCategory, getRelation, getUsers} from "../api/apiCalls";
 import {useSelector} from "react-redux";
 import {useTranslation} from "react-i18next";
 import Input from "./Input";
 
 const CategoryUserListItem = (props) => {
     const { user, categoryUrl } = props;
+    const { username, fullname } = user;
     const { t } = useTranslation();
-    const [userAssign, setUserAssign] = useState({
-        username: null,
-        fullname: null,
-        assignStatus: null
-    });
-    const [assign, setAssign] = useState(false);
+    const [isAssign, setIsAssign] = useState(false);
 
     const { username:authUser, isLoggedIn, role, token} = useSelector((store) => ({
         isLoggedIn: store.isLoggedIn,
@@ -24,7 +20,7 @@ const CategoryUserListItem = (props) => {
     }));
 
     useEffect(() => {
-        relationControl();
+        relationControl(categoryUrl, username);
     }, []);
 
     const relationControl = async (categoryUrl, username) => {
@@ -32,28 +28,37 @@ const CategoryUserListItem = (props) => {
             authUser,
             token,
             username,
-            categoryUrl
+            url: categoryUrl
         };
-        setAssign(false);
+
         try{
             const response = await getRelation(body);
-            setUserAssign(response.data);
+
+            setIsAssign(true);
         }catch(error){
-            setAssign(true);
+            setIsAssign(false);
         };
     };
 
     const assignControl = async () => {
-      alert(username);
+        const body = {
+            authUser,
+            token,
+            username,
+            url: categoryUrl
+        };
+        try{
+            const response = await assignCategory(body);
+            setIsAssign(true);
+        }catch(error){
+            setIsAssign(false);
+        };
     };
-
-    const { assignStatus } = userAssign;
-    const { username, fullname } = user;
 
     const [isChecked, setIsChecked] = useState(true);
 
     return (
-    <li className="list-group-item d-flex justify-content-between align-items-center">
+    <li className={`list-group-item d-flex justify-content-between position-relative align-items-center`}>
         <ProfileImageWithDefault
             className="img-circle rounded-circle"
             width="30"
@@ -63,17 +68,16 @@ const CategoryUserListItem = (props) => {
         <div className="p-2">
             {fullname}@{username}
         </div>
-        <div className="badge badge-primary badge-pill ms-auto">
+        <div className="badge badge-primary badge-pill ms-auto text-success fw-normal">
             <blockquote className="blockquote mb-0">
                 <p className="btn-group" role="group" aria-label="Basic example">
-                    <div className="form-check form-switch text-dark">
+                    <div className="form-check form-switch">
                         <Input
                             className={"form-check-input"}
-                            label={t('Checked')} type="checkbox"
+                            label={isAssign && t("Assigned")} type="checkbox"
                             id="flexSwitchCheckChecked"
                             onChange={assignControl}
-                            onClick={() => setIsChecked(!isChecked)}
-                            checked={isChecked} />
+                            checked={isAssign} />
                     </div>
                 </p>
             </blockquote>

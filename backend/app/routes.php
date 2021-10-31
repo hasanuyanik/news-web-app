@@ -108,7 +108,7 @@ $routes->add(
 
 $routes->add(
     'category.user_assign',
-    new Route('/api/category/userassign', ['controller' => \App\Controller\CategoryController::class, 'method' => 'userAssign_Category'])
+    new Route('/api/category/userassign', ['controller' => \App\Controller\CategoryController::class, 'method' => 'userAssignCategory'])
 );
 
 $routes->add(

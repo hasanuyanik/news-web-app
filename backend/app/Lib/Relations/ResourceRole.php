@@ -18,12 +18,12 @@ class ResourceRole
         $getRole = (new RoleRepository())->getRoles(0, $role);
 
         $fields = [];
-        $fields["resource_id"] = ($resource->id) ? $resource->id : null;
+        $fields["resource_id"] = ($resource->resource_id) ? $resource->resource_id : "";
         $fields["role_id"] = ($role->id) ? $role->id : $getRole[0]["id"];
 
         $copyRelationControl = $this->getRelations(0,$resource, $role);
 
-        if (count($copyRelationControl) > 0)
+        if (count($copyRelationControl["content"]) > 0)
         {
             return 0;
         }
@@ -69,6 +69,41 @@ class ResourceRole
         $role->name = ($getRole["content"][0]["name"]) ? $getRole["content"][0]["name"] : "User";
 
         return $role;
+    }
+
+    public function getSubAuthorizationUsers(int $page, ?Resource $resource, ?Role $role): array
+    {
+        $db = (new DatabaseFactory())->db;
+
+        $fields = [];
+        $fields["role_id"] = ($role->id == null) ? "" : [">",$role->id];
+
+        $likeFields["resource_id"] = ($resource->resource_id == null) ? "" : $resource->resource_id;
+
+        $relations = $db->findAll("resource_roles",$fields,$page, $likeFields);
+
+        $pageNumber = $relations["pageNumber"];
+        $first = $relations["first"];
+        $last = $relations["last"];
+        $contents = $relations["content"];
+
+        $RelationAndUserList = [];
+        foreach ($contents as $relation)
+        {
+            $User = new User();
+            $UserRepository = new UserRepository();
+            $User->id = $relation["resource_id"];
+            $GetUser = $UserRepository->findUser($User);
+
+            array_push($RelationAndUserList, $GetUser);
+        }
+
+        return [
+            "content" => $RelationAndUserList,
+            "pageNumber" => $pageNumber,
+            "first" => $first,
+            "last" => $last
+        ];
     }
 
     public function getRoleUserList(int $page, ?Resource $resource, ?Role $role): array

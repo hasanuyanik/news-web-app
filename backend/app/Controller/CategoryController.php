@@ -53,7 +53,7 @@ class CategoryController extends BaseController
         echo json_encode($result);
     }
 
-    public function getCategoryUserRelation(string $categoryUrl, int $page)
+    public function getCategoryUserRelation()
     {
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
@@ -63,9 +63,6 @@ class CategoryController extends BaseController
 
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $page = ($jsonData["page"]) ? $jsonData["page"] : null;
-
-            $categoryName = ($jsonData["name"]) ? $jsonData["name"] : null;
             $categoryUrl = ($jsonData["url"]) ? $jsonData["url"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $authUser = ($jsonData["authUser"]) ? $jsonData["authUser"] : null;
@@ -73,12 +70,16 @@ class CategoryController extends BaseController
 
             $CategoryUser = new CategoryUser();
             $Category = new Category();
+            $CategoryRepository = new CategoryRepository();
             $User = new User();
+            $UserRepository = new UserRepository();
             $UserController = new UserController();
 
-            $Category->name = $categoryName;
             $Category->url = $categoryUrl;
             $User->username = $username;
+
+            $Category->id = ($CategoryRepository->findCategory($Category))["id"];
+            $User->id = ($UserRepository->findUser($User))["id"];
 
             $UserController->UsernameValidation($username);
 
@@ -90,13 +91,27 @@ class CategoryController extends BaseController
 
             $tokenRepository->tokenControl($tokenO, $UserController->errors);
 
-            header('Content-Type: application/json; charset=utf-8', response_code: 201);
+            $getRelation = $CategoryUser->getRelations(1, $Category, $User);
 
-            $result = [
-                "content" => $CategoryUser->getRelations($page, $Category, $User)
-            ];
+            if ($getRelation["content"]) {
+                header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
-            echo json_encode($result);
+                $content = $getRelation["content"];
+                $first = $getRelation["first"];
+                $last = $getRelation["last"];
+                $pageNumber = $getRelation["pageNumber"];
+
+                $result = [
+                    "content" => $content,
+                    "first" => $first,
+                    "last" => $last,
+                    "pageNumber" => $pageNumber
+                ];
+
+                echo json_encode($result);
+
+                exit;
+            }
         }
     }
 
@@ -250,20 +265,23 @@ class CategoryController extends BaseController
 
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $categoryName = ($jsonData["categoryName"]) ? $jsonData["categoryName"] : null;
-            $process = ($jsonData["process"]) ? $jsonData["process"] : null;
+            $categoryUrl = ($jsonData["url"]) ? $jsonData["url"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
+            $authUser = ($jsonData["authUser"]) ? $jsonData["authUser"] : null;
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
             $CategoryUser = new CategoryUser();
             $Category = new Category();
-            $User = new User();
             $CategoryRepository = new CategoryRepository();
+            $User = new User();
             $UserRepository = new UserRepository();
             $UserController = new UserController();
 
-            $Category->name = $categoryName;
+            $Category->url = $categoryUrl;
             $User->username = $username;
+
+            $Category->id = ($CategoryRepository->findCategory($Category))["id"];
+            $User->id = ($UserRepository->findUser($User))["id"];
 
             $UserController->UsernameValidation($username);
 
@@ -272,24 +290,29 @@ class CategoryController extends BaseController
             $tokenO = new Token();
             $tokenRepository = new TokenRepository();
             $tokenO->token = $token;
-            $UserController = new UserController();
 
             $tokenRepository->tokenControl($tokenO, $UserController->errors);
 
-            $Category->id = ($CategoryRepository->findCategory($Category))["id"];
-            $User->id = ($UserRepository->findUser($User))["id"];
+            $getRelation = $CategoryUser->getRelations(1, $Category, $User);
 
-            header('Content-Type: application/json; charset=utf-8', response_code: 201);
-
-            if ($process == 1)
+            if ($getRelation["content"])
             {
-                $result = $CategoryUser->add($Category, $User);
+                $deleteResult = $CategoryUser->delete($Category, $User);
+
+                echo json_encode(["message" => "Assignment Deleted!"]);
+                exit;
             }
             else
             {
-                $result = $CategoryUser->delete($Category, $User);
+                $addResult = $CategoryUser->add($Category, $User);
+
+                header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+                var_dump($addResult);
+
+                echo json_encode(["message" => "Assignment has been made."]);
+                exit;
             }
-            echo json_encode($result);
         }
     }
 

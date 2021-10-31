@@ -85,7 +85,14 @@ class MySQLQueryBuilder implements QueryBuilderI
                 } elseif ($type == 'column') {
                     $result .= $column;
                 } elseif ($type == 'set' || $type == 'where') {
-                    $result .= "$column=:$column";
+                    if (is_array($value))
+                    {
+                        $result .= "$column$value[0]:$column";
+                    }
+                    else
+                    {
+                        $result .= "$column=:$column";
+                    }
                 } elseif ($type == 'like') {
                     $result .= "$column LIKE '%$value%'";
                 } elseif ($type == 'columnsToFetch') {

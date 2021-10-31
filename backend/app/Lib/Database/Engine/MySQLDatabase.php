@@ -34,12 +34,18 @@ class MySQLDatabase implements DatabaseI
         $CountQueryBuilder->dataCount($table,$fields)->like($likeFields);
         $CountQuery = $CountQueryBuilder->patch;
 
-
         $countStatement = $this->db->prepare(query: $CountQuery);
         foreach ($fields as $param => $value) {
             if ($value != null || $value != "")
             {
-                $countStatement->bindValue(":$param", $value);
+                if (is_array($value))
+                {
+                    $countStatement->bindValue(":$param", $value[1]);
+                }
+                else
+                {
+                    $countStatement->bindValue(":$param", $value);
+                }
             }
         }
 
@@ -65,7 +71,13 @@ class MySQLDatabase implements DatabaseI
         foreach ($fields as $param => $value) {
             if ($value != null || $value != "")
             {
-                $statement->bindValue(":$param", $value);
+                if (is_array($value)) {
+                    $statement->bindValue(":$param", $value[1]);
+                }
+                else
+                {
+                    $statement->bindValue(":$param", $value);
+                }
             }
         }
 
@@ -91,7 +103,14 @@ class MySQLDatabase implements DatabaseI
         {
             if ($value != null || $value != "")
             {
-                $statement->bindValue(":$param", $value);
+                if (is_array($value))
+                {
+                    $statement->bindValue(":$param", $value[1]);
+                }
+                else
+                {
+                    $statement->bindValue(":$param", $value);
+                }
             }
         }
 

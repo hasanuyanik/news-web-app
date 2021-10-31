@@ -8,6 +8,7 @@ use App\Lib\Logger\Logger;
 use App\Lib\Relations\ResourceRole;
 use App\Lib\Resource\Resource;
 use App\Lib\Role\Role;
+use App\Lib\Role\RoleRepository;
 use App\Lib\User\User;
 use App\Lib\User\UserRepository;
 use Symfony\Component\Validator\Constraints\Email;
@@ -67,42 +68,15 @@ class UserController extends BaseController
             $ResourceRole = new ResourceRole();
             $getAuthRole = $ResourceRole->getRole(0, $Resource, $Role);
 
+            $Resource->resource_id = "";
 
-            $result = $UserRepository->getUsers($user, $page);
-
-            $pageNumber = $result["pageNumber"];
-            $first = $result["first"];
-            $last = $result["last"];
-            $users = $result["content"];
-
-            $UserList = [];
-
-            if ($getAuthRole->name == "Admin" || $getAuthRole->name == "Moderator") {
-
-                foreach ($users as $userInfo)
-                {
-                    $Resource->resource_id = $userInfo["id"];
-                    $ResourceRole = new ResourceRole();
-                    $getRole = $ResourceRole->getRole(0, $Resource, $Role);
-
-                    if ($getAuthRole->name == "Admin" || ($getAuthRole->name == "Moderator" && ($getRole->name != "Admin" || $getRole->name != "Moderator")))
-                    {
-                        array_push($UserList, $userInfo);
-                    }
-                }
-
-            }
+            $result = $ResourceRole->getSubAuthorizationUsers($page, $Resource, $getAuthRole);
 
             if ($result)
             {
                 header('Content-Type: application/json; charset=utf-8', response_code: 201);
 
-            echo json_encode([
-                "content" => $UserList,
-                "pageNumber" => $pageNumber,
-                "first" => $first,
-                "last" => $last
-            ]);
+            echo json_encode($result);
 
             exit;
 
@@ -151,6 +125,17 @@ class UserController extends BaseController
             $user->password = $password;
 
             $result = $userRepository->add($user);
+
+                $Resource = new Resource();
+                $Role = new Role();
+                $Role->name = "User";
+                $RoleRepository = new RoleRepository();
+                $Role->id = ($RoleRepository->getRoles(0, $Role))["content"][0]["id"];
+                $Resource->resource_id = ($userRepository->findUser($user))["id"];
+                $Resource->resource_type = "user";
+
+                $ResourceRole = new ResourceRole();
+                $ResourceRole->add($Resource, $Role);
 
             if ($result)
             {

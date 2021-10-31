@@ -117,7 +117,7 @@ class CategoryUser
 
         $copyRelationControl = $this->getRelations(0,$Category, $User);
 
-        if (count($copyRelationControl) > 0)
+        if ($copyRelationControl["content"])
         {
             return 0;
         }

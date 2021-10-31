@@ -32,6 +32,10 @@ export const getRelation = (body) => {
     return axios.post(`/api/category/assign/relation`, body);
 }
 
+export const assignCategory = (body) => {
+    return axios.post(`/api/category/userassign`, body);
+}
+
 export const createCategory = body => {
     return axios.post(`/api/category/add`, body);
 }
