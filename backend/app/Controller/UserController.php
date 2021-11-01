@@ -31,8 +31,6 @@ class UserController extends BaseController
 
     public function getUsers(int $page)
     {
-        $Validation = new \App\Lib\Validation();
-
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
 
@@ -79,6 +77,70 @@ class UserController extends BaseController
             echo json_encode($result);
 
             exit;
+
+            }
+
+            echo json_encode($this->errors);
+        }
+    }
+
+    public function getRoleUserList(int $page)
+    {
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
+
+        header('Content-Type: application/json; charset=utf-8', response_code: 406);
+
+        if ($jsonData) {
+
+            $authUsername = ($jsonData["authUser"]) ? $jsonData["authUser"] : "";
+            $username = ($jsonData["username"]) ? $jsonData["username"] : "";
+            $requestRole = ($jsonData["role"]) ? $jsonData["role"] : "";
+            $token = ($jsonData["token"]) ? $jsonData["token"] : "";
+
+            $tokenO = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenO->token = $token;
+            $tokenO->resource_type = "user";
+
+            $tokenRepository->tokenControl($tokenO, $this->errors);
+
+            $user = new User();
+            $authUser = new User();
+            $UserRepository = new UserRepository();
+
+            $user->username = $username;
+            $authUser->username = $authUsername;
+
+            $getAuthUser = $UserRepository->findUser($authUser);
+
+            $Role = new Role();
+            $RoleRepository = new RoleRepository();
+            $Resource = new Resource();
+            $Resource->resource_id = $getAuthUser["id"];
+            $Resource->resource_type = "user";
+
+            $ResourceRole = new ResourceRole();
+            $getAuthRole = $ResourceRole->getRole(0, $Resource, $Role);
+
+            $Role->id = "";
+            $Role->name = $requestRole;
+            $Resource->resource_id = "";
+
+            $getRequestRole = $RoleRepository->getRoles(0, $Role);
+
+            $Role->id = $getRequestRole["content"][0]["id"];
+
+
+            $result = $ResourceRole->getRoleUserList($page, $Resource, $Role);
+
+            if ($result && ($getAuthRole->id > $getRequestRole->id))
+            {
+                header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+                echo json_encode($result);
+
+                exit;
 
             }
 

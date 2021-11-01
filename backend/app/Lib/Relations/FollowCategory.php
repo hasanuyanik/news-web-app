@@ -19,32 +19,38 @@ class FollowCategory
 
         if ($Category->id == null)
         {
-            $fields = ($getCategory[0]["id"]) ? ["category_id"=>$getCategory[0]["id"]] : [];
+            $fields = ($getCategory["content"][0]["id"]) ? ["category_id"=>$getCategory["content"][0]["id"]] : [];
         }
-        $categoryName = ($Category->name) ? $Category->name : $getCategory[0]["name"];
 
         $likeFields = [];
 
-        $categoryUser = $db->findAll("follow_category",$fields,$page, $likeFields);
+        $follows = $db->findAll("follow_category",$fields,$page, $likeFields);
 
-        $categoryUserList = [];
+        $pageNumber = $follows["pageNumber"];
+        $first = $follows["first"];
+        $last = $follows["last"];
+        $contents = $follows["content"];
 
-        foreach ($categoryUser as $relation)
+        $CategoryAndFollowers = [];
+        foreach ($contents as $follower)
         {
-            $User->id = $relation["user_id"];
-            $getUser = (new UserRepository())->getUsers($User, 0);
+            $User = new User();
+            $UserRepository = new UserRepository();
+            $User->id = $follower["user_id"];
+            $GetUser = $UserRepository->findUser($User);
 
-            $getUser[0]["id"] = "";
-            $getUser[0]["password"] = "";
-            array_push($categoryUserList, $getUser[0]);
+            $GetUser["id"] = "";
+            $GetUser["password"] = "";
+
+            array_push($CategoryAndFollowers, $GetUser);
         }
 
-        $result = [
-            "category" => $getCategory[0],
-            "userList" => $categoryUserList
+        return [
+            "content" => $CategoryAndFollowers,
+            "pageNumber" => $pageNumber,
+            "first" => $first,
+            "last" => $last
         ];
-
-        return $result;
     }
 
     public function getUserCategoryList(int $page, ?Category $category, ?User $User): array
@@ -105,16 +111,16 @@ class FollowCategory
     {
         $db = (new DatabaseFactory())->db;
 
-        $getCategory = (new CategoryRepository())->getCategories(0,$Category);
-        $getUser = (new UserRepository())->getUser($User,0);
+        $getCategory = (new CategoryRepository())->findCategory($Category);
+        $getUser = (new UserRepository())->findUser($User);
 
         $fields = [];
-        $fields["category_id"] = ($Category->id) ? $Category->id : $getCategory[0]["id"];
-        $fields["user_id"] = ($User->id) ? $User->id : $getUser[0]["id"];
+        $fields["category_id"] = ($Category->id) ? $Category->id : $getCategory["id"];
+        $fields["user_id"] = ($User->id) ? $User->id : $getUser["id"];
 
         $copyRelationControl = $this->getRelations(0,$Category, $User);
 
-        if (count($copyRelationControl) > 0)
+        if (count($copyRelationControl["content"]) > 0)
         {
             return 0;
         }

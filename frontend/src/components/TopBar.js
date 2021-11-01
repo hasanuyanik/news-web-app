@@ -213,8 +213,10 @@ if(accountMenuVisible)
                         <li className="nav-item active">
                             <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Link</a>
+                        <li className="nav-item active">
+                            <Link className="nav-link" to={`/categories/1`}  onClick={()=> setUserMenuVisible(false)}>
+                                <span className="">{t("News Categories")}</span>
+                            </Link>
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -229,6 +231,7 @@ if(accountMenuVisible)
                             </div>
                         </li>
                         {categoryLinks}
+
                         {(role === "Admin" || role === "Moderator") && (userLinks)}
                         <li className="nav-item">
                             <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

@@ -18,6 +18,8 @@ import {logoutHandler} from "../redux/authActions";
 import CategoryCreateForm from "../components/CategoryCreateForm";
 import CategoryEditForm from "../components/CategoryEditForm";
 import CategoryUserList from "../components/CategoryUserList";
+import CategoryFollowUserList from "../components/CategoryFollowUserList";
+import CategoryBoxList from "../components/CategoryBoxList";
 
 const App = () => {
   const history = useHistory();
@@ -66,9 +68,15 @@ const App = () => {
           {isLoggedIn && (
                 <Route path="/category/list/:pageNumber" component={CategoryList}/>
           )}
-            {isLoggedIn && (
-                <Route path="/category/assign/list/:categoryUrl/:pageNumber" component={CategoryUserList}/>
-            )}
+
+          <Route path="/categories/:pageNumber" component={CategoryBoxList}/>
+
+          {isLoggedIn && (
+            <Route path="/category/assign/list/:categoryUrl/:pageNumber" component={CategoryUserList}/>
+          )}
+          {isLoggedIn && (
+              <Route path="/category/follow/list/:categoryUrl/:pageNumber" component={CategoryFollowUserList}/>
+          )}
           {isLoggedIn && (
               <Route path="/category/edit/:categoryUrl" component={CategoryEditForm}/>
           )}

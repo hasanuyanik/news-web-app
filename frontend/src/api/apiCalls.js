@@ -20,6 +20,14 @@ export const getUsers = (page = 1, body) => {
     return axios.post(`/api/user/${page}`, body);
 }
 
+export const getCategoryFollowers = (page = 1, body) => {
+    return axios.post(`/api/category/followers/${page}`, body);
+}
+
+export const getRoleUsers = (page = 1, body) => {
+    return axios.post(`/api/user/role/${page}`, body);
+}
+
 export const getCategories = (page = 1) => {
     return axios.get(`/api/category/${page}`);
 }
@@ -34,6 +42,14 @@ export const getRelation = (body) => {
 
 export const assignCategory = (body) => {
     return axios.post(`/api/category/userassign`, body);
+}
+
+export const followCategory = (body) => {
+    return axios.post(`/api/category/follow`, body);
+}
+
+export const followCategoryControl = (body) => {
+    return axios.post(`/api/category/follow/control`, body);
 }
 
 export const createCategory = body => {

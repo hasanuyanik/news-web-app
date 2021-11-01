@@ -9,7 +9,9 @@ class CategoryRepository
     {
         $db = (new DatabaseFactory())->db;
 
-        $fields = ($category->id == null) ? [] : ["id"=>$category->id];
+        $fields = [];
+        $fields["id"] = ($category->id == null) ? "" : $category->id;
+        $fields["url"] = ($category->url == null) ? "" : $category->url;
 
         $likeFields = [];
         $likeFields["name"] = $category->name;

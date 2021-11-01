@@ -21,6 +21,11 @@ $routes->add(
 );
 
 $routes->add(
+    'user.role',
+    new Route('/api/user/role/{page}', ['controller' => \App\Controller\UserController::class, 'method' => 'getRoleUserList'], ['page' => '[0-9]+'])
+);
+
+$routes->add(
     'user.add',
     new Route('/api/user/add', ['controller' => \App\Controller\UserController::class, 'method' => 'add'])
 );
@@ -92,6 +97,11 @@ $routes->add(
 /* CategoryController - Start */
 
 $routes->add(
+    'category.follower',
+    new Route('/api/category/followers/{page}', ['controller' => \App\Controller\CategoryController::class, 'method' => 'getCategoryFollowers'], ['page' => '[0-9]+'])
+);
+
+$routes->add(
     'category',
     new Route('/api/category/{page}', ['controller' => \App\Controller\CategoryController::class, 'method' => 'getCategories'], ['page' => '[0-9]+'])
 );
@@ -138,7 +148,12 @@ $routes->add(
 
 $routes->add(
     'category.follow_category',
-    new Route('/api/category/follow', ['controller' => \App\Controller\CategoryController::class, 'method' => 'followCategory'])
+    new Route('/api/category/follow', ['controller' => \App\Controller\CategoryController::class, 'method' => 'followingCategory'])
+);
+
+$routes->add(
+    'category.follow_category_control',
+    new Route('/api/category/follow/control', ['controller' => \App\Controller\CategoryController::class, 'method' => 'followCategoryControl'])
 );
 
 $routes->add(

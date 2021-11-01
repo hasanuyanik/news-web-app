@@ -3432,3 +3432,147 @@
 2021-10-31 15:11:20 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
 2021-10-31 15:11:20 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\AuthController.php | line : 134 
 2021-10-31 15:11:30 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 44 
+2021-10-31 15:44:56 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 44 
+2021-10-31 15:47:27 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 44 
+2021-10-31 15:47:34 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 44 
+2021-10-31 15:59:35 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 15:59:35 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\ResourceRole.php | line : 69 
+2021-10-31 15:59:35 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\ResourceRole.php | line : 69 
+2021-10-31 15:59:38 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 15:59:38 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\ResourceRole.php | line : 69 
+2021-10-31 15:59:38 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\ResourceRole.php | line : 69 
+2021-10-31 15:59:39 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 15:59:39 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\ResourceRole.php | line : 69 
+2021-10-31 15:59:39 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\ResourceRole.php | line : 69 
+2021-10-31 16:02:00 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:02:00 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\ResourceRole.php | line : 69 
+2021-10-31 16:02:00 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\ResourceRole.php | line : 69 
+2021-10-31 16:03:31 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:03:32 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\ResourceRole.php | line : 69 
+2021-10-31 16:03:32 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\ResourceRole.php | line : 69 
+2021-10-31 16:03:37 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:03:38 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\ResourceRole.php | line : 69 
+2021-10-31 16:03:38 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\ResourceRole.php | line : 69 
+2021-10-31 16:19:45 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:19:48 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:20:35 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:20:55 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:22:42 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:22:42 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 131 
+2021-10-31 16:22:42 error: Error : 2 | Message : Attempt to read property "id" on null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\ResourceRole.php | line : 114 
+2021-10-31 16:23:39 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:23:39 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 131 
+2021-10-31 16:23:39 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 131 
+2021-10-31 16:24:20 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:24:20 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 131 
+2021-10-31 16:24:20 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 131 
+2021-10-31 16:25:34 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:25:34 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 131 
+2021-10-31 16:25:34 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 131 
+2021-10-31 16:26:07 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:26:07 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 131 
+2021-10-31 16:26:07 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 131 
+2021-10-31 16:27:04 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:27:05 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 133 
+2021-10-31 16:27:05 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 133 
+2021-10-31 16:28:30 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:28:30 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 135 
+2021-10-31 16:28:30 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 135 
+2021-10-31 16:29:08 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:29:08 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 136 
+2021-10-31 16:29:08 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 136 
+2021-10-31 16:29:26 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:29:27 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 132 
+2021-10-31 16:29:27 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 132 
+2021-10-31 16:29:45 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:29:46 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 132 
+2021-10-31 16:29:46 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 132 
+2021-10-31 16:30:06 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:30:07 error: Error : 2 | Message : Undefined array key 0 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 136 
+2021-10-31 16:30:07 error: Error : 2 | Message : Trying to access array offset on value of type null | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 136 
+2021-10-31 16:30:35 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:30:35 error: Error : 2 | Message : Attempt to read property "id" on array | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 146 
+2021-10-31 16:31:00 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:31:00 error: Error : 2 | Message : Attempt to read property "id" on array | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 138 
+2021-10-31 16:32:03 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:32:03 error: Error : 2 | Message : Attempt to read property "id" on array | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 137 
+2021-10-31 16:32:49 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-10-31 16:34:11 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 16:34:12 error: Error : 2 | Message : Attempt to read property "id" on array | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 137 
+2021-10-31 17:18:52 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-10-31 17:22:30 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 17:22:30 error: Error : 2 | Message : Attempt to read property "id" on array | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 137 
+2021-10-31 18:52:27 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 18:52:27 error: Error : 2 | Message : Attempt to read property "id" on array | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 137 
+2021-10-31 18:52:35 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 18:52:35 error: Error : 2 | Message : Attempt to read property "id" on array | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 137 
+2021-10-31 18:53:10 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 18:53:10 error: Error : 2 | Message : Attempt to read property "id" on array | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 137 
+2021-10-31 19:36:50 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 19:36:50 error: Error : 2 | Message : Attempt to read property "id" on array | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 137 
+2021-10-31 19:36:56 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 19:36:56 error: Error : 2 | Message : Attempt to read property "id" on array | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 137 
+2021-10-31 19:37:10 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-10-31 19:37:10 error: Error : 2 | Message : Attempt to read property "id" on array | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 137 
+2021-10-31 20:19:53 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:19:53 error: Error : 2 | Message : Undefined array key "categoryName" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-10-31 20:19:55 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:19:55 error: Error : 2 | Message : Undefined array key "categoryName" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-10-31 20:21:02 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:21:02 error: Error : 2 | Message : Undefined array key "categoryName" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-10-31 20:21:02 error: Error : 2 | Message : Undefined array key "resource_id" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\FollowCategory.php | line : 39 
+2021-10-31 20:21:02 error: Error : 2 | Message : Undefined array key "resource_id" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\FollowCategory.php | line : 39 
+2021-10-31 20:21:07 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:21:07 error: Error : 2 | Message : Undefined array key "categoryName" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-10-31 20:21:07 error: Error : 2 | Message : Undefined array key "resource_id" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\FollowCategory.php | line : 39 
+2021-10-31 20:21:07 error: Error : 2 | Message : Undefined array key "resource_id" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Relations\FollowCategory.php | line : 39 
+2021-10-31 20:22:11 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:22:11 error: Error : 2 | Message : Undefined array key "categoryName" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-10-31 20:25:01 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:25:01 error: Error : 2 | Message : Undefined array key "categoryName" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-10-31 20:25:09 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:25:09 error: Error : 2 | Message : Undefined array key "categoryName" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-10-31 20:25:27 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:25:27 error: Error : 2 | Message : Undefined array key "categoryName" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-10-31 20:25:32 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:25:32 error: Error : 2 | Message : Undefined array key "categoryName" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-10-31 20:26:29 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:26:29 error: Error : 2 | Message : Undefined array key "categoryName" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-10-31 20:26:54 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:26:54 error: Error : 2 | Message : Undefined array key "categoryName" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-10-31 20:27:56 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:27:56 error: Error : 2 | Message : Undefined array key "categoryName" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-10-31 20:29:02 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:29:03 error: Error : 2 | Message : Undefined array key "categoryName" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-10-31 20:30:56 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:32:31 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:33:00 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:41:04 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:41:10 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:42:28 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 20:43:24 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 21:22:41 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 21:22:52 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 21:23:07 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-10-31 21:23:09 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-10-31 22:29:37 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-01 10:07:12 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-01 12:21:49 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-01 12:48:46 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 56 
+2021-11-01 12:48:52 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 56 
+2021-11-01 12:49:11 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 54 
+2021-11-01 12:49:15 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-01 12:49:20 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-01 12:49:22 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-01 12:49:39 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-01 13:19:36 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-11-01 13:19:40 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 97 
+2021-11-01 13:19:40 error: Error : 2 | Message : Attempt to read property "id" on array | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 137 
+2021-11-01 13:19:44 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-11-01 16:07:44 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-01 16:09:00 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-01 16:09:12 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-01 19:38:21 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-11-01 19:48:52 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-11-01 19:48:58 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 
+2021-11-01 19:59:47 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 55 

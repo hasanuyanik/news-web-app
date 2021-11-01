@@ -111,9 +111,9 @@ class ResourceRole
         $db = (new DatabaseFactory())->db;
 
         $fields = [];
-        $fields["resource_id"] = ($resource->resource_id == null) ? "" : $resource->resource_id;
+        $fields["role_id"] = ($role->id == null) ? "" : $role->id;
 
-        $likeFields["role_id"] = ($role->id == null) ? "" : $role->id;
+        $likeFields["resource_id"] = ($resource->resource_id == null) ? "" : $resource->resource_id;
 
         $relations = $db->findAll("resource_roles",$fields,$page, $likeFields);
 
@@ -125,13 +125,15 @@ class ResourceRole
         $RelationAndUserList = [];
         foreach ($contents as $relation)
         {
-            $user_id = $relation["resource_id"];
             $User = new User();
             $UserRepository = new UserRepository();
-            $User->id = $user_id;
+            $User->id = $relation["resource_id"];
             $GetUser = $UserRepository->findUser($User);
 
-            array_push($RelationAndUserList, [$GetUser]);
+            $GetUser["id"] = "";
+            $GetUser["password"] = "";
+
+            array_push($RelationAndUserList, $GetUser);
         }
 
         return [

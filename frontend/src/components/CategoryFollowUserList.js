@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {getRoleUsers} from '../api/apiCalls';
+import {getCategoryFollowers} from '../api/apiCalls';
 import { useTranslation } from 'react-i18next';
-import CategoryUserListItem from './CategoryUserListItem';
+import CategoryFollowUserListItem from './CategoryFollowUserListItem';
 import { useSelector } from 'react-redux';
 import { useApiProgress } from '../shared/ApiProgress';
 import Spinner from './Spinner';
 import {useParams} from "react-router";
 
-const CategoryUserList = (props) => {
+const CategoryFollowUserList = (props) => {
     const { pageNumber, categoryUrl } = useParams();
 
     const [page, setPage] = useState({
@@ -57,7 +57,7 @@ const CategoryUserList = (props) => {
         };
         setLoadFailure(false);
         try{
-            const response = await getRoleUsers(page, body);
+            const response = await getCategoryFollowers(page, body);
             console.log(response.data);
             setPage(response.data);
         }catch(error){
@@ -91,10 +91,10 @@ const CategoryUserList = (props) => {
     return (
         <div className="container">
             <div className="card">
-                <h3 className="card-header text-center">{t(`Assignment User List`)}</h3>
+                <h3 className="card-header text-center">{t(`${categoryUrl}'s Followers`)}</h3>
                 <div className="list-group">
                     {users.map(user => (
-                            <CategoryUserListItem key={user.username} user={user} pageNumber={pageNumber} categoryUrl={categoryUrl} />
+                            <CategoryFollowUserListItem key={user.username} user={user} pageNumber={pageNumber} categoryUrl={categoryUrl} />
                         )
                     )}
                 </div>
@@ -106,4 +106,4 @@ const CategoryUserList = (props) => {
 
 }
 
-export default CategoryUserList;
+export default CategoryFollowUserList;

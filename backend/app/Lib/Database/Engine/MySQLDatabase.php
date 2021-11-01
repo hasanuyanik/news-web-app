@@ -99,6 +99,9 @@ class MySQLDatabase implements DatabaseI
         $QueryBuilder->select($table,$fields,$columnsToFetch);
 
         $statement = $this->db->prepare($QueryBuilder->patch);
+
+
+
         foreach ($fields as $param => $value)
         {
             if ($value != null || $value != "")

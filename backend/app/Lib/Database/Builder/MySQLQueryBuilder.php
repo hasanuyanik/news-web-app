@@ -17,7 +17,10 @@ class MySQLQueryBuilder implements QueryBuilderI
     public function select(string $table, ?array $whereFields, ?array $columnsToFetch): QueryBuilderI
     {
         $columns = (count($columnsToFetch)) ? $this->serialize("columnsToFetch", $columnsToFetch) : "*";
-        $where = (count($whereFields)) ? " WHERE ".$this->serialize("where", $whereFields) : "";
+
+        $whereSerialize = $this->serialize("where", $whereFields);
+
+        $where = ($whereSerialize) ? " WHERE ".$whereSerialize : "";
         $this->patch .= "SELECT $columns FROM ".$table.$where;
         return $this;
     }
