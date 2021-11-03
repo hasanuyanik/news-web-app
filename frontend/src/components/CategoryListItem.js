@@ -59,6 +59,7 @@ const CategoryListItem = (props) => {
                         <i className="material-icons d-block">follow_the_signs</i>
                         {t(`Followers`)}
                     </Link>
+
                     <Link to={`/category/edit/${url}`} className="btn btn-outline-success" title={t('Edit Category')} >
                         <i className="material-icons d-block">edit</i>
                         {t(`Edit`)}

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {useTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
-import {followCategory} from "../api/apiCalls";
+import {followCategory, followCategoryControl} from "../api/apiCalls";
 
 const CategoryBoxListItem = (props) => {
     const { username, isLoggedIn, role, token} = useSelector((store) => ({
@@ -18,8 +18,9 @@ const CategoryBoxListItem = (props) => {
     const { t } = useTranslation();
     const { id, name, url, created_at } = category;
 
+
     useEffect(() => {
-        followCategoryControl();
+        followControl();
     },[]);
 
     const changeFollow = async () => {
@@ -36,15 +37,15 @@ const CategoryBoxListItem = (props) => {
         };
     };
 
-    const followCategoryControl = async () => {
+    const followControl = async () => {
         const body = {
             token,
             username,
             url
         };
         try{
-            const response = await followCategoryControl(body);
-            setFollowing(true);
+           const response = await followCategoryControl(body);
+           setFollowing(true);
         }catch(error){
             setFollowing(false);
         };
@@ -56,7 +57,7 @@ const CategoryBoxListItem = (props) => {
     }
 
     return (
-        <div className="col-md-4 col-sm p-3">
+        <div className="col-md-4 col-sm-6 col-xs-12 p-3">
             <div className={"card"}>
                 <div className="card-body d-inline">
                     <h5 className="card-title">{name}</h5>

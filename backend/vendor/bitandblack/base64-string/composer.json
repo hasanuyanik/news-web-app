@@ -1,0 +1,45 @@
+{
+    "name": "bitandblack/base64-string",
+    "type": "library",
+    "description": "Encodes files to base64 strings and decodes base64 strings to files.",
+    "homepage": "https://www.bitandblack.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tobias Köngeter",
+            "email": "hello@bitandblack.com",
+            "homepage": "https://www.bitandblack.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "ext-fileinfo": "*",
+        "symfony/mime": "^5.3",
+        "symfony/polyfill-php80": "^1.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12",
+        "phpunit/phpunit": "^9.5"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "BitAndBlack\\Base64String\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BitAndBlack\\Base64String\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "phpstan": "php vendor/bin/phpstan analyse --configuration ./phpstan.neon --memory-limit=-1 --ansi",
+        "phpunit": "php vendor/bin/phpunit --configuration ./phpunit.xml --colors=always"
+    },
+    "scripts-descriptions": {
+        "phpstan": "Runs PHPStan over the src folder and the tests folder.",
+        "phpunit": "Runs PHPUnit."
+    }
+}

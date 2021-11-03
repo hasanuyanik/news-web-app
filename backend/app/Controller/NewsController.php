@@ -6,13 +6,17 @@ use App\Lib\Auth\Token\TokenRepository;
 use App\Lib\Category\Category;
 use App\Lib\Category\CategoryRepository;
 use App\Lib\Comment\CommentRepository;
+use App\Lib\Corrector;
+use App\Lib\FileManager\FileManager;
 use App\Lib\News\News;
 use App\Lib\News\NewsRepository;
-use App\Lib\Relations\Category_News;
-use App\Lib\Relations\News_Comment;
-use App\Lib\Relations\Read_News;
+use App\Lib\Relations\CategoryNews;
+use App\Lib\Relations\NewsComment;
+use App\Lib\Relations\ReadNews;
 use App\Lib\User\User;
 use App\Lib\User\UserRepository;
+use BitAndBlack\Base64String\Base64File;
+use Jsnlib\UploadImageBase64;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Required;
@@ -265,62 +269,77 @@ class NewsController extends BaseController
         if ($jsonData) {
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
+            $categoryName = ($jsonData["categoryName"]) ? $jsonData["categoryName"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $title = ($jsonData["title"]) ? $jsonData["title"] : null;
+            $url = ($jsonData["url"]) ? $jsonData["url"] : null;
             $description = ($jsonData["description"]) ? $jsonData["description"] : null;
             $content = ($jsonData["content"]) ? $jsonData["content"] : null;
-            $img = ($jsonData["img"]) ? $jsonData["img"] : null;
+            $img = ($jsonData["image"]) ? $jsonData["img"] : "";
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
-            $category = new Category();
-            $news = new News();
-            $category_news = new Category_News();
-            $newsRepository = new NewsRepository();
-            $categoryRepository = new CategoryRepository();
+            $Validation = new \App\Lib\Validation();
+            $Category = new Category();
+            $News = new News();
+            $CharCorrector = new Corrector();
+            $CategoryNews = new CategoryNews();
+            $NewsRepository = new NewsRepository();
+            $CategoryRepository = new CategoryRepository();
+            $CategoryController = new CategoryController();
+            $FileManager = new FileManager();
+            $tokenO = new Token();
+            $tokenRepository = new TokenRepository();
 
-            $categoryRepository->name = $category_name;
+            $tokenO->token = $token;
+
+            $tokenRepository->tokenControl($tokenO, $this->errors);
+
+            $CategoryController->CategoryNameValidation($categoryName);
+            $Validation->ValidationErrorControl($CategoryController->validationErrors);
+
+            $News->title = $title;
+            $News->url = $CharCorrector->charCorrectorSentenceToUrl($url);
+            $News->description = $description;
+            $News->content = $content;
+
 
             $this->TitleValidation($title);
+            $this->UrlValidation($News->url);
             $this->DescriptionValidation($description);
             $this->ContentValidation($content);
+            $this->ImgValidation($img);
 
-            if ($this->validationErrors)
+            $Validation->ValidationErrorControl($this->validationErrors);
+
+            $base64File = new Base64File($img);
+
+            $filename = $News->url.".".$base64File->getExtension();
+            $News->img = $filename;
+
+
+
+
+            $Category->name = $categoryName;
+            $Category->id = ($CategoryRepository->findCategory($Category))["id"];
+
+
+
+            $NewsRepository->add($News);
+
+            $News->id = ($NewsRepository->findNews($News))["id"];
+
+            $result = $CategoryNews->add($Category, $News);
+
+            if ($result)
             {
-                $result = [
-                    "validationErrors" => $this->validationErrors
-                ];
+                header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
                 echo json_encode($result);
-                exit;
-            }
 
-            $tokenControl = new Token();
-            $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
-
-            if ($tokenControl->tokenControl($tokenRepository) == false)
-            {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
-
-                echo json_encode($this->errors);
+                $result = $FileManager->putContentFile($filename,"News/",$base64File);
 
                 exit;
             }
-
-            $categoryRepository->id = ($category->getCategories(0,$categoryRepository))[0]["id"];
-
-            header('Content-Type: application/json; charset=utf-8', response_code: 201);
-
-            $newsRepository->title = $title;
-            $newsRepository->description = $description;
-            $newsRepository->content = $content;
-            $newsRepository->img = $img;
-
-            $news->add($newsRepository);
-
-            $newsRepository->id = ($news->getNews(0,$newsRepository))[0]["id"];
-
-            $result = $category_news->add($categoryRepository, $newsRepository);
 
             echo json_encode($result);
         }
@@ -345,7 +364,7 @@ class NewsController extends BaseController
 
             $category = new Category();
             $news = new News();
-            $category_news = new Category_News();
+            $category_news = new CategoryNews();
             $newsRepository = new NewsRepository();
             $categoryRepository = new CategoryRepository();
 
@@ -490,6 +509,25 @@ class NewsController extends BaseController
             foreach ($violations as $violation)
             {
                 $this->validationErrors["title"] = $violation->getMessage();
+            }
+
+        }
+    }
+
+    public function UrlValidation($url)
+    {
+        $validator = Validation::createValidator();
+        $violations = $validator->validate($url, [
+            new Length(['min' => 3,'max' => 150]),
+            new NotNull(),
+            new Required()
+        ]);
+
+        if (0 !== count($violations)) {
+
+            foreach ($violations as $violation)
+            {
+                $this->validationErrors["url"] = $violation->getMessage();
             }
 
         }

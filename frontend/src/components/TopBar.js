@@ -105,6 +105,14 @@ if(accountMenuVisible)
         }
         accountlinks = (
             <ul className="navbar-nav ms-auto">
+                {(isLoggedIn && role !== "User") && (
+                    <li className={`nav-item ${themeColor}`}>
+                        <Link className="nav-link d-flex" to={`/news/create`} >
+                            <i className={`material-icons p-1`}>add</i>
+                            <span className="p-1">{t("Create News")}</span>
+                        </Link>
+                    </li>
+                )}
             <li className={`nav-item dropdown ${themeColor}`} ref={menuArea1}>
                 <span className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -146,12 +154,6 @@ if(accountMenuVisible)
                             <i className="material-icons p-1">add_circle</i>
                             <span className="p-1">{t("Create")}</span>
                         </Link>
-                    )}
-                    {(role === "Admin" || role === "Moderator") && (
-                    <Link className="dropdown-item d-flex" to={`/category/assign`}  onClick={()=> setCatMenuVisible(false)}>
-                        <i className="material-icons p-1">assignment_ind</i>
-                        <span className="p-1">{t("Category Assign")}</span>
-                    </Link>
                     )}
                     <Link className="dropdown-item d-flex" to={`/category/list/1`}  onClick={()=> setCatMenuVisible(false)}>
                         <i className="material-icons p-1">format_list_bulleted</i>
@@ -230,7 +232,7 @@ if(accountMenuVisible)
                                 <a className="dropdown-item" href="#">Something else here</a>
                             </div>
                         </li>
-                        {categoryLinks}
+                        {(role !== "User") && (categoryLinks)}
 
                         {(role === "Admin" || role === "Moderator") && (userLinks)}
                         <li className="nav-item">

@@ -60,6 +60,14 @@ export const editCategory = body => {
     return axios.post(`/api/category/edit`, body);
 }
 
+export const createNews = body => {
+    return axios.post(`/api/news/add`, body);
+}
+
+export const editNews = body => {
+    return axios.post(`/api/news/edit`, body);
+}
+
 export const getDeleteRequests = (page = 0, status=0, creds) => {
     return axios.post(`/api/userwiper/${page}/${status}`, creds);
 }

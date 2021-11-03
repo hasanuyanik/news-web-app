@@ -45,7 +45,7 @@ class AuthService
         $UserRepository = new UserRepository();
         $UserControl = $UserRepository->findUser($User);
 
-        if (count($UserControl) > 0)
+        if ($UserControl && (count($UserControl) > 0))
         {
             $token->resource_id = $UserControl["id"];
 

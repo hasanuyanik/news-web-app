@@ -8,11 +8,17 @@ $baseDir = dirname($vendorDir);
 return array(
     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
     'Symfony\\Polyfill\\Php73\\' => array($vendorDir . '/symfony/polyfill-php73'),
+    'Symfony\\Polyfill\\Php72\\' => array($vendorDir . '/symfony/polyfill-php72'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
+    'Symfony\\Polyfill\\Intl\\Normalizer\\' => array($vendorDir . '/symfony/polyfill-intl-normalizer'),
+    'Symfony\\Polyfill\\Intl\\Idn\\' => array($vendorDir . '/symfony/polyfill-intl-idn'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'Symfony\\Contracts\\Translation\\' => array($vendorDir . '/symfony/translation-contracts'),
     'Symfony\\Component\\Validator\\' => array($vendorDir . '/symfony/validator'),
     'Symfony\\Component\\Routing\\' => array($vendorDir . '/symfony/routing'),
+    'Symfony\\Component\\Mime\\' => array($vendorDir . '/symfony/mime'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
+    'Jsnlib\\' => array($vendorDir . '/jsnlib/ao/src', $vendorDir . '/jsnlib/copy/src', $vendorDir . '/jsnlib/uploadimagebase64/src'),
+    'BitAndBlack\\Base64String\\' => array($vendorDir . '/bitandblack/base64-string/src'),
     'App\\' => array($baseDir . '/app'),
 );

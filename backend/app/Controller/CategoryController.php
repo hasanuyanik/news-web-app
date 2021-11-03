@@ -441,6 +441,7 @@ class CategoryController extends BaseController
 
     public function followCategoryControl()
     {
+
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
 
@@ -465,10 +466,6 @@ class CategoryController extends BaseController
 
             $Category->id = ($CategoryRepository->findCategory($Category))["id"];
             $User->id = ($UserRepository->findUser($User))["id"];
-
-            $UserController->UsernameValidation($username);
-
-            $Validation->ValidationErrorControl($UserController->validationErrors);
 
             $tokenO = new Token();
             $tokenRepository = new TokenRepository();

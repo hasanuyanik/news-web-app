@@ -21,6 +21,20 @@ class NewsRepository
         return $categories;
     }
 
+    public function findNews(?News $news): mixed
+    {
+        $db = (new DatabaseFactory())->db;
+
+        $fields = [];
+        $fields["id"] = ($news->id == null) ? "" : $news->id;
+        $fields["title"] = ($news->title == null) ? "" : $news->title;
+        $fields["url"] = ($news->url == null) ? "" : $news->url;
+
+        $findNews = $db->find("news",$fields);
+
+        return $findNews;
+    }
+
     public function add(News $News): string
     {
         $db = (new DatabaseFactory())->db;

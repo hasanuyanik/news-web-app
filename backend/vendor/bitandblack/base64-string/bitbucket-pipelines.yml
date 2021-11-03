@@ -1,0 +1,25 @@
+image: php:7.4
+
+options:
+    max-time: 10
+
+clone:
+    lfs: true
+
+pipelines:
+    pull-requests:
+        '**':
+            - step:
+                deployment: production
+                caches:
+                    - composer
+                name: Running tests
+                script:
+                    - echo "Running tests"
+                    - apt-get update && apt-get install -y git zip unzip libzip-dev
+                    - docker-php-ext-configure zip
+                    - docker-php-ext-install zip
+                    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+                    - composer install --ignore-platform-req=php --no-plugins --no-scripts
+                    - composer phpunit
+                    - composer phpstan

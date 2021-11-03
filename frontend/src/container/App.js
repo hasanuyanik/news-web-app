@@ -13,13 +13,15 @@ import {useDispatch, useSelector} from 'react-redux';
 import UserList from "../components/UserList";
 import CategoryList from "../components/CategoryList";
 import UserRequestPage from "../components/UserRequestList";
-import {cancelDeleteUser, logout, sessionControl} from "../api/apiCalls";
+import {sessionControl} from "../api/apiCalls";
 import {logoutHandler} from "../redux/authActions";
 import CategoryCreateForm from "../components/CategoryCreateForm";
 import CategoryEditForm from "../components/CategoryEditForm";
 import CategoryUserList from "../components/CategoryUserList";
 import CategoryFollowUserList from "../components/CategoryFollowUserList";
 import CategoryBoxList from "../components/CategoryBoxList";
+import NewsCreateForm from "../components/NewsCreateForm";
+import NewsEditForm from "../components/NewsEditForm";
 
 const App = () => {
   const history = useHistory();
@@ -62,47 +64,45 @@ const App = () => {
       <Router>
         <TopBar />
         <Switch>
-
-        <Route exact path="/" component={UserList}/>
-
-          {isLoggedIn && (
+          <Route exact path="/" component={UserList}/>
+          {(isLoggedIn && (role === "Admin" || role === "Moderator")) && (
                 <Route path="/category/list/:pageNumber" component={CategoryList}/>
           )}
-
           <Route path="/categories/:pageNumber" component={CategoryBoxList}/>
-
-          {isLoggedIn && (
+          {(isLoggedIn && (role === "Admin" || role === "Moderator")) && (
             <Route path="/category/assign/list/:categoryUrl/:pageNumber" component={CategoryUserList}/>
           )}
-          {isLoggedIn && (
+          {(isLoggedIn && (role === "Admin" || role === "Moderator")) && (
               <Route path="/category/follow/list/:categoryUrl/:pageNumber" component={CategoryFollowUserList}/>
           )}
-          {isLoggedIn && (
+          {(isLoggedIn && role === "Admin") && (
               <Route path="/category/edit/:categoryUrl" component={CategoryEditForm}/>
           )}
-          {isLoggedIn && (
+          {(isLoggedIn && role === "Admin") && (
               <Route path="/category/create/" component={CategoryCreateForm}/>
           )}
-          {isLoggedIn && (
+          {(isLoggedIn && role !== "User") && (
+              <Route path="/news/edit/:newsUrl" component={NewsEditForm}/>
+          )}
+          {(isLoggedIn && role !== "User") && (
+              <Route path="/news/create/" component={NewsCreateForm}/>
+          )}
+          {(isLoggedIn && (role === "Admin" || role === "Moderator")) && (
               <Route path="/category/assign" component={UserList}/>
           )}
-        {isLoggedIn && (
-        <Route path="/requests/:pageNumber" component={UserRequestPage}/>
-        )}
-        {!isLoggedIn && (
-        <Route path="/login" component={UserLoginPage}/>
-        )}
-        {!isLoggedIn && (
-        <Route path="/signup" component={UserSignupPage}/>
-        )}
-        {!isLoggedIn && (
-        <Route path="/admin/login" component={AdminLoginPage}/>
-        )}
-        {!isLoggedIn && (
-        <Route path="/admin/signup" component={AdminSignupPage}/>
-        )}
-        <Route path="/user/:username" component={UserPage}/>
-        <Redirect to="/"/>
+          {(isLoggedIn && (role === "Admin" || role === "Moderator")) && (
+          <Route path="/requests/:pageNumber" component={UserRequestPage}/>
+          )}
+          {!isLoggedIn && (
+          <Route path="/login" component={UserLoginPage}/>
+          )}
+          {!isLoggedIn && (
+          <Route path="/signup" component={UserSignupPage}/>
+          )}
+          {isLoggedIn && (
+          <Route path="/user/:username" component={UserPage}/>
+          )}
+          <Redirect to="/"/>
         </Switch>
       </Router>
     </div>
