@@ -9,7 +9,7 @@ class NewsRepository
     {
         $db = (new DatabaseFactory())->db;
 
-        $fields = ($News->id == null) ? ["news_status" => $News->news_status] : ["id"=>$News->id, "news_status" => $news->news_status];
+        $fields = ($News->id == null) ? ["news_status" => $News->news_status] : ["id"=>$News->id, "news_status" => $News->news_status];
 
         $likeFields = [];
         $likeFields["title"] = $News->title;
@@ -43,18 +43,20 @@ class NewsRepository
         $fields["title"] = $News->title;
         $fields["description"] = $News->description;
         $fields["content"] = $News->content;
+        $fields["url"] = $News->url;
 
-        $copyNewsControl = $this->getNews(0, $News);
+        $copyNewsControl = $this->findNews($News);
 
-        if (count($copyNewsControl) > 0)
+        if ($copyNewsControl)
         {
             return 0;
         }
         $primaryCopyNews = new News();
         $primaryCopyNews->title = $News->title;
-        $primaryCopyNews->title = $News->description;
-        $primaryCopyNewsControl = $this->getNews(0, $primaryCopyNews);
-        if (count($primaryCopyNewsControl) > 0)
+        $primaryCopyNews->url = $News->url;
+        $primaryCopyNewsControl = $this->findNews($primaryCopyNews);
+
+        if ($primaryCopyNewsControl)
         {
             return 0;
         }

@@ -22,6 +22,7 @@ import CategoryFollowUserList from "../components/CategoryFollowUserList";
 import CategoryBoxList from "../components/CategoryBoxList";
 import NewsCreateForm from "../components/NewsCreateForm";
 import NewsEditForm from "../components/NewsEditForm";
+import CategorySelectList from "../components/CategorySelectList";
 
 const App = () => {
   const history = useHistory();
@@ -64,40 +65,44 @@ const App = () => {
       <Router>
         <TopBar />
         <Switch>
+
           <Route exact path="/" component={UserList}/>
+          <Route path="/categories/:pageNumber" component={CategoryBoxList}/>
           {(isLoggedIn && (role === "Admin" || role === "Moderator")) && (
                 <Route path="/category/list/:pageNumber" component={CategoryList}/>
           )}
-          <Route path="/categories/:pageNumber" component={CategoryBoxList}/>
           {(isLoggedIn && (role === "Admin" || role === "Moderator")) && (
-            <Route path="/category/assign/list/:categoryUrl/:pageNumber" component={CategoryUserList}/>
+              <Route path="/category/assign/list/:categoryUrl/:pageNumber" component={CategoryUserList}/>
           )}
           {(isLoggedIn && (role === "Admin" || role === "Moderator")) && (
               <Route path="/category/follow/list/:categoryUrl/:pageNumber" component={CategoryFollowUserList}/>
-          )}
-          {(isLoggedIn && role === "Admin") && (
-              <Route path="/category/edit/:categoryUrl" component={CategoryEditForm}/>
-          )}
-          {(isLoggedIn && role === "Admin") && (
-              <Route path="/category/create/" component={CategoryCreateForm}/>
-          )}
-          {(isLoggedIn && role !== "User") && (
-              <Route path="/news/edit/:newsUrl" component={NewsEditForm}/>
-          )}
-          {(isLoggedIn && role !== "User") && (
-              <Route path="/news/create/" component={NewsCreateForm}/>
           )}
           {(isLoggedIn && (role === "Admin" || role === "Moderator")) && (
               <Route path="/category/assign" component={UserList}/>
           )}
           {(isLoggedIn && (role === "Admin" || role === "Moderator")) && (
-          <Route path="/requests/:pageNumber" component={UserRequestPage}/>
+              <Route path="/requests/:pageNumber" component={UserRequestPage}/>
+          )}
+          {(isLoggedIn && role === "Admin") && (
+                <Route path="/category/edit/:categoryUrl" component={CategoryEditForm}/>
+          )}
+          {(isLoggedIn && role === "Admin") && (
+                <Route path="/category/create/" component={CategoryCreateForm}/>
+          )}
+          {(isLoggedIn && role !== "User") && (
+                <Route path="/news/edit/:newsUrl" component={NewsEditForm}/>
+          )}
+          {(isLoggedIn && role !== "User") && (
+                <Route path="/news/category-select/:pageNumber" component={CategorySelectList}/>
+          )}
+          {(isLoggedIn && role !== "User") && (
+                <Route path="/news/create/:categoryUrl" component={NewsCreateForm}/>
           )}
           {!isLoggedIn && (
-          <Route path="/login" component={UserLoginPage}/>
+                <Route path="/login" component={UserLoginPage}/>
           )}
           {!isLoggedIn && (
-          <Route path="/signup" component={UserSignupPage}/>
+                <Route path="/signup" component={UserSignupPage}/>
           )}
           {isLoggedIn && (
           <Route path="/user/:username" component={UserPage}/>

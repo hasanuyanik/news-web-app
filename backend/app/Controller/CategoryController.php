@@ -105,17 +105,129 @@ class CategoryController extends BaseController
 
     public function getCategoryUserList(string $categoryUrl, int $page)
     {
-        $Category = new Category();
-        $User = new User();
-        $CategoryUser = new CategoryUser();
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
 
-        $Category->url = $categoryUrl;
+        header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-        header('Content-Type: application/json; charset=utf-8',response_code: 201);
+        if ($jsonData) {
 
-        $result = $CategoryUser->getCategoryUserList($page, $Category, $User);
+            $authUsername = ($jsonData["authUser"]) ? $jsonData["authUser"] : "";
+            $username = ($jsonData["username"]) ? $jsonData["username"] : "";
+            $token = ($jsonData["token"]) ? $jsonData["token"] : "";
 
-        echo json_encode($result);
+
+
+            $tokenO = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenO->token = $token;
+            $tokenO->resource_type = "user";
+
+            $tokenRepository->tokenControl($tokenO, $this->errors);
+
+            $Category = new Category();
+            $CategoryUser = new CategoryUser();
+            $User = new User();
+            $authUser = new User();
+            $UserRepository = new UserRepository();
+
+            $Category->url = $categoryUrl;
+
+            $User->username = $username;
+            $authUser->username = $authUsername;
+
+            $getAuthUser = $UserRepository->findUser($authUser);
+
+            $Role = new Role();
+            $Resource = new Resource();
+            $Resource->resource_id = $getAuthUser["id"];
+            $Resource->resource_type = "user";
+
+            $ResourceRole = new ResourceRole();
+            $getAuthRole = $ResourceRole->getRole(0, $Resource, $Role);
+
+            if ($getAuthRole->name == "Admin" || $getAuthRole->name == "Moderator")
+            {
+                $Category = new Category();
+                $Category->url = $categoryUrl;
+
+                $FollowCategory = new FollowCategory();
+                $result = $FollowCategory->getCategoryUserList($page, $Category, $User);
+
+                if ($result)
+                {
+                    header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+                    echo json_encode($result);
+
+                    exit;
+
+                }
+            }
+
+            echo json_encode($this->errors);
+        }
+
+    }
+
+    public function getUserCategoryList(int $page)
+    {
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
+
+        header('Content-Type: application/json; charset=utf-8', response_code: 406);
+
+        if ($jsonData) {
+
+            $authUsername = ($jsonData["authUser"]) ? $jsonData["authUser"] : "";
+            $username = ($jsonData["username"]) ? $jsonData["username"] : "";
+            $categoryUrl = ($jsonData["url"]) ? $jsonData["url"] : "";
+            $token = ($jsonData["token"]) ? $jsonData["token"] : "";
+
+            $tokenO = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenO->token = $token;
+            $tokenO->resource_type = "user";
+
+            $tokenRepository->tokenControl($tokenO, $this->errors);
+
+            $Category = new Category();
+            $CategoryUser = new CategoryUser();
+            $CategoryRepository = new CategoryRepository();
+            $User = new User();
+            $authUser = new User();
+            $UserRepository = new UserRepository();
+
+            $Category->url = $categoryUrl;
+
+            $User->username = $username;
+            $authUser->username = $authUsername;
+
+            $getAuthUser = $UserRepository->findUser($authUser);
+
+            $Role = new Role();
+            $Resource = new Resource();
+            $Resource->resource_id = $getAuthUser["id"];
+            $Resource->resource_type = "user";
+
+            $ResourceRole = new ResourceRole();
+            $getAuthRole = $ResourceRole->getRole(0, $Resource, $Role);
+
+            $result = ($getAuthRole->name == "Admin" || $getAuthRole->name == "Moderator") ? $CategoryRepository->getCategories($page, $Category) : (($getAuthRole->name == "Editor") ? $CategoryUser->getCategoryUserList($page, $Category, $User) : []);
+
+            if ($result)
+            {
+                header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+                echo json_encode($result);
+
+                exit;
+
+            }
+
+            echo json_encode($this->errors);
+        }
+
     }
 
     public function getCategoryUserRelation()

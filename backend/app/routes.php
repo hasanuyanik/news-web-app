@@ -142,6 +142,11 @@ $routes->add(
 );
 
 $routes->add(
+    'category.userCategorylist',
+    new Route('/api/user/category/list/{page}', ['controller' => \App\Controller\CategoryController::class, 'method' => 'getUserCategoryList'], ['page' => '[0-9]+'])
+);
+
+$routes->add(
     'category.userAssignRelation',
     new Route('/api/category/assign/relation', ['controller' => \App\Controller\CategoryController::class, 'method' => 'getCategoryUserRelation'])
 );

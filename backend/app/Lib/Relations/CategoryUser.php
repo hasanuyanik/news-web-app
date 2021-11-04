@@ -56,11 +56,11 @@ class CategoryUser
 
         $fields = ($User->id == null) ? [] : ["user_id"=>$User->id];
 
-        $getUser = (new UserRepository())->getUsers($User,0);
+        $getUser = (new UserRepository())->findUser($User);
 
         if ($User->id == null)
         {
-            $fields = ($getUser[0]["id"]) ? ["user_id"=>$getUser[0]["id"]] : [];
+            $fields = ($getUser["id"]) ? ["user_id"=>$getUser["id"]] : [];
         }
 
         $likeFields = [];
@@ -69,21 +69,24 @@ class CategoryUser
 
         $userCategoryList = [];
 
-        foreach ($categoryUser as $relation)
+        foreach ($categoryUser["content"] as $relation)
         {
             $Category = new Category();
             $Category->id = $relation["category_id"];
-            $getCategory = (new CategoryRepository())->getCategories(0,$Category);
+            $getCategory = (new CategoryRepository())->findCategory($Category);
 
-            array_push($userCategoryList, $getCategory[0]);
+            array_push($userCategoryList, $getCategory);
         }
 
-        $getUser[0]["id"] = "";
-        $getUser[0]["password"] = "";
+        $getUser["id"] = "";
+        $getUser["password"] = "";
 
         $result = [
-            "user" => $getUser[0],
-            "categoryList" => $userCategoryList
+            "user" => $getUser,
+            "content" => $userCategoryList,
+            "first" => $categoryUser["first"],
+            "last" => $categoryUser["last"],
+            "pageNumber" => $categoryUser["pageNumber"]
         ];
 
         return $result;

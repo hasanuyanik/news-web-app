@@ -9,7 +9,7 @@ class News
     public string $description = "";
     public string $content = "";
     public string $img = "";
-    public int $news_status;
+    public int $news_status = 0;
     public string $created_at;
     public string $updated_at;
 }

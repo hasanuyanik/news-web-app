@@ -69,16 +69,16 @@ class CategoryNews
     {
         $db = (new DatabaseFactory())->db;
 
-        $getCategory = (new CategoryRepository())->getCategories(0,$Category);
-        $getNews = (new NewsRepository())->getNews(0, $News);
+        $getCategory = (new CategoryRepository())->findCategory($Category);
+        $getNews = (new NewsRepository())->findNews($News);
 
         $fields = [];
-        $fields["category_id"] = ($Category->id) ? $Category->id : $getCategory[0]["id"];
-        $fields["news_id"] = ($News->id) ? $News->id : $getNews[0]["id"];
+        $fields["category_id"] = ($Category->id) ? $Category->id : $getCategory["id"];
+        $fields["news_id"] = ($News->id) ? $News->id : $getNews["id"];
 
         $copyRelationControl = $this->getRelations(0,$Category, $News);
 
-        if (count($copyRelationControl) > 0)
+        if (count($copyRelationControl["content"]) > 0)
         {
             return 0;
         }
@@ -94,12 +94,12 @@ class CategoryNews
     {
         $db = (new DatabaseFactory())->db;
 
-        $getCategory = (new CategoryRepository())->getCategories(0,$Category);
-        $getNews = (new NewsRepository())->getNews(0, $News);
+        $getCategory = (new CategoryRepository())->findCategory($Category);
+        $getNews = (new NewsRepository())->findNews($News);
 
         $fields = [];
-        $fields["category_id"] = ($Category->id) ? $Category->id : $getCategory[0]["id"];
-        $fields["news_id"] = ($News->id) ? $News->id : $getNews[0]["id"];
+        $fields["category_id"] = ($Category->id) ? $Category->id : $getCategory["id"];
+        $fields["news_id"] = ($News->id) ? $News->id : $getNews["id"];
 
         $deleteResult = $db->delete("category_news", $fields);
 

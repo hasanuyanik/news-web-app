@@ -5,26 +5,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Auth/AuthService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/FileManager/FileManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/FileManager/FileManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/FileManager/FileManagerI.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/FileManager/FileManagerI.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/News/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/News/News.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/News/NewsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/News/NewsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryNews.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryNews.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/Log/logger.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/composer/installed.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CategoryBoxListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CategoryBoxListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CategoryListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CategoryListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/NewsCreateForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/NewsCreateForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/TopBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TopBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/container/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/container/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/authActions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +128,7 @@
       <workItem from="1635757508044" duration="12835000" />
       <workItem from="1635853610463" duration="21190000" />
       <workItem from="1635951128411" duration="8666000" />
+      <workItem from="1635999953554" duration="13323000" />
     </task>
     <servers />
   </component>

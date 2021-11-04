@@ -28,8 +28,11 @@ class NewsController extends BaseController
     public array $errors = [
         "validationErrors" => [
             "title" => "Unauthorized",
+            "url" => "Unauthorized",
             "description" => "Unauthorized",
-            "content" => "Unauthorized"
+            "content" => "Unauthorized",
+            "img" => "Unauthorized",
+            "message" => ""
         ]
     ];
 
@@ -269,13 +272,13 @@ class NewsController extends BaseController
         if ($jsonData) {
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $categoryName = ($jsonData["categoryName"]) ? $jsonData["categoryName"] : null;
+            $categoryUrl = ($jsonData["categoryUrl"]) ? $jsonData["categoryUrl"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
             $title = ($jsonData["title"]) ? $jsonData["title"] : null;
             $url = ($jsonData["url"]) ? $jsonData["url"] : null;
             $description = ($jsonData["description"]) ? $jsonData["description"] : null;
             $content = ($jsonData["content"]) ? $jsonData["content"] : null;
-            $img = ($jsonData["image"]) ? $jsonData["img"] : "";
+            $img = ($jsonData["image"]) ? $jsonData["image"] : "";
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
             $Validation = new \App\Lib\Validation();
@@ -294,7 +297,7 @@ class NewsController extends BaseController
 
             $tokenRepository->tokenControl($tokenO, $this->errors);
 
-            $CategoryController->CategoryNameValidation($categoryName);
+            $CategoryController->CategoryUrlValidation($categoryUrl);
             $Validation->ValidationErrorControl($CategoryController->validationErrors);
 
             $News->title = $title;
@@ -316,15 +319,20 @@ class NewsController extends BaseController
             $filename = $News->url.".".$base64File->getExtension();
             $News->img = $filename;
 
-
-
-
-            $Category->name = $categoryName;
+            $Category->url = $categoryUrl;
             $Category->id = ($CategoryRepository->findCategory($Category))["id"];
 
+            $result = $NewsRepository->add($News);
 
+            if (!$result)
+            {
+                header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $NewsRepository->add($News);
+                $this->validationErrors["message"] = "News available. Try something different";
+                $Validation->ValidationErrorControl($this->validationErrors);
+
+                exit;
+            }
 
             $News->id = ($NewsRepository->findNews($News))["id"];
 
@@ -578,7 +586,6 @@ class NewsController extends BaseController
 
         $validator = Validation::createValidator();
         $violations = $validator->validate($img, [
-            new Length(['min' => 10,'max' => 180]),
             new NotNull(),
             new Required()
         ]);

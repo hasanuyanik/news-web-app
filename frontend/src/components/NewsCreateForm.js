@@ -5,8 +5,10 @@ import ButtonWithProgress from '../components/ButtonWithProgress';
 import { useApiProgress } from '../shared/ApiProgress';
 import {useDispatch, useSelector} from 'react-redux';
 import {createNewsHandler} from '../redux/authActions';
+import {useParams} from "react-router";
 
 const NewsCreateForm = (props) => {
+    const { categoryUrl } = useParams();
     const { username, isLoggedIn, role, token} = useSelector((store) => ({
         isLoggedIn: store.isLoggedIn,
         username: store.username,
@@ -45,6 +47,7 @@ const NewsCreateForm = (props) => {
         const body = {
             username,
             token,
+            categoryUrl,
             title,
             url,
             description,
@@ -87,7 +90,7 @@ const NewsCreateForm = (props) => {
     }
 
     const { t } = useTranslation();
-    const {title: titleError, url: urlError, description: descriptionError, content: contentError, img: imgError} = errors;
+    const {title: titleError, url: urlError, description: descriptionError, content: contentError, img: imgError, message: messageError} = errors;
     const pendingApiCallCreate = useApiProgress('post','/api/news/add');
     const pendingApiCall = pendingApiCallCreate;
 
@@ -107,6 +110,7 @@ const NewsCreateForm = (props) => {
     return(
         <div className="container">
             <form>
+                <p className="p-3 text-black-50">{t(`Category: ${categoryUrl}`)}</p>
                 <h1 className="text-center">{t('News Create')}</h1>
                 <Input name="title" label={t(`News's Title`)} error={titleError} onChange={onChange} />
                 <Input name="url" label={t('Url')} error={urlError} onChange={onChange} />
@@ -119,6 +123,7 @@ const NewsCreateForm = (props) => {
                 </div>
 
                 <Input type={"file"} label={t(`News's Image`)} error={imgError} onChange={onChangeFile} />
+                {messageError && (<h5 className={"text-danger text-center"}>{messageError}</h5>)}
                 <div className="form-group text-center">
                     <ButtonWithProgress onClick={onClickCreateNews} disabled={pendingApiCall} pendingApiCall={pendingApiCall} text={t('Create')}/>
                 </div>

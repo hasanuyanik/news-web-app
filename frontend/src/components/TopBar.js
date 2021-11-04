@@ -107,7 +107,7 @@ if(accountMenuVisible)
             <ul className="navbar-nav ms-auto">
                 {(isLoggedIn && role !== "User") && (
                     <li className={`nav-item ${themeColor}`}>
-                        <Link className="nav-link d-flex" to={`/news/create`} >
+                        <Link className="nav-link d-flex" to={`/news/category-select/1`} >
                             <i className={`material-icons p-1`}>add</i>
                             <span className="p-1">{t("Create News")}</span>
                         </Link>
