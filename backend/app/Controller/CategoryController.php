@@ -179,7 +179,6 @@ class CategoryController extends BaseController
 
         if ($jsonData) {
 
-            $authUsername = ($jsonData["authUser"]) ? $jsonData["authUser"] : "";
             $username = ($jsonData["username"]) ? $jsonData["username"] : "";
             $categoryUrl = ($jsonData["url"]) ? $jsonData["url"] : "";
             $token = ($jsonData["token"]) ? $jsonData["token"] : "";
@@ -195,25 +194,23 @@ class CategoryController extends BaseController
             $CategoryUser = new CategoryUser();
             $CategoryRepository = new CategoryRepository();
             $User = new User();
-            $authUser = new User();
             $UserRepository = new UserRepository();
 
             $Category->url = $categoryUrl;
 
             $User->username = $username;
-            $authUser->username = $authUsername;
 
-            $getAuthUser = $UserRepository->findUser($authUser);
+            $getUser = $UserRepository->findUser($User);
 
             $Role = new Role();
             $Resource = new Resource();
-            $Resource->resource_id = $getAuthUser["id"];
+            $Resource->resource_id = $getUser["id"];
             $Resource->resource_type = "user";
 
             $ResourceRole = new ResourceRole();
             $getAuthRole = $ResourceRole->getRole(0, $Resource, $Role);
 
-            $result = ($getAuthRole->name == "Admin" || $getAuthRole->name == "Moderator") ? $CategoryRepository->getCategories($page, $Category) : (($getAuthRole->name == "Editor") ? $CategoryUser->getCategoryUserList($page, $Category, $User) : []);
+            $result = ($getAuthRole->name == "Admin" || $getAuthRole->name == "Moderator") ? $CategoryRepository->getCategories($page, $Category) : (($getAuthRole->name == "Editor") ? $CategoryUser->getUserCategoryList($page, $Category, $User) : []);
 
             if ($result)
             {

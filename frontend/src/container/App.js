@@ -23,6 +23,7 @@ import CategoryBoxList from "../components/CategoryBoxList";
 import NewsCreateForm from "../components/NewsCreateForm";
 import NewsEditForm from "../components/NewsEditForm";
 import CategorySelectList from "../components/CategorySelectList";
+import MyNewsList from "../components/MyNewsList";
 
 const App = () => {
   const history = useHistory();
@@ -93,7 +94,10 @@ const App = () => {
                 <Route path="/news/edit/:newsUrl" component={NewsEditForm}/>
           )}
           {(isLoggedIn && role !== "User") && (
-                <Route path="/news/category-select/:pageNumber" component={CategorySelectList}/>
+                <Route path="/news/category/:pageNumber" component={CategorySelectList}/>
+          )}
+          {(isLoggedIn && role !== "User") && (
+              <Route path="/category/:categoryUrl/mynews/:pageNumber" component={MyNewsList}/>
           )}
           {(isLoggedIn && role !== "User") && (
                 <Route path="/news/create/:categoryUrl" component={NewsCreateForm}/>

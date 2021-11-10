@@ -1,6 +1,8 @@
 <?php
 namespace App\Lib\Relations;
 
+use App\Lib\Category\Category;
+use App\Lib\Category\CategoryRepository;
 use App\Lib\User\User;
 use App\Lib\User\UserRepository;
 use App\Lib\Database\DatabaseFactory;
@@ -9,51 +11,100 @@ use App\Lib\News\NewsRepository;
 
 class UserNews
 {
-    public function getUser_NewsList(int $page, ?UserRepository $user, ?NewsRepository $news): array
+    public function getUserNewsList(int $page, ?User $User, ?News $News): array
     {
         $db = (new DatabaseFactory())->db;
 
-        $fields = ($user->id == null) ? [] : ["user_id"=>$user->id];
+        $fields = ($User->id == null) ? [] : ["user_id"=>$User->id];
 
-        $getUser = (new User())->getUsers($user, 0);
+        $getUser = (new UserRepository())->findUser($User);
 
-        if ($user->id == null)
+        if ($User->id == null)
         {
-            $fields = ($getUser[0]["id"]) ? ["user_id"=>$getUser[0]["id"]] : [];
+            $fields = ($getUser["id"]) ? ["user_id"=>$getUser["id"]] : [];
         }
 
         $likeFields = [];
 
-        $user_news = $db->findAll("user_news",$fields,$page, $likeFields);
+        $UserNews = $db->findAll("user_news",$fields,$page, $likeFields);
 
-        $user_newsList = [];
+        $UserNewsList = [];
 
-        foreach ($user_news as $relation)
+        foreach ($UserNews["content"] as $relation)
         {
-            $NewsRepository = new NewsRepository();
-            $NewsRepository->id = $relation["news_id"];
-            $getNews = (new News())->getNews(0, $NewsRepository);
-            array_push($user_newsList, $getNews[0]);
+            $News = new News();
+            $News->id = $relation["news_id"];
+            $getNews = (new NewsRepository())->findNews($News);
+            array_push($UserNewsList, $getNews);
         }
 
-        $getUser[0]["id"] = "";
-        $getUser[0]["password"] = "";
+        $getUser["id"] = "";
+        $getUser["password"] = "";
 
         $result = [
-            "user" => $getUser[0],
-            "newsList" => $user_newsList
+            "user" => $getUser,
+            "content" => $UserNewsList
         ];
 
         return $result;
     }
 
-    public function getRelations(int $page, ?UserRepository $user, ?NewsRepository $news): array
+    public function getUserCategoryNewsList(int $page, ?User $User, ?Category $Category, ?News $News): array
+    {
+        $db = (new DatabaseFactory())->db;
+        $CategoryNews = new CategoryNews();
+
+        $fields = ($User->id == null) ? [] : ["user_id"=>$User->id];
+
+        $getUser = (new UserRepository())->findUser($User);
+        $getCategory = (new CategoryRepository())->findCategory($Category);
+
+        $Category->id = $getCategory["id"];
+        $Category->url = $getCategory["url"];
+        $Category->name = $getCategory["name"];
+
+        if ($User->id == null)
+        {
+            $fields = ($getUser["id"]) ? ["user_id"=>$getUser["id"]] : [];
+        }
+
+        $likeFields = [];
+
+        $UserNews = $db->findAll("user_news",$fields,$page, $likeFields);
+
+        $UserNewsList = [];
+
+        foreach ($UserNews["content"] as $relation)
+        {
+            $News = new News();
+            $News->id = $relation["news_id"];
+            $categoryRelation = $CategoryNews->getRelations(0, $Category, $News);
+
+            if (count($categoryRelation["content"]) > 0)
+            {
+                $getNews = (new NewsRepository())->findNews($News);
+                array_push($UserNewsList, $getNews);
+            }
+        }
+
+        $getUser["id"] = "";
+        $getUser["password"] = "";
+
+        $result = [
+            "user" => $getUser,
+            "content" => $UserNewsList
+        ];
+
+        return $result;
+    }
+
+    public function getRelations(int $page, ?User $User, ?News $News): array
     {
         $db = (new DatabaseFactory())->db;
 
         $fields = [];
-        $fields["user_id"] = ($user->id == null) ? "" : $user->id;
-        $fields["news_id"] = ($news->id == null) ? "" : $news->id;
+        $fields["user_id"] = ($User->id == null) ? "" : $User->id;
+        $fields["news_id"] = ($News->id == null) ? "" : $News->id;
 
         $likeFields = [];
 
@@ -62,20 +113,20 @@ class UserNews
         return $relations;
     }
 
-    public function add(UserRepository $user, NewsRepository $news): string
+    public function add(User $User, News $News): string
     {
         $db = (new DatabaseFactory())->db;
 
-        $getUser = (new User())->getUsers($user, 0);
-        $getNews = (new News())->getNews(0, $news);
+        $getUser = (new UserRepository())->findUser($User);
+        $getNews = (new NewsRepository())->findNews($News);
 
         $fields = [];
-        $fields["user_id"] = ($user->id) ? $user->id : $getUser[0]["id"];
-        $fields["news_id"] = ($news->id) ? $news->id : $getNews[0]["id"];
+        $fields["user_id"] = ($User->id) ? $User->id : $getUser["id"];
+        $fields["news_id"] = ($News->id) ? $News->id : $getNews["id"];
 
-        $copyRelationControl = $this->getRelations(0, $news, $user);
+        $copyRelationControl = $this->getRelations(0, $User, $News);
 
-        if (count($copyRelationControl) > 0)
+        if (count($copyRelationControl["content"]) > 0)
         {
             return 0;
         }
@@ -87,16 +138,16 @@ class UserNews
         return $createResult;
     }
 
-    public function delete(UserRepository $user, NewsRepository $news): string
+    public function delete(User $User, News $News): string
     {
         $db = (new DatabaseFactory())->db;
 
-        $getUser = (new User())->getUsers($user, 0);
-        $getNews = (new News())->getNews(0, $news);
+        $getUser = (new UserRepository())->findUser($User);
+        $getNews = (new NewsRepository())->findNews($News);
 
         $fields = [];
-        $fields["user_id"] = ($user->id) ? $user->id : $getUser[0]["id"];
-        $fields["news_id"] = ($news->id) ? $news->id : $getNews[0]["id"];
+        $fields["user_id"] = ($User->id) ? $User->id : $getUser["id"];
+        $fields["news_id"] = ($News->id) ? $News->id : $getNews["id"];
 
         $deleteResult = $db->delete("user_news", $fields);
 

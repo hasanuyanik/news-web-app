@@ -40,6 +40,14 @@ export const getUserCategoryList = (body, page = 1) => {
     return axios.post(`/api/user/category/list/${page}`, body);
 }
 
+export const getUserNewsList = (body, page = 1) => {
+    return axios.post(`/api/user/news/${page}`, body);
+}
+
+export const getUserCategoryNewsList = (body, page = 1) => {
+    return axios.post(`/api/user/category/news/${page}`, body);
+}
+
 export const getRelation = (body) => {
     return axios.post(`/api/category/assign/relation`, body);
 }

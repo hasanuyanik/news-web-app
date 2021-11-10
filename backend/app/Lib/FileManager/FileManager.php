@@ -20,7 +20,7 @@ class FileManager implements FileManagerI
 
     public function uploadFile(array $file, string $path_file): bool
     {
-        $target = "../".$this->storage."/".$path_file;
+        $target = "../public/".$this->storage."/".$path_file;
         if (move_uploaded_file($file["tmp_name"], $target))
         {
             return true;
@@ -30,7 +30,7 @@ class FileManager implements FileManagerI
 
     public function deleteFile(string $file): bool
     {
-        $targetFile = '../'.$this->storage.'/'.$file;
+        $targetFile = '../public/'.$this->storage.'/'.$file;
         if (!unlink($targetFile) || file_exists($targetFile))
         {
             return false;
@@ -41,7 +41,7 @@ class FileManager implements FileManagerI
     public function putContentFile(string $file, string $path_file, string $putContent): bool
     {
         try {
-            $target = "../".$this->storage."/".$path_file."/".$file;
+            $target = "../public/".$this->storage."/".$path_file."/".$file;
             file_put_contents($target,$putContent,FILE_APPEND);
             return 1;
         } catch (\Exception $exception)

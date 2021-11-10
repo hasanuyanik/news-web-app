@@ -15,17 +15,17 @@ class CategoryNews
 
         $fields = ($Category->id == null) ? [] : ["category_id"=>$Category->id];
 
-        $getCategory = (new CategoryRepository())->getCategories(0,$Category);
+        $getCategory = (new CategoryRepository())->findCategory($Category);
 
         if ($Category->id == null)
         {
-            $fields = ($getCategory[0]["id"]) ? ["category_id"=>$getCategory[0]["id"]] : [];
+            $fields = ($getCategory["id"]) ? ["category_id"=>$getCategory["id"]] : [];
         }
-        $categoryName = ($Category->name) ? $Category->name : $getCategory[0]["name"];
+        $categoryName = ($Category->name) ? $Category->name : $getCategory["name"];
 
         if ($News->id == null)
         {
-            $fields = ($getCategory[0]["id"]) ? ["category_id"=>$getCategory[0]["id"]] : [];
+            $fields = ($getCategory["id"]) ? ["category_id"=>$getCategory["id"]] : [];
         }
 
 
@@ -38,12 +38,12 @@ class CategoryNews
         foreach ($categoryNews as $relation)
         {
             $News->id = $relation["news_id"];
-            $getNews = (new NewsRepository())->getNews(0, $News);
-            array_push($categoryNewsList, $getNews[0]);
+            $getNews = (new NewsRepository())->findNews($News);
+            array_push($categoryNewsList, $getNews);
         }
 
         $result = [
-            "category" => $getCategory[0],
+            "category" => $getCategory,
             "newsList" => $categoryNewsList
         ];
 

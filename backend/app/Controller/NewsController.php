@@ -13,6 +13,10 @@ use App\Lib\News\NewsRepository;
 use App\Lib\Relations\CategoryNews;
 use App\Lib\Relations\NewsComment;
 use App\Lib\Relations\ReadNews;
+use App\Lib\Relations\ResourceRole;
+use App\Lib\Relations\UserNews;
+use App\Lib\Resource\Resource;
+use App\Lib\Role\Role;
 use App\Lib\User\User;
 use App\Lib\User\UserRepository;
 use BitAndBlack\Base64String\Base64File;
@@ -49,7 +53,128 @@ class NewsController extends BaseController
         echo json_encode($result);
     }
 
-    public function getNews_Comment()
+    public function getUserNewsList(int $page)
+    {
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
+
+        header('Content-Type: application/json; charset=utf-8', response_code: 406);
+
+        if ($jsonData) {
+
+            $username = ($jsonData["username"]) ? $jsonData["username"] : "";
+            $url = ($jsonData["url"]) ? $jsonData["url"] : "";
+            $title = ($jsonData["title"]) ? $jsonData["title"] : "";
+            $token = ($jsonData["token"]) ? $jsonData["token"] : "";
+
+            $tokenO = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenO->token = $token;
+            $tokenO->resource_type = "user";
+
+            $tokenRepository->tokenControl($tokenO, $this->errors);
+
+            $News = new News();
+            $UserNews = new UserNews();
+            $NewsRepository = new NewsRepository();
+            $User = new User();
+            $UserRepository = new UserRepository();
+
+            $News->url = $url;
+
+            $User->username = $username;
+
+            $getUser = $UserRepository->findUser($User);
+
+            $Role = new Role();
+            $Resource = new Resource();
+            $Resource->resource_id = $getUser["id"];
+            $Resource->resource_type = "user";
+
+            $ResourceRole = new ResourceRole();
+            $getAuthRole = $ResourceRole->getRole(0, $Resource, $Role);
+
+            $result = ($getAuthRole->name == "Admin" || $getAuthRole->name == "Moderator") ? $NewsRepository->getNews($page, $News) : (($getAuthRole->name == "Editor") ? $UserNews->getUserNewsList($page, $User, $News) : []);
+
+            if ($result)
+            {
+                header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+                echo json_encode($result);
+
+                exit;
+
+            }
+
+            echo json_encode($this->errors);
+        }
+
+    }
+
+    public function getUserCategoryNewsList(int $page)
+    {
+        $posts = file_get_contents('php://input');
+        $jsonData = json_decode($posts, true);
+
+        header('Content-Type: application/json; charset=utf-8', response_code: 406);
+
+        if ($jsonData)
+        {
+            $categoryUrl = ($jsonData["categoryUrl"]) ? $jsonData["categoryUrl"] : "";
+            $username = ($jsonData["username"]) ? $jsonData["username"] : "";
+            $url = ($jsonData["url"]) ? $jsonData["url"] : "";
+            $title = ($jsonData["title"]) ? $jsonData["title"] : "";
+            $token = ($jsonData["token"]) ? $jsonData["token"] : "";
+
+            $tokenO = new Token();
+            $tokenRepository = new TokenRepository();
+            $tokenO->token = $token;
+            $tokenO->resource_type = "user";
+
+            $tokenRepository->tokenControl($tokenO, $this->errors);
+
+            $News = new News();
+            $UserNews = new UserNews();
+            $NewsRepository = new NewsRepository();
+            $Category = new Category();
+            $CategoryNews = new CategoryNews();
+            $User = new User();
+            $UserRepository = new UserRepository();
+
+            $News->url = $url;
+
+            $User->username = $username;
+
+            $getUser = $UserRepository->findUser($User);
+
+            $Category->url = $categoryUrl;
+
+            $Role = new Role();
+            $Resource = new Resource();
+            $Resource->resource_id = $getUser["id"];
+            $Resource->resource_type = "user";
+
+            $ResourceRole = new ResourceRole();
+            $getAuthRole = $ResourceRole->getRole(0, $Resource, $Role);
+
+            $result = ($getAuthRole->name == "Admin" || $getAuthRole->name == "Moderator") ? $CategoryNews->getCategoryNewsList($page, $Category, $News) : (($getAuthRole->name == "Editor") ? $UserNews->getUserCategoryNewsList($page, $User, $Category, $News) : []);
+
+            if ($result)
+            {
+                header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+                echo json_encode($result);
+
+                exit;
+
+            }
+
+            echo json_encode($this->errors);
+        }
+
+    }
+
+    public function getNewsComment()
     {
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
@@ -111,7 +236,7 @@ class NewsController extends BaseController
         }
     }
 
-    public function getNews_ReadUser()
+    public function getNewsReadUser()
     {
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
@@ -156,7 +281,7 @@ class NewsController extends BaseController
         }
     }
 
-    public function getUser_ReadNews()
+    public function getUserReadNews()
     {
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
@@ -201,7 +326,7 @@ class NewsController extends BaseController
         }
     }
 
-    public function read_News()
+    public function readNews()
     {
         $posts = file_get_contents('php://input');
         $jsonData = json_decode($posts, true);
@@ -286,12 +411,14 @@ class NewsController extends BaseController
             $News = new News();
             $CharCorrector = new Corrector();
             $CategoryNews = new CategoryNews();
+            $UserNews = new UserNews();
             $NewsRepository = new NewsRepository();
             $CategoryRepository = new CategoryRepository();
             $CategoryController = new CategoryController();
             $FileManager = new FileManager();
             $tokenO = new Token();
             $tokenRepository = new TokenRepository();
+            $User = new User();
 
             $tokenO->token = $token;
 
@@ -304,7 +431,6 @@ class NewsController extends BaseController
             $News->url = $CharCorrector->charCorrectorSentenceToUrl($url);
             $News->description = $description;
             $News->content = $content;
-
 
             $this->TitleValidation($title);
             $this->UrlValidation($News->url);
@@ -337,6 +463,9 @@ class NewsController extends BaseController
             $News->id = ($NewsRepository->findNews($News))["id"];
 
             $result = $CategoryNews->add($Category, $News);
+
+            $User->username = $username;
+            $result = $UserNews->add($User, $News);
 
             if ($result)
             {

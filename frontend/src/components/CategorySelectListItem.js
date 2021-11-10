@@ -45,10 +45,23 @@ const CategorySelectListItem = (props) => {
 
     return (
         <li className="list-group-item d-flex justify-content-between align-items-center">
-            <Link to={`/news/create/${url}`} className="btn d-flex" title={name} >
+            <div className="d-inline">
                 {name}
-            </Link>
-            <i className="material-icons">category</i>
+            </div>
+            <div className="badge badge-primary badge-pill">
+                <blockquote className="blockquote mb-0">
+                    <p className="btn-group" role="group" aria-label="Basic example">
+                        <Link to={`/news/create/${url}`} className="btn btn-outline-success" title={t('Edit Category')} >
+                            <i className="material-icons d-block">add_circle</i>
+                            {t(`Add News in This Category`)}
+                        </Link>
+                        <Link to={`/category/${url}/mynews/1`} className="btn btn-outline-primary" title={t(`${name}'s Your News`)} >
+                            <i className="material-icons d-block">view_list</i>
+                            {t(`Your News in This Category`)}
+                        </Link>
+                    </p>
+                </blockquote>
+            </div>
         </li>
     );
 };

@@ -83,6 +83,7 @@ let accountlinks = (
 let categoryLinks = (<></>);
 let requestLinks = (<></>);
 let userLinks = (<></>);
+let newsLinks = (<></>);
 
 let dropDownClass = '';
 let accountDropDownClass = '';
@@ -105,14 +106,6 @@ if(accountMenuVisible)
         }
         accountlinks = (
             <ul className="navbar-nav ms-auto">
-                {(isLoggedIn && role !== "User") && (
-                    <li className={`nav-item ${themeColor}`}>
-                        <Link className="nav-link d-flex" to={`/news/category-select/1`} >
-                            <i className={`material-icons p-1`}>add</i>
-                            <span className="p-1">{t("Create News")}</span>
-                        </Link>
-                    </li>
-                )}
             <li className={`nav-item dropdown ${themeColor}`} ref={menuArea1}>
                 <span className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -189,7 +182,16 @@ if(accountMenuVisible)
                 </div>
             </li>
         );
-    };
+
+    newsLinks = (
+        <li className="nav-item active">
+            <Link className="nav-link" to={`/news/category/1`}>
+                <span className="">{t("My News")}</span>
+            </Link>
+        </li>
+    );
+
+};
 
     return (
         <div className={`shadow-sm mb-2 p-2 pt-0 pb-0 ${themeColor}`}>
@@ -213,26 +215,12 @@ if(accountMenuVisible)
                 <div className={`collapse navbar-collapse ${dropDownClass}`} id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-                        </li>
-                        <li className="nav-item active">
                             <Link className="nav-link" to={`/categories/1`}  onClick={()=> setUserMenuVisible(false)}>
                                 <span className="">{t("News Categories")}</span>
                             </Link>
                         </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a className="dropdown-item" href="#">Action</a>
-                                <a className="dropdown-item" href="#">Another action</a>
-                                <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        {(role !== "User") && (categoryLinks)}
+                        {(role !== "User") && (newsLinks)}
+                        {(role === "Admin" || role === "Moderator") && (categoryLinks)}
 
                         {(role === "Admin" || role === "Moderator") && (userLinks)}
                         <li className="nav-item">

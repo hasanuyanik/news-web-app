@@ -56,7 +56,7 @@ const NewsCreateForm = (props) => {
         };
         try{
             await dispatch(createNewsHandler(body));
-            push('/category/list/1');
+            push(`/category/${categoryUrl}/mynews/1`);
         }catch(error){
             if(error.response.data.validationErrors){
                 setErrors(error.response.data.validationErrors);
@@ -118,7 +118,7 @@ const NewsCreateForm = (props) => {
 
                 <div className="form-group m-2">
                     <label>{t(`Content`)}</label>
-                    <textarea className={"form-control"} name="content" onChange={onChange}></textarea>
+                    <textarea className={`form-control ${(contentError ? "is-invalid" : "")}`} name="content" onChange={onChange}></textarea>
                     <div className="invalid-feedback">{contentError}</div>
                 </div>
 

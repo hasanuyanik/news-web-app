@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import { getUserCategoryList } from '../api/apiCalls';
+import { getUserCategoryNewsList } from '../api/apiCalls';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useApiProgress } from '../shared/ApiProgress';
 import Spinner from './Spinner';
 import {useParams} from "react-router";
 import {Link} from "react-router-dom";
-import CategorySelectListItem from "./CategorySelectListItem";
+import MyNewsListItem from "./MyNewsListItem";
 
-const CategorySelectList = (props) => {
-    const { pageNumber } = useParams();
+const MyNewsList = (props) => {
+    const { pageNumber, categoryUrl } = useParams();
     const [page, setPage] = useState({
         content:[],
         pageNumber,
@@ -19,16 +19,16 @@ const CategorySelectList = (props) => {
 
     const [loadFailure, setLoadFailure] = useState(false);
 
-    const pendingApiCall = useApiProgress('get',`/api/user/category/list/${pageNumber}`);
+    const pendingApiCall = useApiProgress('get',`/api/category/${pageNumber}`);
 
     useEffect(() => {
         loadCategories(pageNumber);
     }, []);
 
-    const { isLoggedIn, token, username} = useSelector((store) => ({
+    const { isLoggedIn, username, token} = useSelector((store) => ({
         isLoggedIn: store.isLoggedIn,
-        token: store.token,
-        username: store.username
+        username: store.username,
+        token: store.token
     }));
 
     const onClickNext = () => {
@@ -36,7 +36,7 @@ const CategorySelectList = (props) => {
         const { push } = history;
 
         const nextPage = page.pageNumber + 1;
-        push(`/news/category/${nextPage}`);
+        push(`/category/${categoryUrl}/mynews/${nextPage}`);
         loadCategories(nextPage);
     };
     const onClickPrevious = () => {
@@ -44,19 +44,19 @@ const CategorySelectList = (props) => {
         const { push } = history;
 
         const previousPage = page.pageNumber - 1;
-        push(`/news/category/${previousPage}`);
+        push(`/category/${categoryUrl}/mynews/${previousPage}`);
         loadCategories(previousPage);
     };
 
     const loadCategories = async page => {
         const body = {
             username,
+            categoryUrl,
             token
         };
         setLoadFailure(false);
         try{
-
-            const response = await getUserCategoryList(body, page);
+            const response = await getUserCategoryNewsList(body, page);
             setPage(response.data);
         }catch(error){
             setLoadFailure(true);
@@ -64,7 +64,7 @@ const CategorySelectList = (props) => {
     };
 
     const { t } = useTranslation();
-    const { content : categories, first, last} = page;
+    const { content : newss, first, last} = page;
 
     let actionDiv = (
         <div>
@@ -89,10 +89,10 @@ const CategorySelectList = (props) => {
     return (
         <div className="container">
             <div className="card">
-                <h3 className="card-header text-center">{t('Your Categories Assigned to Add News')}</h3>
+                <h3 className="card-header text-center">{t('News')}</h3>
                 <div className="list-group">
-                    {categories.map(category => (
-                            <CategorySelectListItem key={category.name} category={category} pageNumber={pageNumber}/>
+                    {newss.map(news => (
+                            <MyNewsListItem key={news.url} news={news} pageNumber={pageNumber} />
                         )
                     )}
                 </div>
@@ -104,4 +104,4 @@ const CategorySelectList = (props) => {
 
 }
 
-export default CategorySelectList;
+export default MyNewsList;
