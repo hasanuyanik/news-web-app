@@ -14,25 +14,33 @@ class MySQLQueryBuilder implements QueryBuilderI
         return $this;
     }
 
-    public function select(string $table, ?array $whereFields, ?array $columnsToFetch): QueryBuilderI
+    public function select(string $table, ?array $whereFields, ?array $columnsToFetch, ?array $joinArray, ?array $subArray): QueryBuilderI
     {
         $columns = (count($columnsToFetch)) ? $this->serialize("columnsToFetch", $columnsToFetch) : "*";
 
         $whereSerialize = $this->serialize("where", $whereFields);
 
-        $where = ($whereSerialize) ? " WHERE ".$whereSerialize : "";
-        $this->patch .= "SELECT $columns FROM ".$table.$where;
+        $subQuery = (count($subArray) > 0) ? $this->subQuery($subArray).(($whereSerialize) ? " and " : "") : "";
+
+        $joinQuery = (count($joinArray) > 0) ? $this->joinQuery($joinArray) : "";
+
+        $where = ($whereSerialize) ? " WHERE ".$subQuery." ".$whereSerialize : (($subQuery != "") ? $subQuery : "");
+
+        $this->patch .= "SELECT $columns FROM ".$table.$joinQuery.$where;
         return $this;
     }
 
-    public function dataCount(string $table, ?array $whereFields): QueryBuilderI
+    public function dataCount(string $table, ?array $whereFields, ?array $joinArray, ?array $subArray): QueryBuilderI
     {
         $serializeWhere = $this->serialize("where", $whereFields);
 
-        $where = (count($whereFields) > 0 && $serializeWhere != "") ? " WHERE ".$serializeWhere : "";
+        $subQuery = (count($subArray) > 0) ? $this->subQuery($subArray).(($serializeWhere) ? " and " : "") : "";
 
-        $this->patch .= "SELECT count(id) as 'dataCount' FROM ".$table.$where;
+        $joinQuery = (count($joinArray) > 0) ? $this->joinQuery($joinArray) : "";
 
+        $where = (count($whereFields) > 0 && $serializeWhere != "") ? " WHERE ".$subQuery." ".$serializeWhere : (($subQuery != "") ? " WHERE ".$subQuery : "");
+
+        $this->patch .= "SELECT count(id) as 'dataCount' FROM ".$table.$joinQuery.$where;
 
         return $this;
     }
@@ -64,6 +72,43 @@ class MySQLQueryBuilder implements QueryBuilderI
     {
         $this->patch .= " LIMIT $start, $end";
         return $this;
+    }
+
+    public function subQuery(array $subDatas): string
+    {
+        $query = "";
+
+        foreach ($subDatas as $item)
+        {
+            $table = $item["table"];
+            $subTable = $item["subTable"];
+            $fetchColumn = $item["fetchColumn"];
+            $whereColumn = $item["whereColumn"];
+            $foreignKeyColumn = $item["foreignKeyColumn"];
+
+            $serializeWhere = $this->serialize("where", $whereColumn);
+
+            $query = (($query != "") ? $query." and ":"")."$foreignKeyColumn=(SELECT $fetchColumn FROM $subTable WHERE $fetchColumn=$table.$foreignKeyColumn and $serializeWhere)";
+
+        }
+
+        return $query;
+    }
+
+    public function joinQuery(array $joinDatas): string
+    {
+        $query = "";
+
+        foreach ($joinDatas as $item)
+        {
+            $joinTable = $item["table"];
+            $primaryColumn = $item["primaryColumn"];
+            $foreignKeyColumn = $item["foreignKeyColumn"];
+
+            $query = $query."INNER JOIN $joinTable ON $primaryColumn=$foreignKeyColumn ";
+        }
+
+        return $query;
     }
 
     public function serialize(string $type, array $fields): string

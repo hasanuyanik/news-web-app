@@ -70,7 +70,19 @@ class UserNews
 
         $likeFields = [];
 
-        $UserNews = $db->findAll("user_news",$fields,$page, $likeFields);
+        $subArray = [
+            "0" => [
+            "table" => "user_news",
+            "subTable" => "category_news",
+            "fetchColumn" => "news_id",
+            "whereColumn" => [
+                "category_id" => $Category->id
+            ],
+            "foreignKeyColumn" => "news_id"
+        ]
+        ];
+
+        $UserNews = $db->findAll("user_news",$fields,$page, $likeFields, subArray: $subArray);
 
         $UserNewsList = [];
 
@@ -92,7 +104,10 @@ class UserNews
 
         $result = [
             "user" => $getUser,
-            "content" => $UserNewsList
+            "content" => $UserNewsList,
+            "first" => $UserNews["first"],
+            "last" => $UserNews["last"],
+            "pageNumber" => $page
         ];
 
         return $result;

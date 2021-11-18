@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {useTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
-import {deleteCategory} from "../api/apiCalls";
+import {deleteCategory, deleteNews} from "../api/apiCalls";
 import {useParams} from "react-router";
 
 const MyNewsListItem = (props) => {
@@ -27,7 +27,7 @@ const MyNewsListItem = (props) => {
             url
         };
         try{
-            await deleteCategory(body);
+            await deleteNews(body);
             setNewsCard(false);
             push(`/news/${props.categoryUrl}/list/${props.pageNumber}`);
         }catch(error){
@@ -45,7 +45,7 @@ const MyNewsListItem = (props) => {
 
     return (
         <li className="list-group-item d-flex justify-content-between align-items-center">
-            <div className="card mb-3 col-md-12">
+            <div className="card mb-3 col-md-12 shadow">
                 <div className="row">
                     <div className="col-md-4">
                         <img src={`../storage/News/${img}`} className="img-fluid rounded-start" alt={title} />
@@ -58,9 +58,13 @@ const MyNewsListItem = (props) => {
                         </div>
                     </div>
                     <div className="col col-md-4">
-                        <div className="badge badge-primary badge-pill">
-                            <blockquote className="blockquote mb-0">
+                        <div className="badge badge-primary badge-pill p-4 float-end">
+                            <blockquote className="blockquote mb-0 shadow-sm">
                                 <p className="btn-group" role="group" aria-label="Basic example">
+                                    <Link to={`/news/${url}`} className="btn btn-outline-secondary" title={t(`Go to News`)} >
+                                        <i className="material-icons d-block">visibility</i>
+                                        {t(`Go to News`)}
+                                    </Link>
                                     <Link to={`/news/edit/${url}`} className="btn btn-outline-success" title={t('Edit News')} >
                                         <i className="material-icons d-block">edit</i>
                                         {t(`Edit`)}

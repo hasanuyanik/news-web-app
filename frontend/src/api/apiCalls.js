@@ -129,6 +129,10 @@ export const deleteCategory = (body) => {
     return axios.post(`/api/category/delete`, body);
 };
 
+export const deleteNews = (body) => {
+    return axios.post(`/api/news/delete`, body);
+};
+
 export const changeLanguage = language => {
     axios.defaults.headers['accept-language'] = language;
 };

@@ -4099,3 +4099,127 @@
 2021-11-10 19:03:18 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 183 
 2021-11-10 19:04:22 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
 2021-11-10 19:04:22 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:05:49 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:05:49 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:05:52 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:05:52 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:16:11 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:16:11 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:32:37 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-16 07:36:45 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:36:45 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:38:06 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:38:06 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:39:15 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:39:15 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:39:31 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:39:31 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:45:25 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 183 
+2021-11-16 07:46:06 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:46:06 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:46:10 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 183 
+2021-11-16 07:46:48 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:46:48 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:46:49 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 183 
+2021-11-16 07:47:09 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:47:09 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:47:12 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 183 
+2021-11-16 07:47:32 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:47:32 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:47:34 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 183 
+2021-11-16 07:47:54 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:47:54 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:48:21 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 183 
+2021-11-16 07:48:41 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:48:41 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:48:45 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 183 
+2021-11-16 07:49:12 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:49:12 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:49:24 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 183 
+2021-11-16 07:50:23 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\CategoryController.php | line : 183 
+2021-11-16 07:50:46 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:50:46 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 07:51:06 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 07:51:06 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-16 10:28:56 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-16 10:28:56 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-17 10:45:05 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-17 10:45:05 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-17 15:26:23 error: Error : 8192 | Message : Required parameter $subArray follows optional parameter $likeFields | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 35 
+2021-11-17 15:26:23 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-17 15:26:23 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-17 15:26:23 error: Error : 8192 | Message : Required parameter $subArray follows optional parameter $likeFields | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 35 
+2021-11-17 15:27:26 error: Error : 8192 | Message : Required parameter $subArray follows optional parameter $likeFields | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 35 
+2021-11-17 15:27:26 error: Error : 8192 | Message : Required parameter $subArray follows optional parameter $columnsToFetch | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 127 
+2021-11-17 15:27:26 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-17 15:27:26 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-17 15:27:26 error: Error : 8192 | Message : Required parameter $subArray follows optional parameter $likeFields | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 35 
+2021-11-17 15:27:26 error: Error : 8192 | Message : Required parameter $subArray follows optional parameter $columnsToFetch | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 127 
+2021-11-17 15:27:52 error: Error : 8192 | Message : Required parameter $subArray follows optional parameter $likeFields | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 35 
+2021-11-17 15:27:52 error: Error : 8192 | Message : Required parameter $subArray follows optional parameter $columnsToFetch | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 127 
+2021-11-17 15:27:53 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-17 15:27:53 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-17 15:27:53 error: Error : 8192 | Message : Required parameter $subArray follows optional parameter $likeFields | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 35 
+2021-11-17 15:27:53 error: Error : 8192 | Message : Required parameter $subArray follows optional parameter $columnsToFetch | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 127 
+2021-11-17 15:29:07 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-17 15:29:07 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-17 15:30:27 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-17 15:30:27 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 10:34:41 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-18 10:48:33 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 10:48:33 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 10:48:50 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 10:48:50 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 10:51:07 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 10:51:07 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 10:51:07 error: Error : 2 | Message : Undefined array key 1 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 61 
+2021-11-18 10:52:31 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 10:52:31 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 10:52:31 error: Error : 2 | Message : Undefined array key 1 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 61 
+2021-11-18 11:18:34 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 11:18:34 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 11:18:34 error: Error : 2 | Message : Undefined array key 1 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 61 
+2021-11-18 11:54:59 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 11:54:59 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 11:54:59 error: Error : 2 | Message : Undefined array key 1 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 63 
+2021-11-18 11:57:32 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 11:57:32 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:00:35 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:00:35 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:00:35 error: Error : 2 | Message : Undefined array key 1 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 63 
+2021-11-18 12:01:01 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:01:01 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:01:01 error: Error : 2 | Message : Undefined array key 1 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 63 
+2021-11-18 12:01:34 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:01:34 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:01:34 error: Error : 2 | Message : Undefined array key 1 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 63 
+2021-11-18 12:02:49 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:02:49 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:02:49 error: Error : 2 | Message : Undefined array key 1 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 63 
+2021-11-18 12:04:44 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:04:44 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:04:44 error: Error : 2 | Message : Undefined array key 1 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 63 
+2021-11-18 12:09:24 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:09:25 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:09:25 error: Error : 2 | Message : Undefined array key 1 | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php | line : 63 
+2021-11-18 12:13:27 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:13:27 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:14:29 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:14:29 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:17:05 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:17:05 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:17:06 error: Error : 2 | Message : Cannot modify header information - headers already sent by (output started at C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\Database\Engine\MySQLDatabase.php:97) | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 164 
+2021-11-18 12:17:59 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:17:59 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:18:25 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:18:25 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:20:15 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:20:15 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:20:28 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:20:28 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 12:20:33 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 12:20:33 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 13:02:34 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 13:02:36 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 
+2021-11-18 13:02:39 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 125 
+2021-11-18 13:02:39 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 126 

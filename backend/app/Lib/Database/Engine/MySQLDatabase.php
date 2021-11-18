@@ -3,6 +3,8 @@
 namespace App\Lib\Database\Engine;
 
 use App\Lib\Database\Builder\MySQLQueryBuilder;
+use App\Lib\Database\DataType\JoinArray;
+use App\Lib\Database\DataType\JoinData;
 
 class MySQLDatabase implements DatabaseI
 {
@@ -28,10 +30,12 @@ class MySQLDatabase implements DatabaseI
 
     }
 
-    public function findAll(string $table, array $fields, int $page, ?array $likeFields = [], ?array $columnsToFetch = []): mixed
+
+
+    public function findAll(string $table, array $fields, int $page, ?array $likeFields = [], ?array $columnsToFetch = [], ?array $joinArray = [], ?array $subArray = []): mixed
     {
         $CountQueryBuilder = new MySQLQueryBuilder();
-        $CountQueryBuilder->dataCount($table,$fields)->like($likeFields);
+        $CountQueryBuilder->dataCount($table,$fields, $joinArray,$subArray)->like($likeFields);
         $CountQuery = $CountQueryBuilder->patch;
 
         $countStatement = $this->db->prepare(query: $CountQuery);
@@ -45,6 +49,24 @@ class MySQLDatabase implements DatabaseI
                 else
                 {
                     $countStatement->bindValue(":$param", $value);
+                }
+            }
+        }
+
+        foreach ($subArray as $param => $whereCol) {
+            $whereColumn = $whereCol["whereColumn"];
+            foreach ($whereColumn as $parameter => $value)
+            {
+                if ($value != null || $value != "")
+                {
+                    if (is_array($value))
+                    {
+                        $countStatement->bindValue(":$parameter", $value[1]);
+                    }
+                    else
+                    {
+                        $countStatement->bindValue(":$parameter", $value);
+                    }
                 }
             }
         }
@@ -63,7 +85,7 @@ class MySQLDatabase implements DatabaseI
         $last = ($pageCount > $pageNumber) ? $pageCount : "";
 
         $QueryBuilder = new MySQLQueryBuilder();
-        $QueryBuilder->select($table,$fields,$columnsToFetch)->like($likeFields)->limit($start,$end);
+        $QueryBuilder->select($table,$fields,$columnsToFetch,$joinArray,$subArray)->like($likeFields)->limit($start,$end);
 
         $query = $QueryBuilder->patch;
 
@@ -81,6 +103,24 @@ class MySQLDatabase implements DatabaseI
             }
         }
 
+        foreach ($subArray as $param => $whereCol) {
+            $whereColumn = $whereCol["whereColumn"];
+            foreach ($whereColumn as $parameter => $value)
+            {
+                if ($value != null || $value != "")
+                {
+                    if (is_array($value))
+                    {
+                        $statement->bindValue(":$parameter", $value[1]);
+                    }
+                    else
+                    {
+                        $statement->bindValue(":$parameter", $value);
+                    }
+                }
+            }
+        }
+
         $statement->execute();
 
         $content = $statement->fetchAll(\PDO::FETCH_ASSOC);
@@ -93,10 +133,10 @@ class MySQLDatabase implements DatabaseI
         ];
     }
 
-    public function find(string $table, array $fields, ?array $columnsToFetch = []): mixed
+    public function find(string $table, array $fields, ?array $columnsToFetch = [], ?array $joinArray = [], ?array $subArray = []): mixed
     {
         $QueryBuilder = new MySQLQueryBuilder();
-        $QueryBuilder->select($table,$fields,$columnsToFetch);
+        $QueryBuilder->select($table,$fields,$columnsToFetch, $joinArray,$subArray);
 
         $statement = $this->db->prepare($QueryBuilder->patch);
 
@@ -113,6 +153,24 @@ class MySQLDatabase implements DatabaseI
                 else
                 {
                     $statement->bindValue(":$param", $value);
+                }
+            }
+        }
+
+        foreach ($subArray as $param => $whereCol) {
+            $whereColumn = $whereCol["whereColumn"];
+            foreach ($whereColumn as $parameter => $value)
+            {
+                if ($value != null || $value != "")
+                {
+                    if (is_array($value))
+                    {
+                        $statement->bindValue(":$parameter", $value[1]);
+                    }
+                    else
+                    {
+                        $statement->bindValue(":$parameter", $value);
+                    }
                 }
             }
         }

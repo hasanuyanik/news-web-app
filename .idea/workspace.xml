@@ -3,21 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/FileManager/FileManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/FileManager/FileManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryNews.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/CategoryNews.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/MySQLQueryBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/MySQLQueryBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/QueryBuilderI.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Builder/QueryBuilderI.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/DatabaseI.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/DatabaseI.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Database/Engine/MySQLDatabase.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/Relations/UserNews.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/Relations/UserNews.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/storage/Log/logger.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storage/News/flagger.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/storage/News/flagger.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storage/News/test.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/storage/News/test.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/storage/Log/logger.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CategorySelectList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CategorySelectList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CategorySelectListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CategorySelectListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/NewsCreateForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/NewsCreateForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TopBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TopBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/container/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/container/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MyNewsListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MyNewsListItem.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +131,10 @@
       <workItem from="1636235450181" duration="3214000" />
       <workItem from="1636404835337" duration="8029000" />
       <workItem from="1636549562223" duration="2175000" />
+      <workItem from="1636986874033" duration="496000" />
+      <workItem from="1637040463821" duration="13443000" />
+      <workItem from="1637141934641" duration="7467000" />
+      <workItem from="1637227933879" duration="4638000" />
     </task>
     <servers />
   </component>
