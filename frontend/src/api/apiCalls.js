@@ -101,6 +101,10 @@ export const getCategory = categoryName => {
     return axios.get(`/api/category/show/${categoryName}`);
 };
 
+export const getNews = newsUrl => {
+    return axios.get(`/api/news/show/${newsUrl}`);
+};
+
 export const getDeleteRequest = (body) => {
     return axios.post(`/api/userwiper/findRequest`, body);
 }

@@ -20,7 +20,8 @@ const NewsCreateForm = (props) => {
         title: null,
         url: null,
         description: null,
-        content: null
+        content: null,
+        img: null
     });
     const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
@@ -71,22 +72,11 @@ const NewsCreateForm = (props) => {
         }
         const file = event.target.files[0];
 
-        console.log(event.target.files);
-
-        console.log(event.target.files[0]);
-        console.log(event.target.files[0].name);
-        console.log(event.target.files[0].size);
-        console.log(event.target.files[0].type);
-
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
             setNewImage(fileReader.result);
-
-            console.log(fileReader.result);
         };
         fileReader.readAsDataURL(file);
-
-        console.log(file);
     }
 
     const { t } = useTranslation();
@@ -127,10 +117,8 @@ const NewsCreateForm = (props) => {
                 <div className="form-group text-center">
                     <ButtonWithProgress onClick={onClickCreateNews} disabled={pendingApiCall} pendingApiCall={pendingApiCall} text={t('Create')}/>
                 </div>
-
             </form>
         </div>
-
     );
 }
 

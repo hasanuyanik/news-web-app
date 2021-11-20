@@ -88,7 +88,8 @@ class NewsRepository
         $primaryCopyNews->title = $News->title;
         $primaryCopyNews->description = $News->description;
         $primaryCopyNewsControl = $this->getNews(0, $primaryCopyNews);
-        if (count($primaryCopyNewsControl) > 0)
+
+        if ((count($primaryCopyNewsControl["content"]) > 0) && ($primaryCopyNewsControl["content"][0]["id"] != $News->id))
         {
             return 0;
         }

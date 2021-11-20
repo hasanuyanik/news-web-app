@@ -42,14 +42,14 @@ class UserWiper
         ];
     }
 
-    public function findRequest(int $user_id): array
+    public function findRequest(int $user_id): mixed
     {
         $db = (new DatabaseFactory())->db;
 
         $fields = [];
         $fields["user_id"] = $user_id;
 
-        $requests = $db->findAll("userwiper",$fields,0);
+        $requests = $db->find("userwiper",$fields);
 
         return $requests;
     }

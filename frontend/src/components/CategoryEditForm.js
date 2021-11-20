@@ -85,7 +85,7 @@ const CategoryEditForm = (props) => {
                     <div>
                         <i className="material-icons" style={{ fontSize: '48px' }}>unauthorized</i>
                     </div>
-                    {t('User not found')}
+                    {t('Category not found')}
                 </div>
             </div>
         );

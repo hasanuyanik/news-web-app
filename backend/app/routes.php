@@ -177,6 +177,11 @@ $routes->add(
 /* NewsController - Start */
 
 $routes->add(
+    'news.show_news',
+    new Route('/api/news/show/{url}', ['controller' => \App\Controller\NewsController::class, 'method' => 'showNews'], ['url' => '[A-Za-z0-9_-]+'])
+);
+
+$routes->add(
     'news.user_news',
     new Route('/api/user/news/{page}', ['controller' => \App\Controller\NewsController::class, 'method' => 'getUserNewsList'], ['page' => '[0-9]+'])
 );

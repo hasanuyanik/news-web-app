@@ -40,6 +40,28 @@ class NewsController extends BaseController
         ]
     ];
 
+    public function showNews(string $url)
+    {
+        $News = new News();
+        $Category = new Category();
+        $News->url = $url;
+        $NewsRepository = new NewsRepository();
+        $CategoryRepository = new CategoryRepository();
+        $CategoryNews = new CategoryNews();
+        header('Content-Type: application/json; charset=utf-8',response_code: 201);
+
+        $Category->id = ($CategoryNews->getRelations(0,$Category,$News))["content"][0]["category_id"];
+
+        $result = [
+            "content" => [
+                $NewsRepository->findNews($News),
+                $CategoryRepository->findCategory($Category)
+                ]
+        ];
+
+        echo json_encode($result);
+    }
+
     public function getNews(int $page)
     {
         $news = new News();
@@ -490,68 +512,103 @@ class NewsController extends BaseController
         if ($jsonData) {
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
-            $news_id = ($jsonData["news_id"]) ? $jsonData["news_id"] : null;
+            $categoryUrl = ($jsonData["categoryUrl"]) ? $jsonData["categoryUrl"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
-            $title = ($jsonData["title"]) ? $jsonData["title"] : null;
-            $description = ($jsonData["description"]) ? $jsonData["description"] : null;
-            $content = ($jsonData["content"]) ? $jsonData["content"] : null;
-            $img = ($jsonData["img"]) ? $jsonData["img"] : null;
-            $token = ($jsonData["token"]) ? $jsonData["token"] : null;
+            $id = ($jsonData["id"]) ? $jsonData["id"] : null;
 
-            $category = new Category();
-            $news = new News();
-            $category_news = new CategoryNews();
-            $newsRepository = new NewsRepository();
-            $categoryRepository = new CategoryRepository();
-
-            $categoryRepository->name = $category_name;
-
-            $this->TitleValidation($title);
-            $this->DescriptionValidation($description);
-            $this->ContentValidation($content);
-
-            if ($this->validationErrors)
+            if ($id == null)
             {
                 $result = [
-                    "validationErrors" => $this->validationErrors
+                    "validationErrors" =>
+                    [
+                        "message" => "News is not found!"
+                    ]
                 ];
                 echo json_encode($result);
+
                 exit;
             }
 
-            $tokenControl = new Token();
+            $title = ($jsonData["title"]) ? $jsonData["title"] : null;
+            $url = ($jsonData["url"]) ? $jsonData["url"] : null;
+            $description = ($jsonData["description"]) ? $jsonData["description"] : null;
+            $content = ($jsonData["content"]) ? $jsonData["content"] : null;
+            $img = ($jsonData["image"]) ? $jsonData["image"] : "";
+            $token = ($jsonData["token"]) ? $jsonData["token"] : null;
+
+            $Validation = new \App\Lib\Validation();
+            $Category = new Category();
+            $News = new News();
+            $CharCorrector = new Corrector();
+            $CategoryNews = new CategoryNews();
+            $UserNews = new UserNews();
+            $NewsRepository = new NewsRepository();
+            $CategoryRepository = new CategoryRepository();
+            $CategoryController = new CategoryController();
+            $FileManager = new FileManager();
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
+            $User = new User();
 
-            if ($tokenControl->tokenControl($tokenRepository) == false)
+            $tokenO->token = $token;
+
+            $tokenRepository->tokenControl($tokenO, $this->errors);
+
+            $News->id = $id;
+
+            $getNews = $NewsRepository->findNews($News);
+
+            $News->title = $title;
+            $News->url = $CharCorrector->charCorrectorSentenceToUrl($url);
+            $News->description = $description;
+            $News->content = $content;
+
+            $this->TitleValidation($title);
+            $this->UrlValidation($News->url);
+            $this->DescriptionValidation($description);
+            $this->ContentValidation($content);
+            $this->ImgValidation($img);
+
+            $Validation->ValidationErrorControl($this->validationErrors);
+            
+            if ($img)
             {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+            $base64File = new Base64File($img);
+            $filename = $News->url.".".$base64File->getExtension();
+            $News->img = $filename;
+            }
+            else
+            {
+                $News->img = $getNews["img"];
+            }
 
-                echo json_encode($this->errors);
+            $result = $NewsRepository->edit($News);
+
+            if (!$result)
+            {
+                header('Content-Type: application/json; charset=utf-8', response_code: 406);
+
+                $this->validationErrors["message"] = "The latest version of the news could not be saved";
+                $Validation->ValidationErrorControl($this->validationErrors);
 
                 exit;
             }
 
-            $categoryRepository->id = ($category->getCategories(0,$categoryRepository))[0]["id"];
-
-
-
-            header('Content-Type: application/json; charset=utf-8', response_code: 201);
-
-            $newsRepository->id = $news_id;
-            $newsRepository->title = $title;
-            $newsRepository->description = $description;
-            $newsRepository->content = $content;
-            $newsRepository->img = $img;
-
-            $result = $news->edit($newsRepository);
-
-            $relationControlForChangeCategory = $category_news->getRelations(0, $categoryRepository, $newsRepository);
-            if (!$relationControlForChangeCategory)
+            if ($result)
             {
-                $category_news->delete(new CategoryRepository(), $newsRepository);
-                $category_news->add($categoryRepository, $newsRepository);
+                header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+                echo json_encode([
+                    "message" => "News Updated"
+                ]);
+
+                if ($img != "")
+                {
+                    $lastImg = $getNews["img"];
+                    $FileManager->deleteFile("News/$lastImg");
+                    $result = $FileManager->putContentFile($filename, "News/", $base64File);
+                }
+                exit;
             }
 
             echo json_encode($result);
