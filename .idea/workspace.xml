@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/NewsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Lib/News/NewsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/News/NewsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/User/UserWiper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/public/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/storage/Log/logger.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/storage/News/test-news-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/storage/News/test-news-2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/apiCalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CategoryEditForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CategoryEditForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/NewsCreateForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/NewsCreateForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/NewsEditForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/NewsEditForm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +131,10 @@
       <workItem from="1637227933879" duration="8257000" />
       <workItem from="1637299722505" duration="2203000" />
       <workItem from="1637321636765" duration="6572000" />
-      <workItem from="1637401808379" duration="10833000" />
+      <workItem from="1637401808379" duration="11438000" />
+      <workItem from="1637470644205" duration="1684000" />
+      <workItem from="1637591877848" duration="1841000" />
+      <workItem from="1637666870110" duration="5994000" />
     </task>
     <servers />
   </component>

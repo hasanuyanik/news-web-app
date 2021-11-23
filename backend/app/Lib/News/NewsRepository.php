@@ -16,9 +16,21 @@ class NewsRepository
         $likeFields["description"] = $News->description;
         $likeFields["content"] = $News->content;
 
-        $categories = $db->findAll("news",$fields,$page, $likeFields);
+        $newsList = $db->findAll("news",$fields,$page, $likeFields);
 
-        return $categories;
+        $contentList = [];
+
+        foreach ($newsList["content"] as $param => $value)
+        {
+            $value["title"] = stripcslashes($value["title"]);
+            $value["description"] = stripcslashes($value["description"]);
+            $value["content"] = stripcslashes($value["content"]);
+            array_push($contentList, $value);
+        }
+
+        $newsList["content"] = $contentList;
+
+        return $newsList;
     }
 
     public function findNews(?News $news): mixed
@@ -32,6 +44,10 @@ class NewsRepository
 
         $findNews = $db->find("news",$fields);
 
+        $findNews["title"] = stripcslashes($findNews["title"]);
+        $findNews["description"] = stripcslashes($findNews["description"]);
+        $findNews["content"] = stripcslashes($findNews["content"]);
+
         return $findNews;
     }
 
@@ -40,9 +56,9 @@ class NewsRepository
         $db = (new DatabaseFactory())->db;
 
         $fields = [];
-        $fields["title"] = $News->title;
-        $fields["description"] = $News->description;
-        $fields["content"] = $News->content;
+        $fields["title"] = addcslashes($News->title, "'");
+        $fields["description"] = addcslashes($News->description, "'");
+        $fields["content"] = addcslashes($News->content, "'");
         $fields["url"] = $News->url;
 
         $copyNewsControl = $this->findNews($News);
@@ -52,7 +68,7 @@ class NewsRepository
             return 0;
         }
         $primaryCopyNews = new News();
-        $primaryCopyNews->title = $News->title;
+        $primaryCopyNews->title = addcslashes($News->title, "'");
         $primaryCopyNews->url = $News->url;
         $primaryCopyNewsControl = $this->findNews($primaryCopyNews);
 
@@ -78,15 +94,15 @@ class NewsRepository
         $whereFields = [];
         $whereFields["id"] = $News->id;
 
-        $setFields["title"] = $News->title;
-        $setFields["description"] = $News->description;
-        $setFields["content"] = $News->content;
+        $setFields["title"] = addcslashes($News->title, "'");
+        $setFields["description"] = addcslashes($News->description, "'");
+        $setFields["content"] = addcslashes($News->content, "'");
         $setFields["img"] = $News->img;
         $setFields["news_status"] = $News->news_status;
 
         $primaryCopyNews = new News();
-        $primaryCopyNews->title = $News->title;
-        $primaryCopyNews->description = $News->description;
+        $primaryCopyNews->title = addcslashes($News->title, "'");
+        $primaryCopyNews->description = addcslashes($News->description, "'");
         $primaryCopyNewsControl = $this->getNews(0, $primaryCopyNews);
 
         if ((count($primaryCopyNewsControl["content"]) > 0) && ($primaryCopyNewsControl["content"][0]["id"] != $News->id))
