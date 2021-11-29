@@ -23,13 +23,12 @@ const MyNewsListItem = (props) => {
         const body = {
             username,
             token,
-            title,
-            url
+            id
         };
         try{
             await deleteNews(body);
             setNewsCard(false);
-            push(`/news/${props.categoryUrl}/list/${props.pageNumber}`);
+            push(`/category/${props.categoryUrl}/mynews/${props.pageNumber}`);
         }catch(error){
             if(error.response.data.validationErrors){
                 console.log(error.response.data.validationErrors);

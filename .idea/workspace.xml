@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0be83b1c-586e-4251-9201-f0bb86e0dee6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Lib/News/NewsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Lib/News/NewsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controller/NewsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/public/storage/Log/logger.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/storage/Log/logger.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/storage/News/sports-news-nov10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/storage/News/test-news-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MyNewsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MyNewsList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MyNewsListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MyNewsListItem.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +138,10 @@
       <workItem from="1637401808379" duration="11438000" />
       <workItem from="1637470644205" duration="1684000" />
       <workItem from="1637591877848" duration="1841000" />
-      <workItem from="1637666870110" duration="5994000" />
+      <workItem from="1637666870110" duration="6146000" />
+      <workItem from="1637759401854" duration="558000" />
+      <workItem from="1637819223690" duration="589000" />
+      <workItem from="1638105319460" duration="4091000" />
     </task>
     <servers />
   </component>

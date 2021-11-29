@@ -22,7 +22,7 @@ const MyNewsList = (props) => {
     const pendingApiCall = useApiProgress('get',`/api/category/${pageNumber}`);
 
     useEffect(() => {
-        loadCategories(pageNumber);
+        loadCategoryMyNews(pageNumber);
     }, []);
 
     const { isLoggedIn, username, token} = useSelector((store) => ({
@@ -37,7 +37,7 @@ const MyNewsList = (props) => {
 
         const nextPage = page.pageNumber + 1;
         push(`/category/${categoryUrl}/mynews/${nextPage}`);
-        loadCategories(nextPage);
+        loadCategoryMyNews(nextPage);
     };
     const onClickPrevious = () => {
         const { history } = props;
@@ -45,10 +45,10 @@ const MyNewsList = (props) => {
 
         const previousPage = page.pageNumber - 1;
         push(`/category/${categoryUrl}/mynews/${previousPage}`);
-        loadCategories(previousPage);
+        loadCategoryMyNews(previousPage);
     };
 
-    const loadCategories = async page => {
+    const loadCategoryMyNews = async page => {
         const body = {
             username,
             categoryUrl,

@@ -4409,3 +4409,62 @@
 2021-11-23 22:39:53 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 148 
 2021-11-23 22:40:13 error: Error : 2 | Message : Undefined array key "categoryUrl" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 515 
 2021-11-23 22:40:13 error: Error : 2 | Message : Undefined array key "image" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 536 
+2021-11-24 14:33:10 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 147 
+2021-11-24 14:33:10 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 148 
+2021-11-28 14:17:52 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-28 14:19:06 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 147 
+2021-11-28 14:19:07 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 148 
+2021-11-28 14:43:01 error: Error : 2 | Message : Undefined array key "category_name" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 626 
+2021-11-28 14:43:02 error: Error : 2 | Message : Undefined array key "news_id" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 627 
+2021-11-28 14:43:02 error: Error : 2 | Message : Undefined array key "description" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 630 
+2021-11-28 14:43:02 error: Error : 2 | Message : Undefined array key "content" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 631 
+2021-11-28 14:43:02 error: Error : 2 | Message : Undefined array key "img" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 632 
+2021-11-28 14:49:00 error: Error : 2 | Message : Undefined array key "categoryUrl" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 515 
+2021-11-28 14:49:00 error: Error : 2 | Message : Undefined array key "image" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 536 
+2021-11-29 01:15:32 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 147 
+2021-11-29 01:15:32 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 148 
+2021-11-29 01:15:51 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 47 
+2021-11-29 01:15:51 error: Error : 2 | Message : Undefined array key "description" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 48 
+2021-11-29 01:15:51 error: Error : 2 | Message : Undefined array key "content" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 49 
+2021-11-29 01:15:52 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-29 01:15:58 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 147 
+2021-11-29 01:15:58 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 148 
+2021-11-29 01:15:58 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 47 
+2021-11-29 01:15:58 error: Error : 2 | Message : Undefined array key "description" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 48 
+2021-11-29 01:15:58 error: Error : 2 | Message : Undefined array key "content" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 49 
+2021-11-29 01:16:02 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 147 
+2021-11-29 01:16:02 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 148 
+2021-11-29 01:16:02 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 47 
+2021-11-29 01:16:02 error: Error : 2 | Message : Undefined array key "description" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 48 
+2021-11-29 01:16:02 error: Error : 2 | Message : Undefined array key "content" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 49 
+2021-11-29 01:18:09 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 147 
+2021-11-29 01:18:09 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 148 
+2021-11-29 01:18:09 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 47 
+2021-11-29 01:18:09 error: Error : 2 | Message : Undefined array key "description" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 48 
+2021-11-29 01:18:09 error: Error : 2 | Message : Undefined array key "content" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 49 
+2021-11-29 01:19:53 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 147 
+2021-11-29 01:19:53 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 148 
+2021-11-29 01:19:53 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 47 
+2021-11-29 01:19:53 error: Error : 2 | Message : Undefined array key "description" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 48 
+2021-11-29 01:19:53 error: Error : 2 | Message : Undefined array key "content" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 49 
+2021-11-29 01:22:39 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 147 
+2021-11-29 01:22:39 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 148 
+2021-11-29 01:27:25 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 147 
+2021-11-29 01:27:26 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 148 
+2021-11-29 01:27:32 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 47 
+2021-11-29 01:27:32 error: Error : 2 | Message : Undefined array key "description" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 48 
+2021-11-29 01:27:32 error: Error : 2 | Message : Undefined array key "content" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 49 
+2021-11-29 01:27:32 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 47 
+2021-11-29 01:27:32 error: Error : 2 | Message : Undefined array key "description" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 48 
+2021-11-29 01:27:32 error: Error : 2 | Message : Undefined array key "content" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 49 
+2021-11-29 01:27:33 error: Error : 2 | Message : Undefined array key "username" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\UserController.php | line : 42 
+2021-11-29 01:27:39 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 147 
+2021-11-29 01:27:39 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 148 
+2021-11-29 01:29:38 error: Error : 2 | Message : Undefined array key "url" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 147 
+2021-11-29 01:29:38 error: Error : 2 | Message : Undefined array key "title" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Controller\NewsController.php | line : 148 
+2021-11-29 01:29:40 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 47 
+2021-11-29 01:29:40 error: Error : 2 | Message : Undefined array key "description" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 48 
+2021-11-29 01:29:40 error: Error : 2 | Message : Undefined array key "content" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 49 
+2021-11-29 01:29:40 error: Error : 2 | Message : Trying to access array offset on value of type bool | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 47 
+2021-11-29 01:29:40 error: Error : 2 | Message : Undefined array key "description" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 48 
+2021-11-29 01:29:40 error: Error : 2 | Message : Undefined array key "content" | File : C:\Users\Hasan\Documents\GitHub\news-web-app\backend\app\Lib\News\NewsRepository.php | line : 49 

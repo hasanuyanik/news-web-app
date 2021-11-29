@@ -621,67 +621,72 @@ class NewsController extends BaseController
         $jsonData = json_decode($posts, true);
 
         if ($jsonData) {
+            $Validation = new \App\Lib\Validation();
+
             header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-            $category_name = ($jsonData["category_name"]) ? $jsonData["category_name"] : null;
-            $news_id = ($jsonData["news_id"]) ? $jsonData["news_id"] : null;
             $username = ($jsonData["username"]) ? $jsonData["username"] : null;
-            $title = ($jsonData["title"]) ? $jsonData["title"] : null;
-            $description = ($jsonData["description"]) ? $jsonData["description"] : null;
-            $content = ($jsonData["content"]) ? $jsonData["content"] : null;
-            $img = ($jsonData["img"]) ? $jsonData["img"] : null;
+            $id = ($jsonData["id"]) ? $jsonData["id"] : null;
+
+            if ($id == null)
+            {
+                $this->validationErrors["message"] = "News is not found!";
+                $Validation->ValidationErrorControl($this->validationErrors);
+
+                exit;
+            }
+
             $token = ($jsonData["token"]) ? $jsonData["token"] : null;
 
-            $category = new Category();
-            $news = new News();
-            $category_news = new Category_News();
-            $newsRepository = new NewsRepository();
-            $categoryRepository = new CategoryRepository();
 
-            $categoryRepository->name = $category_name;
-
-            $this->TitleValidation($title);
-            $this->DescriptionValidation($description);
-            $this->ContentValidation($content);
-
-            if ($this->validationErrors)
-            {
-                $result = [
-                    "validationErrors" => $this->validationErrors
-                ];
-                echo json_encode($result);
-                exit;
-            }
-
-            $tokenControl = new Token();
+            $Category = new Category();
+            $News = new News();
+            $CharCorrector = new Corrector();
+            $CategoryNews = new CategoryNews();
+            $UserNews = new UserNews();
+            $NewsRepository = new NewsRepository();
+            $CategoryRepository = new CategoryRepository();
+            $CategoryController = new CategoryController();
+            $FileManager = new FileManager();
+            $tokenO = new Token();
             $tokenRepository = new TokenRepository();
-            $tokenRepository->token = $token;
+            $User = new User();
 
-            if ($tokenControl->tokenControl($tokenRepository) == false)
+            $tokenO->token = $token;
+
+            $tokenRepository->tokenControl($tokenO, $this->errors);
+
+            $News->id = $id;
+            $User->username = $username;
+
+            $getNews = $NewsRepository->findNews($News);
+            $result = $NewsRepository->delete($News);
+
+            if (!$result)
             {
-                header('Content-Type: application/json; charset=utf-8', response_code: 401);
+                header('Content-Type: application/json; charset=utf-8', response_code: 406);
 
-                echo json_encode($this->errors);
+                $this->validationErrors["message"] = "News is not deleted";
+                $Validation->ValidationErrorControl($this->validationErrors);
 
                 exit;
             }
 
-            $categoryRepository->id = ($category->getCategories(0,$categoryRepository))[0]["id"];
-
-            header('Content-Type: application/json; charset=utf-8', response_code: 201);
-
-            $newsRepository->id = $news_id;
-            $newsRepository->title = $title;
-            $newsRepository->description = $description;
-            $newsRepository->content = $content;
-            $newsRepository->img = $img;
-
-            $result = $news->delete($newsRepository);
-
-            $relationControlForChangeCategory = $category_news->getRelations(0, $categoryRepository, $newsRepository);
-            if ($relationControlForChangeCategory)
+            if ($result)
             {
-                $category_news->delete($categoryRepository, $newsRepository);
+                header('Content-Type: application/json; charset=utf-8', response_code: 201);
+
+                $CategoryNews->delete($Category,$News);
+                $UserNews->delete($User,$News);
+
+                echo json_encode([
+                    "message" => "News Deleted"
+                ]);
+
+                    $lastImg = $getNews["img"];
+                    $FileManager->deleteFile("News/$lastImg");
+
+                exit;
             }
 
             echo json_encode($result);
